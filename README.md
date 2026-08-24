@@ -39,6 +39,16 @@ A sound pack contains the pack metadata and conditioned mono 44.1 kHz WAV sample
 
 The official repository is available automatically under **Customize → Feel → Sound**. For a community repository, open **General → Repositories**, add `owner/repository`, then return to the sound source tabs and choose it.
 
+## Make a sound pack with an AI agent
+
+[`PROMPT.md`](PROMPT.md) is a ready-to-use brief for an AI coding agent. Fork the repository, open the fork in your agent, and say:
+
+```text
+Read PROMPT.md and add a sound pack with [describe its character and the samples I have].
+```
+
+The prompt directs the agent to the pack limits and manifest tools. Use it with sound files you created or may redistribute, then listen to the pack in Clink before publishing.
+
 Clink downloads only public HTTPS GitHub release assets from the repository named in the manifest. It verifies the manifest, file size, SHA-256 hash, pack metadata, sample names, and WAV headers before copying the samples into the shared keyboard container.
 
 ## Licensing
