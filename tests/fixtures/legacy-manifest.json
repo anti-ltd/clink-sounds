@@ -1,0 +1,49 @@
+{
+  "version": "latest",
+  "sounds": [
+    {
+      "id": "clicky",
+      "name": "Clicky Blue",
+      "version": "latest",
+      "asset": {
+        "path": "clicky.clinkpack",
+        "url": "https://github.com/anti-ltd/clink-sounds/releases/download/latest/clicky.clinkpack",
+        "sha256": "a3f6d7377aff7b2dd649577da30ad88924eba8c935518dee327d2d178c62cbfb",
+        "byteCount": 24125
+      }
+    },
+    {
+      "id": "marble",
+      "name": "Marble",
+      "version": "latest",
+      "asset": {
+        "path": "marble.clinkpack",
+        "url": "https://github.com/anti-ltd/clink-sounds/releases/download/latest/marble.clinkpack",
+        "sha256": "a36e496fc6d1de7da0c18d0759b328ce780a18c613549e8dc19446687ca09669",
+        "byteCount": 25896
+      }
+    },
+    {
+      "id": "tactile",
+      "name": "Tactile Brown",
+      "version": "latest",
+      "asset": {
+        "path": "tactile.clinkpack",
+        "url": "https://github.com/anti-ltd/clink-sounds/releases/download/latest/tactile.clinkpack",
+        "sha256": "0fd0430fd82208b9550bfd7f5481bd179f59105d10c6a1e63120bec372a2f0c1",
+        "byteCount": 29439
+      }
+    },
+    {
+      "id": "typewriter",
+      "name": "Typewriter",
+      "version": "latest",
+      "asset": {
+        "path": "typewriter.clinkpack",
+        "url": "https://github.com/anti-ltd/clink-sounds/releases/download/latest/typewriter.clinkpack",
+        "sha256": "0de7e2e18c0f69c7ed45e2479450f1991ee1fa8310a562bb8122ec19417e01e5",
+        "byteCount": 31474
+      }
+    }
+  ]
+}

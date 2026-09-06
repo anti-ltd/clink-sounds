@@ -14,14 +14,107 @@ This repository is where people can publish short, conditioned key-click packs f
 
 ## Included sounds
 
-The official repository currently includes:
+The repository contains 16 packs. The original four remain unchanged:
 
 - **Clicky Blue** — sharp, springy click with a crisp tail
 - **Tactile Brown** — deep, rounded thock of a lubed brown switch
 - **Typewriter** — mechanical hammer strike and carriage ring
 - **Marble** — soft, glassy tap for an understated sound
 
-Each pack is published as a verified `.clinkpack` release asset under [`Sounds/`](Sounds).
+Twelve new procedural packs add 48 freshly generated variations:
+
+| Pack | Character |
+|---|---|
+| **Velvet** | Cushioned low tap with a soft fabric finish |
+| **Walnut** | Warm wooden knock with a small hollow aftertap |
+| **Bamboo** | Light, dry wooden tick with a crisp upper edge |
+| **Porcelain** | Clean ceramic tap with a delicate, uneven ring |
+| **Copper** | Rounded metal knock with a warm, muted ring |
+| **Titanium** | Tight metallic snap with a fast shimmer |
+| **Pebble** | Dense stone-like knock with a compact, grainy body |
+| **Rain** | Soft cluster of tiny, bright pattering taps |
+| **Bubble** | Rounded pop that drops into a soft low note |
+| **Parchment** | Dry papery press with a brief textured rustle |
+| **Relay** | Two crisp mechanical contacts in one compact click |
+| **Arcade** | Tiny digital blip with a soft, falling edge |
+
+Each new pack has four deterministic variations. Packs live under [`Sounds/`](Sounds)
+and become verified release assets through the existing publishing workflow.
+
+## Audition and regenerate
+
+Open [`preview/index.html`](preview/index.html) locally to compare individual
+clicks or short typing bursts. It contains the actual pack audio and works
+offline. [`preview/reel.wav`](preview/reel.wav) is a 24-second comparison of the
+new packs, with its order and timings in [`preview/timeline.json`](preview/timeline.json).
+Nothing plays automatically. These are review files; the release workflow still
+uploads only `.clinkpack` assets and the manifest.
+
+The new renderer uses the procedural techniques explored in Clonk's
+`Sources/ClonkCore/Synth.swift`: noise excitation, resonant bodies, short contact
+transients, and pre-rendered variations. Its Python implementation and parameter
+sets are newly authored. No Clonk audio, recordings, or presets are reused.
+Additional inharmonic modes, timed noise grains, and band-limited pitch bends
+give the new families distinct shapes and textures.
+
+[`tools/sound-recipes.json`](tools/sound-recipes.json) defines the materials and
+their switch colors. [`tools/generate-sounds.py`](tools/generate-sounds.py) renders
+the twelve packs using only Python's standard library and fixed noise seeds.
+It refuses recipes that replace the original four pack IDs. Generation uses
+short onset/tail fades, DC correction, a 0.75 PCM peak ceiling, and level matching
+between each pack's variations. Pack gains use a fixed per-click energy reference
+measured from the original Clink packs; this is a level proxy, not a claim of
+equal perceived loudness on every speaker. Listen at your normal typing volume
+before choosing favorites.
+
+From this repository directory:
+
+```sh
+python3 tools/generate-sounds.py
+python3 tools/build-manifest.py
+python3 tools/validate-manifest.py
+python3 -m unittest discover -s tests
+python3 tools/generate-sounds.py --check
+python3 tools/analyze-sounds.py
+python3 tools/build-preview.py
+```
+
+`--check` verifies generated output byte-for-byte without writing it. The
+generator preserves all packs outside its explicit recipe list. Reports under
+[`validation/`](validation) record synthesis provenance, asset hashes, format
+checks, and measured audio characteristics. Existing payload hashes and the
+legacy catalog contract remain protected by regression tests.
+
+## Sound card artwork
+
+New clients can display a colored switch and the first sample's waveform using
+the manifest's optional `presentation` object. `Sounds/presentation.json` maps
+stable pack IDs to an optional `switchTint` in `#RRGGBB` sRGB format. The manifest
+generator derives 48 normalized peak-envelope amplitudes directly from the first
+conditioned WAV. It focuses on the region above -36 dB relative to the peak, with
+0.6 ms of leading and 2 ms of trailing context, so a quiet tail does not hide the
+click's detail. Values remain raw amplitudes; clients can apply perceptual display
+scaling. The generator does not synthesize a waveform or alter the audio.
+
+The artwork is catalog metadata only. The original four `.clinkpack` payloads, pack IDs,
+names, versions, URLs, SHA-256 hashes and byte counts remain unchanged. Older
+clients ignore `presentation`; new clients accept older manifests without it.
+Community repositories can omit `Sounds/presentation.json` entirely. The iOS
+reader also ignores malformed optional artwork so audio downloads remain usable.
+There are no added sound categories or new sound packs implied by a switch color.
+
+Run the offline checks after changing the catalog tools:
+
+```sh
+python3 tools/build-manifest.py
+python3 tools/validate-manifest.py
+python3 -m unittest discover -s tests
+```
+
+`tests/fixtures/legacy-manifest.json` captures the download contract before artwork
+was added. Its regression test verifies the existing release assets are identical.
+Update that fixture deliberately only when an intended audio release changes the
+corresponding contract; artwork alone must never require updating it.
 
 ## Make your first sound pack
 
@@ -54,3 +147,7 @@ Clink downloads only public HTTPS GitHub release assets from the repository name
 ## Licensing
 
 Only publish sounds you created or have permission to redistribute. Add any attribution and licence information to this README or the pack description before publishing.
+
+The twelve new packs are original procedural audio created for Clink, with no
+sampled third-party recordings. Their recipes, renderer, and generated assets
+are covered by this repository's existing [Clink Community Assets License](LICENSE.md).

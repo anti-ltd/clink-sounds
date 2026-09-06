@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "velvet", "name": "Velvet", "blurb": "A cushioned, low tap with a soft fabric finish.", "tint": "#8C70BA",
+      "duration_ms": 90, "attack_ms": 1.2, "target_energy": 10.5,
+      "excitation": [{"at_ms": 0, "decay_ms": 5.6, "gain": 1, "lowpass_hz": 1150}],
+      "body": [[265, 1.5, 1], [625, 2.1, 0.54], [1280, 1.4, 0.11]],
+      "contact": {"gain": 0.035, "decay_ms": 1.6, "highpass_hz": 800},
+      "finish_lowpass_hz": 2100
+    },
+    {
+      "id": "walnut", "name": "Walnut", "blurb": "A warm wooden knock with a small, hollow aftertap.", "tint": "#936043",
+      "duration_ms": 95, "attack_ms": 0.6, "target_energy": 13,
+      "excitation": [{"at_ms": 0, "decay_ms": 3.8, "gain": 1, "lowpass_hz": 4800}, {"at_ms": 12.5, "decay_ms": 2.1, "gain": 0.2, "lowpass_hz": 1700}],
+      "body": [[435, 4.3, 0.9], [1035, 6.7, 0.72], [1865, 5.1, 0.31]],
+      "contact": {"gain": 0.1, "decay_ms": 1.5, "highpass_hz": 2300},
+      "finish_lowpass_hz": 6400
+    },
+    {
+      "id": "bamboo", "name": "Bamboo", "blurb": "A light, dry wooden tick with a crisp upper edge.", "tint": "#A8B963",
+      "duration_ms": 65, "attack_ms": 0.4, "target_energy": 12,
+      "excitation": [{"at_ms": 0, "decay_ms": 1.9, "gain": 1, "lowpass_hz": 8000}],
+      "body": [[885, 7.3, 0.8], [2170, 10.5, 0.64], [3615, 6.2, 0.24]],
+      "contact": {"gain": 0.27, "decay_ms": 1.2, "highpass_hz": 2850},
+      "finish_lowpass_hz": 8800
+    },
+    {
+      "id": "porcelain", "name": "Porcelain", "blurb": "A clean ceramic tap with a delicate, uneven ring.", "tint": "#B8DCE2",
+      "duration_ms": 135, "attack_ms": 0.45, "target_energy": 13,
+      "excitation": [{"at_ms": 0, "decay_ms": 1.5, "gain": 0.4, "lowpass_hz": 7200}],
+      "body": [[730, 3.8, 0.4], [1960, 7.2, 0.22]],
+      "modes": [[1745, 21, 0.29], [2865, 31, 0.2], [4545, 15, 0.13], [6170, 9, 0.045]],
+      "contact": {"gain": 0.14, "decay_ms": 1.1, "highpass_hz": 3200},
+      "finish_lowpass_hz": 10500
+    },
+    {
+      "id": "copper", "name": "Copper", "blurb": "A rounded metal knock with a warm, muted ring.", "tint": "#C17B4A",
+      "duration_ms": 140, "attack_ms": 0.6, "target_energy": 13,
+      "excitation": [{"at_ms": 0, "decay_ms": 2.7, "gain": 0.6, "lowpass_hz": 5100}],
+      "body": [[375, 3.5, 0.72], [1255, 5.6, 0.3]],
+      "modes": [[645, 24, 0.28], [1525, 36, 0.2], [2745, 18, 0.12], [4075, 11, 0.035]],
+      "contact": {"gain": 0.15, "decay_ms": 1.8, "highpass_hz": 1700},
+      "finish_lowpass_hz": 6700
+    },
+    {
+      "id": "titanium", "name": "Titanium", "blurb": "A tight metallic snap with a bright, fast shimmer.", "tint": "#879CAE",
+      "duration_ms": 85, "attack_ms": 0.3, "target_energy": 12.5,
+      "excitation": [{"at_ms": 0, "decay_ms": 1.4, "gain": 1, "lowpass_hz": 11000}],
+      "body": [[1460, 5.2, 0.52], [3535, 8.8, 0.46], [6845, 7.4, 0.17]],
+      "modes": [[2315, 10, 0.09], [5715, 17, 0.08]],
+      "contact": {"gain": 0.36, "decay_ms": 1.7, "highpass_hz": 4100},
+      "finish_lowpass_hz": 11200
+    },
+    {
+      "id": "pebble", "name": "Pebble", "blurb": "A dense stone-like knock with a compact, grainy body.", "tint": "#899485",
+      "duration_ms": 75, "attack_ms": 0.45, "target_energy": 13,
+      "excitation": [{"at_ms": 0, "decay_ms": 4.7, "gain": 1, "lowpass_hz": 6500}],
+      "body": [[515, 2.1, 0.85], [1445, 3.2, 0.7], [2815, 2.5, 0.28]],
+      "contact": {"gain": 0.15, "decay_ms": 2.2, "highpass_hz": 2450},
+      "finish_lowpass_hz": 5900
+    },
+    {
+      "id": "rain", "name": "Rain", "blurb": "A soft cluster of tiny, bright pattering taps.", "tint": "#5BABC8",
+      "duration_ms": 75, "attack_ms": 0.5, "target_energy": 10,
+      "excitation": [{"at_ms": 0, "decay_ms": 0.9, "gain": 0.85, "lowpass_hz": 9000}, {"at_ms": 4.2, "decay_ms": 1.1, "gain": 0.66, "lowpass_hz": 7500}, {"at_ms": 9.6, "decay_ms": 0.8, "gain": 0.47, "lowpass_hz": 9500}, {"at_ms": 16.3, "decay_ms": 1.2, "gain": 0.29, "lowpass_hz": 6500}],
+      "body": [[2235, 3.4, 0.58], [4875, 5.4, 0.37], [7270, 4.1, 0.15]],
+      "contact": {"gain": 0.04, "decay_ms": 0.8, "highpass_hz": 4600},
+      "finish_lowpass_hz": 10300
+    },
+    {
+      "id": "bubble", "name": "Bubble", "blurb": "A rounded pop that drops quickly into a soft low note.", "tint": "#64C2AB",
+      "duration_ms": 100, "attack_ms": 0.8, "target_energy": 12,
+      "excitation": [{"at_ms": 0, "decay_ms": 2.3, "gain": 0.25, "lowpass_hz": 3600}],
+      "body": [[685, 2.7, 0.32]],
+      "bend": {"start_hz": 1185, "end_hz": 275, "fall_ms": 8.8, "decay_ms": 17, "gain": 0.6, "harmonics": [[1, 1], [2, 0.13]]},
+      "contact": {"gain": 0.055, "decay_ms": 1.1, "highpass_hz": 1850},
+      "finish_lowpass_hz": 4700
+    },
+    {
+      "id": "parchment", "name": "Parchment", "blurb": "A dry papery press with a brief, textured rustle.", "tint": "#C3A778",
+      "duration_ms": 70, "attack_ms": 0.55, "target_energy": 10.5,
+      "excitation": [{"at_ms": 0, "decay_ms": 2.5, "gain": 1, "lowpass_hz": 6000}, {"at_ms": 5.8, "decay_ms": 3.1, "gain": 0.48, "lowpass_hz": 4100}, {"at_ms": 13.2, "decay_ms": 2.4, "gain": 0.23, "lowpass_hz": 5300}],
+      "body": [[1275, 0.75, 0.3], [3655, 0.95, 0.7]],
+      "contact": {"gain": 0.075, "decay_ms": 1.2, "highpass_hz": 2200},
+      "finish_lowpass_hz": 7300
+    },
+    {
+      "id": "relay", "name": "Relay", "blurb": "Two crisp mechanical contacts in one compact click.", "tint": "#D18F64",
+      "duration_ms": 75, "attack_ms": 0.3, "target_energy": 13,
+      "excitation": [{"at_ms": 0, "decay_ms": 1.2, "gain": 1, "lowpass_hz": 10000}, {"at_ms": 8.6, "decay_ms": 1.65, "gain": 0.76, "lowpass_hz": 5200}],
+      "body": [[765, 5.5, 0.42], [2945, 6.8, 0.7], [4930, 4.2, 0.2]],
+      "contact": {"gain": 0.35, "decay_ms": 1.0, "highpass_hz": 3350},
+      "finish_lowpass_hz": 10300
+    },
+    {
+      "id": "arcade", "name": "Arcade", "blurb": "A tiny digital blip with a soft, falling edge.", "tint": "#D769BC",
+      "duration_ms": 85, "attack_ms": 0.65, "target_energy": 11.5,
+      "excitation": [{"at_ms": 0, "decay_ms": 1.4, "gain": 0.2, "lowpass_hz": 5500}],
+      "body": [[1855, 2.5, 0.15]],
+      "bend": {"start_hz": 965, "end_hz": 615, "fall_ms": 2.4, "decay_ms": 13, "gain": 0.55, "harmonics": [[1, 1], [3, 0.26], [5, 0.11], [7, 0.045]]},
+      "contact": {"gain": 0.045, "decay_ms": 0.9, "highpass_hz": 3000},
+      "finish_lowpass_hz": 8900
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "packIDs": [
+    "velvet",
+    "walnut",
+    "bamboo",
+    "porcelain",
+    "copper",
+    "titanium",
+    "pebble",
+    "rain",
+    "bubble",
+    "parchment",
+    "relay",
+    "arcade"
+  ],
+  "packCount": 12,
+  "sampleCount": 48,
+  "reelDuration": 24.0,
+  "reelPeakAmplitude": 0.2602970600128174,
+  "sourceSHA256": {
+    "Sounds/velvet.clinkpack": "219ba92866ea44ec058f81af9fff678e39a6cef7a272f42fff07405b32a261c1",
+    "Sounds/walnut.clinkpack": "0f334377aed4e029537da3c093ad9c5f3f8a730ff2ae601d33447c2d83bc7bc4",
+    "Sounds/bamboo.clinkpack": "7934e56362a6d907929a7ecff9f94c0beb99d569dc62af5127bad653ab4591b0",
+    "Sounds/porcelain.clinkpack": "5a53f90d02b771c278c47dc8c03396148f30e84075d3aa90362aa19a815f76e2",
+    "Sounds/copper.clinkpack": "4d2f867f28617fb3944ace0acc4e4d903321af1b4bbc6f6e622ac11f830f348e",
+    "Sounds/titanium.clinkpack": "2bd4aac2cf0d38719a5869ed32d611c19fdd63a7c11f48e6b084e049188e3d89",
+    "Sounds/pebble.clinkpack": "5b0028921f5ca5401b25282800a41a867da6e087c98b654ca8f04912213ee3c2",
+    "Sounds/rain.clinkpack": "ab3f00774189e09c94ca3713ccde64e1dfe1b4ede78873fe32c05b5789878058",
+    "Sounds/bubble.clinkpack": "5f4352bf2ab2c7b276c5675e4a8696f80868785048845409a2a377996580e196",
+    "Sounds/parchment.clinkpack": "3f4bf14868c95bad6a5d9335a9cfbcd88e7f8480dd6095897fbd365af3a896f9",
+    "Sounds/relay.clinkpack": "532e34199c78a163d438f90f130f01a79d4bfcec4a49c97cea641360d0285e90",
+    "Sounds/arcade.clinkpack": "e6ec1db04a5a9c1976b70ccf4b7bb3546629e5c11e26cd17c5197c74e9986f72",
+    "tools/sound-recipes.json": "4ef1e7afed81af818e2fe69cae3a65ee5ad55425ed9ce868036f654d982dc7ec"
+  },
+  "outputs": {
+    "index.html": "74e25adbe70fa4dae766416651a5cda766954d6812e227461144893c3b44a0e9",
+    "reel.wav": "e12b17fbb767342fe608eba8e96d4b69b8a3350e13ad129e8d4a5c7d8f881561"
+  },
+  "builderSHA256": "9c1749b2d8b5e904f1e39df8f991c8fe8a37d1360eaabea77afdc0485f8abd05",
+  "externalResources": false,
+  "autoplay": false
+}

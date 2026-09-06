@@ -1,0 +1,443 @@
+{
+  "duration": 24.0,
+  "sampleRate": 44100,
+  "channels": 1,
+  "headroom": 0.4,
+  "volumeSetting": 0.8,
+  "volumeExponent": 1.6,
+  "peakAmplitude": 0.2602970600128174,
+  "packs": [
+    {
+      "id": "velvet",
+      "name": "Velvet",
+      "start": 0.0,
+      "end": 2.0,
+      "events": [
+        {
+          "time": 0.12,
+          "variant": 1
+        },
+        {
+          "time": 0.68,
+          "variant": 1
+        },
+        {
+          "time": 0.8,
+          "variant": 2
+        },
+        {
+          "time": 0.94,
+          "variant": 3
+        },
+        {
+          "time": 1.06,
+          "variant": 4
+        },
+        {
+          "time": 1.2,
+          "variant": 1
+        },
+        {
+          "time": 1.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut",
+      "start": 2.0,
+      "end": 4.0,
+      "events": [
+        {
+          "time": 2.12,
+          "variant": 1
+        },
+        {
+          "time": 2.68,
+          "variant": 1
+        },
+        {
+          "time": 2.8,
+          "variant": 2
+        },
+        {
+          "time": 2.94,
+          "variant": 3
+        },
+        {
+          "time": 3.06,
+          "variant": 4
+        },
+        {
+          "time": 3.2,
+          "variant": 1
+        },
+        {
+          "time": 3.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "bamboo",
+      "name": "Bamboo",
+      "start": 4.0,
+      "end": 6.0,
+      "events": [
+        {
+          "time": 4.12,
+          "variant": 1
+        },
+        {
+          "time": 4.68,
+          "variant": 1
+        },
+        {
+          "time": 4.8,
+          "variant": 2
+        },
+        {
+          "time": 4.94,
+          "variant": 3
+        },
+        {
+          "time": 5.06,
+          "variant": 4
+        },
+        {
+          "time": 5.2,
+          "variant": 1
+        },
+        {
+          "time": 5.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "porcelain",
+      "name": "Porcelain",
+      "start": 6.0,
+      "end": 8.0,
+      "events": [
+        {
+          "time": 6.12,
+          "variant": 1
+        },
+        {
+          "time": 6.68,
+          "variant": 1
+        },
+        {
+          "time": 6.8,
+          "variant": 2
+        },
+        {
+          "time": 6.94,
+          "variant": 3
+        },
+        {
+          "time": 7.06,
+          "variant": 4
+        },
+        {
+          "time": 7.2,
+          "variant": 1
+        },
+        {
+          "time": 7.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "copper",
+      "name": "Copper",
+      "start": 8.0,
+      "end": 10.0,
+      "events": [
+        {
+          "time": 8.12,
+          "variant": 1
+        },
+        {
+          "time": 8.68,
+          "variant": 1
+        },
+        {
+          "time": 8.8,
+          "variant": 2
+        },
+        {
+          "time": 8.94,
+          "variant": 3
+        },
+        {
+          "time": 9.06,
+          "variant": 4
+        },
+        {
+          "time": 9.2,
+          "variant": 1
+        },
+        {
+          "time": 9.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "titanium",
+      "name": "Titanium",
+      "start": 10.0,
+      "end": 12.0,
+      "events": [
+        {
+          "time": 10.12,
+          "variant": 1
+        },
+        {
+          "time": 10.68,
+          "variant": 1
+        },
+        {
+          "time": 10.8,
+          "variant": 2
+        },
+        {
+          "time": 10.94,
+          "variant": 3
+        },
+        {
+          "time": 11.06,
+          "variant": 4
+        },
+        {
+          "time": 11.2,
+          "variant": 1
+        },
+        {
+          "time": 11.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "pebble",
+      "name": "Pebble",
+      "start": 12.0,
+      "end": 14.0,
+      "events": [
+        {
+          "time": 12.12,
+          "variant": 1
+        },
+        {
+          "time": 12.68,
+          "variant": 1
+        },
+        {
+          "time": 12.8,
+          "variant": 2
+        },
+        {
+          "time": 12.94,
+          "variant": 3
+        },
+        {
+          "time": 13.06,
+          "variant": 4
+        },
+        {
+          "time": 13.2,
+          "variant": 1
+        },
+        {
+          "time": 13.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "rain",
+      "name": "Rain",
+      "start": 14.0,
+      "end": 16.0,
+      "events": [
+        {
+          "time": 14.12,
+          "variant": 1
+        },
+        {
+          "time": 14.68,
+          "variant": 1
+        },
+        {
+          "time": 14.8,
+          "variant": 2
+        },
+        {
+          "time": 14.94,
+          "variant": 3
+        },
+        {
+          "time": 15.06,
+          "variant": 4
+        },
+        {
+          "time": 15.2,
+          "variant": 1
+        },
+        {
+          "time": 15.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "bubble",
+      "name": "Bubble",
+      "start": 16.0,
+      "end": 18.0,
+      "events": [
+        {
+          "time": 16.12,
+          "variant": 1
+        },
+        {
+          "time": 16.68,
+          "variant": 1
+        },
+        {
+          "time": 16.8,
+          "variant": 2
+        },
+        {
+          "time": 16.94,
+          "variant": 3
+        },
+        {
+          "time": 17.06,
+          "variant": 4
+        },
+        {
+          "time": 17.2,
+          "variant": 1
+        },
+        {
+          "time": 17.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "parchment",
+      "name": "Parchment",
+      "start": 18.0,
+      "end": 20.0,
+      "events": [
+        {
+          "time": 18.12,
+          "variant": 1
+        },
+        {
+          "time": 18.68,
+          "variant": 1
+        },
+        {
+          "time": 18.8,
+          "variant": 2
+        },
+        {
+          "time": 18.94,
+          "variant": 3
+        },
+        {
+          "time": 19.06,
+          "variant": 4
+        },
+        {
+          "time": 19.2,
+          "variant": 1
+        },
+        {
+          "time": 19.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "relay",
+      "name": "Relay",
+      "start": 20.0,
+      "end": 22.0,
+      "events": [
+        {
+          "time": 20.12,
+          "variant": 1
+        },
+        {
+          "time": 20.68,
+          "variant": 1
+        },
+        {
+          "time": 20.8,
+          "variant": 2
+        },
+        {
+          "time": 20.94,
+          "variant": 3
+        },
+        {
+          "time": 21.06,
+          "variant": 4
+        },
+        {
+          "time": 21.2,
+          "variant": 1
+        },
+        {
+          "time": 21.36,
+          "variant": 2
+        }
+      ]
+    },
+    {
+      "id": "arcade",
+      "name": "Arcade",
+      "start": 22.0,
+      "end": 24.0,
+      "events": [
+        {
+          "time": 22.12,
+          "variant": 1
+        },
+        {
+          "time": 22.68,
+          "variant": 1
+        },
+        {
+          "time": 22.8,
+          "variant": 2
+        },
+        {
+          "time": 22.94,
+          "variant": 3
+        },
+        {
+          "time": 23.06,
+          "variant": 4
+        },
+        {
+          "time": 23.2,
+          "variant": 1
+        },
+        {
+          "time": 23.36,
+          "variant": 2
+        }
+      ]
+    }
+  ]
+}

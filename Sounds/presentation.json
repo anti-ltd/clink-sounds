@@ -1,0 +1,50 @@
+{
+  "arcade": {
+    "switchTint": "#D769BC"
+  },
+  "bamboo": {
+    "switchTint": "#A8B963"
+  },
+  "bubble": {
+    "switchTint": "#64C2AB"
+  },
+  "clicky": {
+    "switchTint": "#2675E8"
+  },
+  "copper": {
+    "switchTint": "#C17B4A"
+  },
+  "marble": {
+    "switchTint": "#D6DBE4"
+  },
+  "parchment": {
+    "switchTint": "#C3A778"
+  },
+  "pebble": {
+    "switchTint": "#899485"
+  },
+  "porcelain": {
+    "switchTint": "#B8DCE2"
+  },
+  "rain": {
+    "switchTint": "#5BABC8"
+  },
+  "relay": {
+    "switchTint": "#D18F64"
+  },
+  "tactile": {
+    "switchTint": "#99623D"
+  },
+  "titanium": {
+    "switchTint": "#879CAE"
+  },
+  "typewriter": {
+    "switchTint": "#58616F"
+  },
+  "velvet": {
+    "switchTint": "#8C70BA"
+  },
+  "walnut": {
+    "switchTint": "#936043"
+  }
+}

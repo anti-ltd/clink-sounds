@@ -1,0 +1,195 @@
+{
+  "legacyManifestContractUnchanged": true,
+  "catalogPackCount": 16,
+  "additivePackIDs": [
+    "arcade",
+    "bamboo",
+    "bubble",
+    "copper",
+    "parchment",
+    "pebble",
+    "porcelain",
+    "rain",
+    "relay",
+    "titanium",
+    "velvet",
+    "walnut"
+  ],
+  "payloads": [
+    {
+      "id": "clicky",
+      "path": "clink-index/clink-sounds/Sounds/clicky.clinkpack",
+      "byteCount": 24125,
+      "sha256": "a3f6d7377aff7b2dd649577da30ad88924eba8c935518dee327d2d178c62cbfb",
+      "matchesLegacyRelease": true
+    },
+    {
+      "id": "marble",
+      "path": "clink-index/clink-sounds/Sounds/marble.clinkpack",
+      "byteCount": 25896,
+      "sha256": "a36e496fc6d1de7da0c18d0759b328ce780a18c613549e8dc19446687ca09669",
+      "matchesLegacyRelease": true
+    },
+    {
+      "id": "tactile",
+      "path": "clink-index/clink-sounds/Sounds/tactile.clinkpack",
+      "byteCount": 29439,
+      "sha256": "0fd0430fd82208b9550bfd7f5481bd179f59105d10c6a1e63120bec372a2f0c1",
+      "matchesLegacyRelease": true
+    },
+    {
+      "id": "typewriter",
+      "path": "clink-index/clink-sounds/Sounds/typewriter.clinkpack",
+      "byteCount": 31474,
+      "sha256": "0de7e2e18c0f69c7ed45e2479450f1991ee1fa8310a562bb8122ec19417e01e5",
+      "matchesLegacyRelease": true
+    }
+  ],
+  "sourceSHA256": {
+    "Sources/ClinkKit/SoundPackStore.swift": "c5b649e10ea44c817ea65730dd244d3370e529bccde6c35f1ae527e52005fceb",
+    "Sources/ClinkKit/CustomSoundStore.swift": "881ee28d83179b587b582b4efc300c0984e2d4ad43e3d3977714b875e821a306",
+    "Sources/ClinkKit/SoundPack.swift": "7619c0efdd54855a1f47b7ecb1acf26fad75078bc046e3abc49198ae2014df9e",
+    "Tests/ClinkKitTests/SoundPackStoreTests.swift": "440e02f22034d21eb8fcf8fa50a7d0add40a69e4c1a46de3a5ec155d9a440fdf"
+  },
+  "runtimeTests": [
+    "PASS catalog: legacy manifests, additive fields ignored by legacy reader, round-trip, malformed metadata",
+    "PASS transaction: original install, stable ID replacement, exact new bytes, obsolete sample removal, partial update rollback",
+    "PASS release catalog: 16 entries decode in current and legacy readers; every payload decodes and installs with exact sample bytes and gain",
+    "PASS cleanup: no staging or sample directories remain"
+  ],
+  "harnessBoundary": "Exact production types and first four regression test bodies; current release additionally decoded with current and pre-presentation manifest shapes and every payload installed with exact sample-byte/gain checks. Only app-group directory resolution replaced by isolated temporary directory. Swift Testing assertions become equivalent fatal assertions. Runs FileManager.replaceItemAt on Darwin; does not exercise full app UI or AppModel import entry point.",
+  "passed": true,
+  "manifestSHA256": "31dee5b0e8bb1456a9ffa5eb40c54b1d51befbbc70e0ece51bc1748006a04708",
+  "validator": {
+    "passed": true,
+    "command": "python3 tools/validate-manifest.py",
+    "sha256": "aae835c50368e8c113d64231113b25fcc3f79b6717bde57ad305f9cde32ca7d0"
+  },
+  "pythonTests": {
+    "passed": true,
+    "testCount": 32,
+    "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s tests -v",
+    "testSHA256": {
+      "test_manifest.py": "3a3be2ebfc8c178a49524bfcbaa8fccc456a5294e1d91b29a9963fbe118542cf",
+      "test_synthesis.py": "b3e81c8778363a6c26981919cc2b91a1590d484ec4eb8c95d2e2b28b2a93fe30",
+      "test_validation.py": "c8e5f8ce5729605661f04b8ce2c615747ef6daa8b1a30343cdd82012efc6e912"
+    }
+  },
+  "releaseAssets": [
+    {
+      "id": "arcade",
+      "path": "Sounds/arcade.clinkpack",
+      "sha256": "e6ec1db04a5a9c1976b70ccf4b7bb3546629e5c11e26cd17c5197c74e9986f72",
+      "byteCount": 39539,
+      "sampleCount": 4
+    },
+    {
+      "id": "bamboo",
+      "path": "Sounds/bamboo.clinkpack",
+      "sha256": "7934e56362a6d907929a7ecff9f94c0beb99d569dc62af5127bad653ab4591b0",
+      "byteCount": 11868,
+      "sampleCount": 4
+    },
+    {
+      "id": "bubble",
+      "path": "Sounds/bubble.clinkpack",
+      "sha256": "5f4352bf2ab2c7b276c5675e4a8696f80868785048845409a2a377996580e196",
+      "byteCount": 46899,
+      "sampleCount": 4
+    },
+    {
+      "id": "clicky",
+      "path": "Sounds/clicky.clinkpack",
+      "sha256": "a3f6d7377aff7b2dd649577da30ad88924eba8c935518dee327d2d178c62cbfb",
+      "byteCount": 24125,
+      "sampleCount": 3
+    },
+    {
+      "id": "copper",
+      "path": "Sounds/copper.clinkpack",
+      "sha256": "4d2f867f28617fb3944ace0acc4e4d903321af1b4bbc6f6e622ac11f830f348e",
+      "byteCount": 66427,
+      "sampleCount": 4
+    },
+    {
+      "id": "marble",
+      "path": "Sounds/marble.clinkpack",
+      "sha256": "a36e496fc6d1de7da0c18d0759b328ce780a18c613549e8dc19446687ca09669",
+      "byteCount": 25896,
+      "sampleCount": 3
+    },
+    {
+      "id": "parchment",
+      "path": "Sounds/parchment.clinkpack",
+      "sha256": "3f4bf14868c95bad6a5d9335a9cfbcd88e7f8480dd6095897fbd365af3a896f9",
+      "byteCount": 14360,
+      "sampleCount": 4
+    },
+    {
+      "id": "pebble",
+      "path": "Sounds/pebble.clinkpack",
+      "sha256": "5b0028921f5ca5401b25282800a41a867da6e087c98b654ca8f04912213ee3c2",
+      "byteCount": 16458,
+      "sampleCount": 4
+    },
+    {
+      "id": "porcelain",
+      "path": "Sounds/porcelain.clinkpack",
+      "sha256": "5a53f90d02b771c278c47dc8c03396148f30e84075d3aa90362aa19a815f76e2",
+      "byteCount": 63908,
+      "sampleCount": 4
+    },
+    {
+      "id": "rain",
+      "path": "Sounds/rain.clinkpack",
+      "sha256": "ab3f00774189e09c94ca3713ccde64e1dfe1b4ede78873fe32c05b5789878058",
+      "byteCount": 12663,
+      "sampleCount": 4
+    },
+    {
+      "id": "relay",
+      "path": "Sounds/relay.clinkpack",
+      "sha256": "532e34199c78a163d438f90f130f01a79d4bfcec4a49c97cea641360d0285e90",
+      "byteCount": 12082,
+      "sampleCount": 4
+    },
+    {
+      "id": "tactile",
+      "path": "Sounds/tactile.clinkpack",
+      "sha256": "0fd0430fd82208b9550bfd7f5481bd179f59105d10c6a1e63120bec372a2f0c1",
+      "byteCount": 29439,
+      "sampleCount": 3
+    },
+    {
+      "id": "titanium",
+      "path": "Sounds/titanium.clinkpack",
+      "sha256": "2bd4aac2cf0d38719a5869ed32d611c19fdd63a7c11f48e6b084e049188e3d89",
+      "byteCount": 39527,
+      "sampleCount": 4
+    },
+    {
+      "id": "typewriter",
+      "path": "Sounds/typewriter.clinkpack",
+      "sha256": "0de7e2e18c0f69c7ed45e2479450f1991ee1fa8310a562bb8122ec19417e01e5",
+      "byteCount": 31474,
+      "sampleCount": 2
+    },
+    {
+      "id": "velvet",
+      "path": "Sounds/velvet.clinkpack",
+      "sha256": "219ba92866ea44ec058f81af9fff678e39a6cef7a272f42fff07405b32a261c1",
+      "byteCount": 21135,
+      "sampleCount": 4
+    },
+    {
+      "id": "walnut",
+      "path": "Sounds/walnut.clinkpack",
+      "sha256": "0f334377aed4e029537da3c093ad9c5f3f8a730ff2ae601d33447c2d83bc7bc4",
+      "byteCount": 15459,
+      "sampleCount": 4
+    }
+  ],
+  "sampleCount": 59,
+  "preGenerationAssetBaselineUnchanged": true,
+  "benchmarkScope": "The iOS feedback dispatch benchmark retains its original four named packs for historical comparability; this run verifies all release payloads through the source-exact storage helper, not an app build or playback benchmark."
+}

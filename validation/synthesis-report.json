@@ -1,0 +1,4752 @@
+{
+  "passed": true,
+  "errors": [],
+  "review_flags": [],
+  "source_sha256": {
+    "tools/analyze-sounds.py": "7e2bc2a7e279ba53f429df8c876d1b5c49e38a16df9ccff155400c960e8f5b2c",
+    "tools/generate-sounds.py": "c67c128e19b48d59a852744b4a971e967efd318be359e9e8f2657c5caddf0f66",
+    "tools/sound-recipes.json": "4ef1e7afed81af818e2fe69cae3a65ee5ad55425ed9ce868036f654d982dc7ec"
+  },
+  "method": {
+    "runtime": "Python standard library only; no external audio/FFT dependencies",
+    "spectral_analysis": "Mean-removed whole-sample unwindowed radix-two FFT with zero padding; one-sided bins excluding DC",
+    "correlation": "Absolute normalized correlation on four-frame box-averaged PCM, zero-padded, lags +/-12 reduced-rate samples",
+    "levels": "Nominal pack gain applied linearly; app volume curve, system volume compensation and playback-volume clamping excluded",
+    "comparison_rms": "Peak rolling20ms RMS and equivalent100ms RMS use fixed-time denominators; trailing silence cannot lower either measurement",
+    "review_thresholds": "Review flags are screening prompts, not automatic rejection: endpoint>1LSB, absDC>0.001, onset>5ms, correlation>0.98, variantEnergySpread>3dB, baselineEnergyDifference>6dB",
+    "scope": "Quantitative PCM checks; does not establish audible quality, perceived loudness equality, or performance on physical speakers"
+  },
+  "expected_new_pack_ids": [
+    "velvet",
+    "walnut",
+    "bamboo",
+    "porcelain",
+    "copper",
+    "titanium",
+    "pebble",
+    "rain",
+    "bubble",
+    "parchment",
+    "relay",
+    "arcade"
+  ],
+  "baseline_median_nominal_gain_equivalent_100ms_rms_dbfs": -25.03155,
+  "packs": {
+    "clicky": {
+      "name": "Clicky Blue",
+      "baseline": true,
+      "pack_sha256": "a3f6d7377aff7b2dd649577da30ad88924eba8c935518dee327d2d178c62cbfb",
+      "pack_bytes": 24125,
+      "nominal_gain": 0.95,
+      "sample_count": 3,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.24055,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -26.23025,
+      "variant_energy_spread_db": 1.472,
+      "median_energy_duration_ms": 5.91837,
+      "median_spectral_power_centroid_hz": 7943.357,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.008767,
+        "250_to_1000_hz": 0.004307,
+        "1000_to_3000_hz": 0.439704,
+        "3000_to_8000_hz": 0.103496,
+        "above_8000_hz": 0.448232
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "clicky-1",
+            "clicky-2"
+          ],
+          "maximum_absolute_correlation": 0.74845
+        },
+        {
+          "samples": [
+            "clicky-1",
+            "clicky-3"
+          ],
+          "maximum_absolute_correlation": 0.484727
+        },
+        {
+          "samples": [
+            "clicky-2",
+            "clicky-3"
+          ],
+          "maximum_absolute_correlation": 0.530149
+        }
+      ],
+      "samples": [
+        {
+          "name": "clicky-1",
+          "wav_sha256": "ec5f25c34479782c05731b75010a7cbd01bcb0c63325e564bb1bec7bf7a83c93",
+          "pcm_sha256": "28a0768b88b693d29476cb3e0a7bbfbdf3d0bc96aaad21d1aab600494a31d13c",
+          "wav_bytes": 5952,
+          "frames": 2954,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 66.98413,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": 0.000109208,
+          "dc_relative_to_rms_db": -55.53278,
+          "rms": 0.06529718,
+          "rms_dbfs": -23.70211,
+          "crest_factor_db": 21.00276,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 8.77551,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 0.90703,
+            "0.9": 1.72336,
+            "0.99": 3.46939,
+            "0.999": 6.05442
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 5.96372,
+          "energy_centroid_ms": 1.03704,
+          "peak_20ms_rms_dbfs": -18.45269,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.89822,
+          "equivalent_100ms_rms_dbfs": -25.44239,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.88792,
+          "spectral_magnitude_centroid_hz": 9788.57,
+          "spectral_power_centroid_hz": 6230.963,
+          "spectral_power_rolloff85_hz": 14825.61,
+          "spectral_power_bands": {
+            "below_250_hz": 0.013433,
+            "250_to_1000_hz": 0.004454,
+            "1000_to_3000_hz": 0.619096,
+            "3000_to_8000_hz": 0.068077,
+            "above_8000_hz": 0.294939
+          }
+        },
+        {
+          "name": "clicky-2",
+          "wav_sha256": "b0228cb0210f9f3ad123186020b7bd83cf3ae7273a13874f25619b6f4ad1523d",
+          "pcm_sha256": "19b313afff80e763c47c7819eb56a367f26f54cec8878d41e19c3fdaec4a0e7e",
+          "wav_bytes": 5952,
+          "frames": 2954,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 66.98413,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": 0.000261207,
+          "dc_relative_to_rms_db": -46.48618,
+          "rms": 0.05511814,
+          "rms_dbfs": -25.17411,
+          "crest_factor_db": 22.47476,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 7.23356,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 0.77098,
+            "0.9": 1.85941,
+            "0.99": 3.44671,
+            "0.999": 5.17007
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 5.10204,
+          "energy_centroid_ms": 1.00702,
+          "peak_20ms_rms_dbfs": -19.92469,
+          "nominal_gain_peak_20ms_rms_dbfs": -20.37022,
+          "equivalent_100ms_rms_dbfs": -26.91439,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -27.35992,
+          "spectral_magnitude_centroid_hz": 10206.052,
+          "spectral_power_centroid_hz": 7943.357,
+          "spectral_power_rolloff85_hz": 17258.862,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00485,
+            "250_to_1000_hz": 0.003718,
+            "1000_to_3000_hz": 0.439704,
+            "3000_to_8000_hz": 0.103496,
+            "above_8000_hz": 0.448232
+          }
+        },
+        {
+          "name": "clicky-3",
+          "wav_sha256": "dc00d7e42baaf8d01a3309853278a6b41187713488d8bfab53082e1b55af028b",
+          "pcm_sha256": "7a2fe13d0eed4ecda221003b743c85529a41c880a80def41426b5182d2065479",
+          "wav_bytes": 5952,
+          "frames": 2954,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 66.98413,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": -6.5539e-05,
+          "dc_relative_to_rms_db": -59.6255,
+          "rms": 0.06277371,
+          "rms_dbfs": -24.04444,
+          "crest_factor_db": 21.3451,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 7.7551,
+          "energy_percentile_ms": {
+            "0.001": 0.04535,
+            "0.5": 0.88435,
+            "0.9": 2.2449,
+            "0.99": 3.76417,
+            "0.999": 5.96372
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 5.91837,
+          "energy_centroid_ms": 1.13903,
+          "peak_20ms_rms_dbfs": -18.79503,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24055,
+          "equivalent_100ms_rms_dbfs": -25.78473,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23025,
+          "spectral_magnitude_centroid_hz": 11202.748,
+          "spectral_power_centroid_hz": 9951.65,
+          "spectral_power_rolloff85_hz": 18270.923,
+          "spectral_power_bands": {
+            "below_250_hz": 0.008767,
+            "250_to_1000_hz": 0.004307,
+            "1000_to_3000_hz": 0.306249,
+            "3000_to_8000_hz": 0.16856,
+            "above_8000_hz": 0.512117
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -1.19871
+    },
+    "marble": {
+      "name": "Marble",
+      "baseline": true,
+      "pack_sha256": "a36e496fc6d1de7da0c18d0759b328ce780a18c613549e8dc19446687ca09669",
+      "pack_bytes": 25896,
+      "nominal_gain": 1.2,
+      "sample_count": 3,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.44011,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.42981,
+      "variant_energy_spread_db": 1.07777,
+      "median_energy_duration_ms": 6.1678,
+      "median_spectral_power_centroid_hz": 12247.116,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.013451,
+        "250_to_1000_hz": 0.033431,
+        "1000_to_3000_hz": 0.030546,
+        "3000_to_8000_hz": 0.271419,
+        "above_8000_hz": 0.669059
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "marble-1",
+            "marble-2"
+          ],
+          "maximum_absolute_correlation": 0.64129
+        },
+        {
+          "samples": [
+            "marble-1",
+            "marble-3"
+          ],
+          "maximum_absolute_correlation": 0.376896
+        },
+        {
+          "samples": [
+            "marble-2",
+            "marble-3"
+          ],
+          "maximum_absolute_correlation": 0.431166
+        }
+      ],
+      "samples": [
+        {
+          "name": "marble-1",
+          "wav_sha256": "a2af6b1278b4a691c136ca21c611ca45e4fbbbb2956bcf72055df3fc03850a93",
+          "pcm_sha256": "c7ee7538b367a43f7bcc0a6ac7ef2e607d9a17e20998d9bef74131421994342b",
+          "wav_bytes": 6394,
+          "frames": 3175,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 71.99546,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": 8.9486e-05,
+          "dc_relative_to_rms_db": -54.82191,
+          "rms": 0.0493005,
+          "rms_dbfs": -26.14297,
+          "crest_factor_db": 23.44363,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 8.43537,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 0.81633,
+            "0.9": 1.85941,
+            "0.99": 3.69615,
+            "0.999": 6.2585
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 6.1678,
+          "energy_centroid_ms": 0.96375,
+          "peak_20ms_rms_dbfs": -20.58022,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.9966,
+          "equivalent_100ms_rms_dbfs": -27.56992,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.9863,
+          "spectral_magnitude_centroid_hz": 11962.274,
+          "spectral_power_centroid_hz": 12247.116,
+          "spectral_power_rolloff85_hz": 18755.42,
+          "spectral_power_bands": {
+            "below_250_hz": 0.013451,
+            "250_to_1000_hz": 0.017556,
+            "1000_to_3000_hz": 0.035188,
+            "3000_to_8000_hz": 0.183912,
+            "above_8000_hz": 0.749894
+          }
+        },
+        {
+          "name": "marble-2",
+          "wav_sha256": "9003412ce7a24e78b8a475b835957f55f969f77d63ca20955f299e47ac1782cb",
+          "pcm_sha256": "33dbd8d180af9d2eb01ed0346c0a63ab09c448565f7f9c57c7d1b912e9dc70b5",
+          "wav_bytes": 6394,
+          "frames": 3175,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 71.99546,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": 0.000194842,
+          "dc_relative_to_rms_db": -49.14116,
+          "rms": 0.05581356,
+          "rms_dbfs": -25.06521,
+          "crest_factor_db": 22.36586,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 8.27664,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 0.72562,
+            "0.9": 1.88209,
+            "0.99": 3.90023,
+            "0.999": 6.32653
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 6.2585,
+          "energy_centroid_ms": 0.95523,
+          "peak_20ms_rms_dbfs": -19.50245,
+          "nominal_gain_peak_20ms_rms_dbfs": -17.91883,
+          "equivalent_100ms_rms_dbfs": -26.49215,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -24.90853,
+          "spectral_magnitude_centroid_hz": 12308.953,
+          "spectral_power_centroid_hz": 12526.315,
+          "spectral_power_rolloff85_hz": 19745.947,
+          "spectral_power_bands": {
+            "below_250_hz": 0.019508,
+            "250_to_1000_hz": 0.033431,
+            "1000_to_3000_hz": 0.006583,
+            "3000_to_8000_hz": 0.271419,
+            "above_8000_hz": 0.669059
+          }
+        },
+        {
+          "name": "marble-3",
+          "wav_sha256": "5e79cacd02516203e66195a2cf0ae5d1bf08aa4a32b6a0433c50c2abef2e5af6",
+          "pcm_sha256": "e99eaa576bb41ffc9680a6de7bafd81ccf335465adc98fa9f80d8874a8df0e93",
+          "wav_bytes": 6394,
+          "frames": 3175,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 71.99546,
+          "peak": 0.73287964,
+          "peak_dbfs": -2.69935,
+          "dc_mean": 0.00013719,
+          "dc_relative_to_rms_db": -51.66708,
+          "rms": 0.05256244,
+          "rms_dbfs": -25.58649,
+          "crest_factor_db": 22.88714,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 8.18594,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 0.95238,
+            "0.9": 1.85941,
+            "0.99": 3.44671,
+            "0.999": 5.89569
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 5.82766,
+          "energy_centroid_ms": 1.09521,
+          "peak_20ms_rms_dbfs": -20.02374,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.44011,
+          "equivalent_100ms_rms_dbfs": -27.01344,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.42981,
+          "spectral_magnitude_centroid_hz": 10905.912,
+          "spectral_power_centroid_hz": 9403.456,
+          "spectral_power_rolloff85_hz": 17506.494,
+          "spectral_power_bands": {
+            "below_250_hz": 0.005155,
+            "250_to_1000_hz": 0.036513,
+            "1000_to_3000_hz": 0.030546,
+            "3000_to_8000_hz": 0.512052,
+            "above_8000_hz": 0.415734
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.39826
+    },
+    "tactile": {
+      "name": "Tactile Brown",
+      "baseline": true,
+      "pack_sha256": "0fd0430fd82208b9550bfd7f5481bd179f59105d10c6a1e63120bec372a2f0c1",
+      "pack_bytes": 29439,
+      "nominal_gain": 1.1,
+      "sample_count": 3,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -17.64359,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -24.63328,
+      "variant_energy_spread_db": 0.89381,
+      "median_energy_duration_ms": 7.68707,
+      "median_spectral_power_centroid_hz": 11485.007,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.021967,
+        "250_to_1000_hz": 0.036472,
+        "1000_to_3000_hz": 0.085609,
+        "3000_to_8000_hz": 0.152867,
+        "above_8000_hz": 0.692083
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "tactile-1",
+            "tactile-2"
+          ],
+          "maximum_absolute_correlation": 0.243395
+        },
+        {
+          "samples": [
+            "tactile-1",
+            "tactile-3"
+          ],
+          "maximum_absolute_correlation": 0.319278
+        },
+        {
+          "samples": [
+            "tactile-2",
+            "tactile-3"
+          ],
+          "maximum_absolute_correlation": 0.415105
+        }
+      ],
+      "samples": [
+        {
+          "name": "tactile-1",
+          "wav_sha256": "b08803dbb40f565512663304423022d4e1ff534bb301a9e5ca51b8730f6da005",
+          "pcm_sha256": "28ee037fd4193e3d8e88a59f626aff08b0e0ff642a2aad68edc174e27bcbad54",
+          "wav_bytes": 7276,
+          "frames": 3616,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 81.99546,
+          "peak": 0.75732422,
+          "peak_dbfs": -2.41436,
+          "dc_mean": -0.000160698,
+          "dc_relative_to_rms_db": -52.01266,
+          "rms": 0.06406849,
+          "rms_dbfs": -23.86711,
+          "crest_factor_db": 21.45275,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 10.839,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 0.92971,
+            "0.9": 2.65306,
+            "0.99": 4.60317,
+            "0.999": 7.55102
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 7.46032,
+          "energy_centroid_ms": 1.32534,
+          "peak_20ms_rms_dbfs": -17.73952,
+          "nominal_gain_peak_20ms_rms_dbfs": -16.91167,
+          "equivalent_100ms_rms_dbfs": -24.72921,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.90136,
+          "spectral_magnitude_centroid_hz": 10863.048,
+          "spectral_power_centroid_hz": 10848.945,
+          "spectral_power_rolloff85_hz": 18895.386,
+          "spectral_power_bands": {
+            "below_250_hz": 0.015333,
+            "250_to_1000_hz": 0.03196,
+            "1000_to_3000_hz": 0.079356,
+            "3000_to_8000_hz": 0.198419,
+            "above_8000_hz": 0.674932
+          }
+        },
+        {
+          "name": "tactile-2",
+          "wav_sha256": "47e96d5a0706475fec753ca250a3c4f3138891de467ab95fd11064693d9e57c9",
+          "pcm_sha256": "1e26fc3a69baabf3d93f930af6fbbbbfd02cd14cf45e8591834f5e96704f6f68",
+          "wav_bytes": 7276,
+          "frames": 3616,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 81.99546,
+          "peak": 0.75732422,
+          "peak_dbfs": -2.41436,
+          "dc_mean": 0.000293487,
+          "dc_relative_to_rms_db": -45.8873,
+          "rms": 0.05780344,
+          "rms_dbfs": -24.76093,
+          "crest_factor_db": 22.34656,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 12.40363,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 0.95238,
+            "0.9": 2.35828,
+            "0.99": 5.80499,
+            "0.999": 9.27438
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 9.20635,
+          "energy_centroid_ms": 1.25337,
+          "peak_20ms_rms_dbfs": -18.63334,
+          "nominal_gain_peak_20ms_rms_dbfs": -17.80549,
+          "equivalent_100ms_rms_dbfs": -25.62303,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -24.79517,
+          "spectral_magnitude_centroid_hz": 11293.463,
+          "spectral_power_centroid_hz": 11485.007,
+          "spectral_power_rolloff85_hz": 18583.154,
+          "spectral_power_bands": {
+            "below_250_hz": 0.04176,
+            "250_to_1000_hz": 0.036472,
+            "1000_to_3000_hz": 0.085609,
+            "3000_to_8000_hz": 0.138249,
+            "above_8000_hz": 0.69791
+          }
+        },
+        {
+          "name": "tactile-3",
+          "wav_sha256": "c9abf82d55075a369d20b3dc2b36212282825dbc1a36c6bbde09d6e976b4beba",
+          "pcm_sha256": "86ae10997ffb82b6f8ff548673ad5ec6a77c5a51512a78f6449828bc2496ac8a",
+          "wav_bytes": 7276,
+          "frames": 3616,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 81.99546,
+          "peak": 0.75732422,
+          "peak_dbfs": -2.41436,
+          "dc_mean": -0.00041419,
+          "dc_relative_to_rms_db": -43.05697,
+          "rms": 0.05889091,
+          "rms_dbfs": -24.59903,
+          "crest_factor_db": 22.18467,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 10.79365,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 0.99773,
+            "0.9": 2.4263,
+            "0.99": 4.87528,
+            "0.999": 7.7551
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 7.68707,
+          "energy_centroid_ms": 1.22796,
+          "peak_20ms_rms_dbfs": -18.47144,
+          "nominal_gain_peak_20ms_rms_dbfs": -17.64359,
+          "equivalent_100ms_rms_dbfs": -25.46114,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -24.63328,
+          "spectral_magnitude_centroid_hz": 11483.522,
+          "spectral_power_centroid_hz": 11682.269,
+          "spectral_power_rolloff85_hz": 18981.519,
+          "spectral_power_bands": {
+            "below_250_hz": 0.021967,
+            "250_to_1000_hz": 0.041843,
+            "1000_to_3000_hz": 0.09124,
+            "3000_to_8000_hz": 0.152867,
+            "above_8000_hz": 0.692083
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": 0.39827
+    },
+    "typewriter": {
+      "name": "Typewriter",
+      "baseline": true,
+      "pack_sha256": "0de7e2e18c0f69c7ed45e2479450f1991ee1fa8310a562bb8122ec19417e01e5",
+      "pack_bytes": 31474,
+      "nominal_gain": 0.95,
+      "sample_count": 2,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -17.26227,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -24.25196,
+      "variant_energy_spread_db": 0.77637,
+      "median_energy_duration_ms": 8.37869,
+      "median_spectral_power_centroid_hz": 12188.6645,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.002485,
+        "250_to_1000_hz": 0.001736,
+        "1000_to_3000_hz": 0.046956,
+        "3000_to_8000_hz": 0.20186,
+        "above_8000_hz": 0.746962
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "typewriter-1",
+            "typewriter-2"
+          ],
+          "maximum_absolute_correlation": 0.515289
+        }
+      ],
+      "samples": [
+        {
+          "name": "typewriter-1",
+          "wav_sha256": "d9e9b6715a60d07a48fc7a31344af745771ca702aea9cfbc34998f98ccc00483",
+          "pcm_sha256": "ec51ad918e085f85e9adf5aa2eacb0dfa70975e907ace06af4d8a3ffd643930d",
+          "wav_bytes": 11686,
+          "frames": 5821,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 131.99546,
+          "peak": 0.77984619,
+          "peak_dbfs": -2.15982,
+          "dc_mean": -5.6002e-05,
+          "dc_relative_to_rms_db": -60.41205,
+          "rms": 0.05872292,
+          "rms_dbfs": -24.62385,
+          "crest_factor_db": 22.46403,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 12.10884,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 1.29252,
+            "0.9": 3.24263,
+            "0.99": 5.73696,
+            "0.999": 8.5034
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 8.4127,
+          "energy_centroid_ms": 1.60488,
+          "peak_20ms_rms_dbfs": -16.42856,
+          "nominal_gain_peak_20ms_rms_dbfs": -16.87409,
+          "equivalent_100ms_rms_dbfs": -23.41826,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.86378,
+          "spectral_magnitude_centroid_hz": 11742.848,
+          "spectral_power_centroid_hz": 12036.46,
+          "spectral_power_rolloff85_hz": 18459.338,
+          "spectral_power_bands": {
+            "below_250_hz": 0.003434,
+            "250_to_1000_hz": 0.001815,
+            "1000_to_3000_hz": 0.067338,
+            "3000_to_8000_hz": 0.160061,
+            "above_8000_hz": 0.767351
+          }
+        },
+        {
+          "name": "typewriter-2",
+          "wav_sha256": "89f30740424e417d06fd5a4f2ea990b0fe08d0cb1491d084a445b0520f4b2e1b",
+          "pcm_sha256": "6eb43ffde7e6b6708a65bb150cec73b4a43c05fd2820aa5817ae3917bcdde9ac",
+          "wav_bytes": 11686,
+          "frames": 5821,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 131.99546,
+          "peak": 0.77984619,
+          "peak_dbfs": -2.15982,
+          "dc_mean": 4.8468e-05,
+          "dc_relative_to_rms_db": -60.8906,
+          "rms": 0.05370184,
+          "rms_dbfs": -25.40022,
+          "crest_factor_db": 23.2404,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 11.90476,
+          "energy_percentile_ms": {
+            "0.001": 0.18141,
+            "0.5": 1.15646,
+            "0.9": 3.26531,
+            "0.99": 5.82766,
+            "0.999": 8.52608
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 8.34467,
+          "energy_centroid_ms": 1.53365,
+          "peak_20ms_rms_dbfs": -17.20493,
+          "nominal_gain_peak_20ms_rms_dbfs": -17.65045,
+          "equivalent_100ms_rms_dbfs": -24.19463,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -24.64015,
+          "spectral_magnitude_centroid_hz": 11906.391,
+          "spectral_power_centroid_hz": 12340.869,
+          "spectral_power_rolloff85_hz": 18879.236,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001537,
+            "250_to_1000_hz": 0.001656,
+            "1000_to_3000_hz": 0.026574,
+            "3000_to_8000_hz": 0.24366,
+            "above_8000_hz": 0.726574
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": 0.77959
+    },
+    "velvet": {
+      "name": "Velvet",
+      "baseline": false,
+      "pack_sha256": "219ba92866ea44ec058f81af9fff678e39a6cef7a272f42fff07405b32a261c1",
+      "pack_bytes": 21135,
+      "nominal_gain": 0.589,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.24802,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -26.23216,
+      "variant_energy_spread_db": 3e-05,
+      "median_energy_duration_ms": 20.48753,
+      "median_spectral_power_centroid_hz": 506.347,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.233685,
+        "250_to_1000_hz": 0.686308,
+        "1000_to_3000_hz": 0.105915,
+        "3000_to_8000_hz": 0.00292,
+        "above_8000_hz": 4.4e-05
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "velvet-1",
+            "velvet-2"
+          ],
+          "maximum_absolute_correlation": 0.436142
+        },
+        {
+          "samples": [
+            "velvet-1",
+            "velvet-3"
+          ],
+          "maximum_absolute_correlation": 0.654703
+        },
+        {
+          "samples": [
+            "velvet-1",
+            "velvet-4"
+          ],
+          "maximum_absolute_correlation": 0.558947
+        },
+        {
+          "samples": [
+            "velvet-2",
+            "velvet-3"
+          ],
+          "maximum_absolute_correlation": 0.378024
+        },
+        {
+          "samples": [
+            "velvet-2",
+            "velvet-4"
+          ],
+          "maximum_absolute_correlation": 0.21857
+        },
+        {
+          "samples": [
+            "velvet-3",
+            "velvet-4"
+          ],
+          "maximum_absolute_correlation": 0.575042
+        }
+      ],
+      "samples": [
+        {
+          "name": "velvet-1",
+          "wav_sha256": "36daad3cf0a2970383a9aea15359b821f214c0c45b1e5470520f8004dffbfb94",
+          "pcm_sha256": "c9bf914bb1f7758ce10dbbc926b31e7ea83b60ec58ecb333a94ac496e89fcd92",
+          "wav_bytes": 3708,
+          "frames": 1832,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 41.54195,
+          "peak": 0.73828125,
+          "peak_dbfs": -2.63556,
+          "dc_mean": -3.33e-07,
+          "dc_relative_to_rms_db": -111.72757,
+          "rms": 0.12853845,
+          "rms_dbfs": -17.81934,
+          "crest_factor_db": 15.18378,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.36281,
+          "last_above_minus40db_relative_ms": 25.71429,
+          "energy_percentile_ms": {
+            "0.001": 0.52154,
+            "0.5": 3.69615,
+            "0.9": 7.14286,
+            "0.99": 11.88209,
+            "0.999": 19.88662
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 19.36508,
+          "energy_centroid_ms": 4.26579,
+          "peak_20ms_rms_dbfs": -14.64718,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24488,
+          "equivalent_100ms_rms_dbfs": -21.63447,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23216,
+          "spectral_magnitude_centroid_hz": 1061.324,
+          "spectral_power_centroid_hz": 425.82,
+          "spectral_power_rolloff85_hz": 645.996,
+          "spectral_power_bands": {
+            "below_250_hz": 0.297814,
+            "250_to_1000_hz": 0.660222,
+            "1000_to_3000_hz": 0.041255,
+            "3000_to_8000_hz": 0.00069,
+            "above_8000_hz": 2e-05
+          }
+        },
+        {
+          "name": "velvet-2",
+          "wav_sha256": "b5d8feca0e96491827c8082ec766992021ffe9b499005c9ce8e6a664613bec43",
+          "pcm_sha256": "1a9a5b5472ebeee08f7f28cdaeab706527f66471161b2952723a5df9182428db",
+          "wav_bytes": 4022,
+          "frames": 1989,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 45.10204,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": -1.5e-08,
+          "dc_relative_to_rms_db": -138.10527,
+          "rms": 0.12336124,
+          "rms_dbfs": -18.17643,
+          "crest_factor_db": 15.6773,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.56689,
+          "last_above_minus40db_relative_ms": 30.45351,
+          "energy_percentile_ms": {
+            "0.001": 0.79365,
+            "0.5": 5.48753,
+            "0.9": 8.5941,
+            "0.99": 12.92517,
+            "0.999": 21.33787
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 20.54422,
+          "energy_centroid_ms": 5.58056,
+          "peak_20ms_rms_dbfs": -14.65055,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24824,
+          "equivalent_100ms_rms_dbfs": -21.63446,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23216,
+          "spectral_magnitude_centroid_hz": 1277.669,
+          "spectral_power_centroid_hz": 621.785,
+          "spectral_power_rolloff85_hz": 775.195,
+          "spectral_power_bands": {
+            "below_250_hz": 0.166804,
+            "250_to_1000_hz": 0.729337,
+            "1000_to_3000_hz": 0.101252,
+            "3000_to_8000_hz": 0.002568,
+            "above_8000_hz": 3.9e-05
+          }
+        },
+        {
+          "name": "velvet-3",
+          "wav_sha256": "5a171b2f256d4beb72b000afb3ecff4a3074248bee6f0716a6fd216327daf85d",
+          "pcm_sha256": "ccd36697fcfdf36771830ca0796c5f91b38e5543d05e441445302202785b7b7a",
+          "wav_bytes": 3814,
+          "frames": 1885,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 42.74376,
+          "peak": 0.59191895,
+          "peak_dbfs": -4.55476,
+          "dc_mean": 1.94e-07,
+          "dc_relative_to_rms_db": -116.2884,
+          "rms": 0.12671844,
+          "rms_dbfs": -17.9432,
+          "crest_factor_db": 13.38845,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.20408,
+          "last_above_minus40db_relative_ms": 32.65306,
+          "energy_percentile_ms": {
+            "0.001": 0.54422,
+            "0.5": 5.48753,
+            "0.9": 11.33787,
+            "0.99": 16.78005,
+            "0.999": 20.97506
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 20.43084,
+          "energy_centroid_ms": 6.03684,
+          "peak_20ms_rms_dbfs": -14.6501,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.2478,
+          "equivalent_100ms_rms_dbfs": -21.63448,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23217,
+          "spectral_magnitude_centroid_hz": 1449.587,
+          "spectral_power_centroid_hz": 461.312,
+          "spectral_power_rolloff85_hz": 925.928,
+          "spectral_power_bands": {
+            "below_250_hz": 0.445223,
+            "250_to_1000_hz": 0.440277,
+            "1000_to_3000_hz": 0.110579,
+            "3000_to_8000_hz": 0.003847,
+            "above_8000_hz": 7.5e-05
+          }
+        },
+        {
+          "name": "velvet-4",
+          "wav_sha256": "54c37e34e7f917756aa207b87008810b667e3bf680f487347b0639f33a9c7322",
+          "pcm_sha256": "6c3f08fd0d704e63c9776276f06acbe79192ee2273739b459a53540001169ffa",
+          "wav_bytes": 4044,
+          "frames": 2000,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 45.35147,
+          "peak": 0.64144897,
+          "peak_dbfs": -3.85676,
+          "dc_mean": -9.2e-08,
+          "dc_relative_to_rms_db": -122.56621,
+          "rms": 0.12302172,
+          "rms_dbfs": -18.20036,
+          "crest_factor_db": 14.34361,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.31746,
+          "last_above_minus40db_relative_ms": 28.48073,
+          "energy_percentile_ms": {
+            "0.001": 0.47619,
+            "0.5": 4.03628,
+            "0.9": 8.07256,
+            "0.99": 14.19501,
+            "0.999": 21.54195
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 21.06576,
+          "energy_centroid_ms": 4.84197,
+          "peak_20ms_rms_dbfs": -14.65225,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24995,
+          "equivalent_100ms_rms_dbfs": -21.63445,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23214,
+          "spectral_magnitude_centroid_hz": 1287.13,
+          "spectral_power_centroid_hz": 551.382,
+          "spectral_power_rolloff85_hz": 861.328,
+          "spectral_power_bands": {
+            "below_250_hz": 0.169556,
+            "250_to_1000_hz": 0.712395,
+            "1000_to_3000_hz": 0.114729,
+            "3000_to_8000_hz": 0.003272,
+            "above_8000_hz": 4.8e-05
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -1.20061
+    },
+    "walnut": {
+      "name": "Walnut",
+      "baseline": false,
+      "pack_sha256": "0f334377aed4e029537da3c093ad9c5f3f8a730ff2ae601d33447c2d83bc7bc4",
+      "pack_bytes": 15459,
+      "nominal_gain": 1.0662,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.31602,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.30465,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 17.85714,
+      "median_spectral_power_centroid_hz": 1425.4745,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.020436,
+        "250_to_1000_hz": 0.349499,
+        "1000_to_3000_hz": 0.582413,
+        "3000_to_8000_hz": 0.038121,
+        "above_8000_hz": 0.004926
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "walnut-1",
+            "walnut-2"
+          ],
+          "maximum_absolute_correlation": 0.3787
+        },
+        {
+          "samples": [
+            "walnut-1",
+            "walnut-3"
+          ],
+          "maximum_absolute_correlation": 0.353692
+        },
+        {
+          "samples": [
+            "walnut-1",
+            "walnut-4"
+          ],
+          "maximum_absolute_correlation": 0.323228
+        },
+        {
+          "samples": [
+            "walnut-2",
+            "walnut-3"
+          ],
+          "maximum_absolute_correlation": 0.472753
+        },
+        {
+          "samples": [
+            "walnut-2",
+            "walnut-4"
+          ],
+          "maximum_absolute_correlation": 0.342859
+        },
+        {
+          "samples": [
+            "walnut-3",
+            "walnut-4"
+          ],
+          "maximum_absolute_correlation": 0.377111
+        }
+      ],
+      "samples": [
+        {
+          "name": "walnut-1",
+          "wav_sha256": "6a80cb17eb36edb3d1c6007bedb59e4096cf8fcc824e2c87888458bc359b7611",
+          "pcm_sha256": "db661837a2292a864bc5ace3980156136e41ed9d9c8b1a469c9c4801a0c834ed",
+          "wav_bytes": 2916,
+          "frames": 1436,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 32.56236,
+          "peak": 0.48947144,
+          "peak_dbfs": -6.20545,
+          "dc_mean": 1.28e-07,
+          "dc_relative_to_rms_db": -116.90048,
+          "rms": 0.08924228,
+          "rms_dbfs": -20.98859,
+          "crest_factor_db": 14.78313,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 21.38322,
+          "energy_percentile_ms": {
+            "0.001": 0.31746,
+            "0.5": 3.10658,
+            "0.9": 8.86621,
+            "0.99": 15.2381,
+            "0.999": 18.70748
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 18.39002,
+          "energy_centroid_ms": 4.26735,
+          "peak_20ms_rms_dbfs": -18.87295,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31617,
+          "equivalent_100ms_rms_dbfs": -25.86143,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30466,
+          "spectral_magnitude_centroid_hz": 3535.971,
+          "spectral_power_centroid_hz": 1217.413,
+          "spectral_power_rolloff85_hz": 1787.256,
+          "spectral_power_bands": {
+            "below_250_hz": 0.036371,
+            "250_to_1000_hz": 0.349546,
+            "1000_to_3000_hz": 0.580397,
+            "3000_to_8000_hz": 0.028459,
+            "above_8000_hz": 0.005227
+          }
+        },
+        {
+          "name": "walnut-2",
+          "wav_sha256": "14aa573d425e7b137e2e29cdf2e2e24eea0d8c1385a82706168efd3e9b77f72a",
+          "pcm_sha256": "81285eaa86e1486cd16313d14329e8a80b25bef4ea66a8fecc9dcdcf2f3b8996",
+          "wav_bytes": 2862,
+          "frames": 1409,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 31.95011,
+          "peak": 0.59899902,
+          "peak_dbfs": -4.45148,
+          "dc_mean": -3.9e-07,
+          "dc_relative_to_rms_db": -107.27561,
+          "rms": 0.09009319,
+          "rms_dbfs": -20.90616,
+          "crest_factor_db": 16.45468,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.18141,
+          "last_above_minus40db_relative_ms": 21.83673,
+          "energy_percentile_ms": {
+            "0.001": 0.40816,
+            "0.5": 2.60771,
+            "0.9": 5.5102,
+            "0.99": 11.99546,
+            "0.999": 18.00454
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.59637,
+          "energy_centroid_ms": 3.17391,
+          "peak_20ms_rms_dbfs": -18.87266,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31588,
+          "equivalent_100ms_rms_dbfs": -25.86144,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30466,
+          "spectral_magnitude_centroid_hz": 3439.484,
+          "spectral_power_centroid_hz": 1530.233,
+          "spectral_power_rolloff85_hz": 2088.721,
+          "spectral_power_bands": {
+            "below_250_hz": 0.019324,
+            "250_to_1000_hz": 0.226491,
+            "1000_to_3000_hz": 0.713644,
+            "3000_to_8000_hz": 0.036295,
+            "above_8000_hz": 0.004246
+          }
+        },
+        {
+          "name": "walnut-3",
+          "wav_sha256": "5b84ebf52367fa3514c8b456b32622e75ca55ef09a4b74eca53bff1850d4c55b",
+          "pcm_sha256": "ee3cf1c4bc314c63986c0ba0280b062d22b0fe9e4f44d796b150e7a376e589c5",
+          "wav_bytes": 2626,
+          "frames": 1291,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 29.27438,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": -3.31e-07,
+          "dc_relative_to_rms_db": -109.07867,
+          "rms": 0.09412076,
+          "rms_dbfs": -20.52629,
+          "crest_factor_db": 18.02716,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.11338,
+          "last_above_minus40db_relative_ms": 20.90703,
+          "energy_percentile_ms": {
+            "0.001": 0.34014,
+            "0.5": 2.04082,
+            "0.9": 6.12245,
+            "0.99": 12.1542,
+            "0.999": 17.48299
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.14286,
+          "energy_centroid_ms": 2.72462,
+          "peak_20ms_rms_dbfs": -18.87252,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31574,
+          "equivalent_100ms_rms_dbfs": -25.86141,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30464,
+          "spectral_magnitude_centroid_hz": 3604.881,
+          "spectral_power_centroid_hz": 1492.905,
+          "spectral_power_rolloff85_hz": 2304.053,
+          "spectral_power_bands": {
+            "below_250_hz": 0.021549,
+            "250_to_1000_hz": 0.349451,
+            "1000_to_3000_hz": 0.584429,
+            "3000_to_8000_hz": 0.039946,
+            "above_8000_hz": 0.004625
+          }
+        },
+        {
+          "name": "walnut-4",
+          "wav_sha256": "f07f2d22b987d81d705c22517f4c698531d3a73ef1be2a18cb7e3fb9dfe7fbee",
+          "pcm_sha256": "5eab3f8986c56a61ba60f3392d05493934e9ea68b7093eea85e9ad1af80df233",
+          "wav_bytes": 2924,
+          "frames": 1440,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 32.65306,
+          "peak": 0.66021729,
+          "peak_dbfs": -3.60626,
+          "dc_mean": 3.6e-07,
+          "dc_relative_to_rms_db": -107.86661,
+          "rms": 0.08911827,
+          "rms_dbfs": -21.00066,
+          "crest_factor_db": 17.3944,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.15873,
+          "last_above_minus40db_relative_ms": 22.78912,
+          "energy_percentile_ms": {
+            "0.001": 0.34014,
+            "0.5": 2.17687,
+            "0.9": 5.89569,
+            "0.99": 13.60544,
+            "0.999": 18.45805
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 18.11791,
+          "energy_centroid_ms": 3.07479,
+          "peak_20ms_rms_dbfs": -18.87376,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31699,
+          "equivalent_100ms_rms_dbfs": -25.86143,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30465,
+          "spectral_magnitude_centroid_hz": 3532.107,
+          "spectral_power_centroid_hz": 1358.044,
+          "spectral_power_rolloff85_hz": 2088.721,
+          "spectral_power_bands": {
+            "below_250_hz": 0.008835,
+            "250_to_1000_hz": 0.414284,
+            "1000_to_3000_hz": 0.51649,
+            "3000_to_8000_hz": 0.054685,
+            "above_8000_hz": 0.005706
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.2731
+    },
+    "bamboo": {
+      "name": "Bamboo",
+      "baseline": false,
+      "pack_sha256": "7934e56362a6d907929a7ecff9f94c0beb99d569dc62af5127bad653ab4591b0",
+      "pack_bytes": 11868,
+      "nominal_gain": 1.24,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.66269,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.65239,
+      "variant_energy_spread_db": 6e-05,
+      "median_energy_duration_ms": 9.03628,
+      "median_spectral_power_centroid_hz": 3387.6715,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000485,
+        "250_to_1000_hz": 0.133844,
+        "1000_to_3000_hz": 0.536663,
+        "3000_to_8000_hz": 0.224848,
+        "above_8000_hz": 0.088632
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "bamboo-1",
+            "bamboo-2"
+          ],
+          "maximum_absolute_correlation": 0.683404
+        },
+        {
+          "samples": [
+            "bamboo-1",
+            "bamboo-3"
+          ],
+          "maximum_absolute_correlation": 0.600239
+        },
+        {
+          "samples": [
+            "bamboo-1",
+            "bamboo-4"
+          ],
+          "maximum_absolute_correlation": 0.598913
+        },
+        {
+          "samples": [
+            "bamboo-2",
+            "bamboo-3"
+          ],
+          "maximum_absolute_correlation": 0.530515
+        },
+        {
+          "samples": [
+            "bamboo-2",
+            "bamboo-4"
+          ],
+          "maximum_absolute_correlation": 0.493324
+        },
+        {
+          "samples": [
+            "bamboo-3",
+            "bamboo-4"
+          ],
+          "maximum_absolute_correlation": 0.486201
+        }
+      ],
+      "samples": [
+        {
+          "name": "bamboo-1",
+          "wav_sha256": "f4e4c20e9cd1292cb9037e72f43016520537c94619686116fa8c9d52b6316b22",
+          "pcm_sha256": "0cd903238d879843dafbc859940326661c3176903563a3b052597c46985c32fc",
+          "wav_bytes": 2160,
+          "frames": 1058,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 23.99093,
+          "peak": 0.45574951,
+          "peak_dbfs": -6.82548,
+          "dc_mean": 1.15e-07,
+          "dc_relative_to_rms_db": -117.43622,
+          "rms": 0.08588859,
+          "rms_dbfs": -21.32129,
+          "crest_factor_db": 14.49582,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 11.47392,
+          "energy_percentile_ms": {
+            "0.001": 0.11338,
+            "0.5": 2.19955,
+            "0.9": 4.26304,
+            "0.99": 6.12245,
+            "0.999": 7.5737
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 7.46032,
+          "energy_centroid_ms": 2.40895,
+          "peak_20ms_rms_dbfs": -20.53112,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.66269,
+          "equivalent_100ms_rms_dbfs": -27.52082,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65239,
+          "spectral_magnitude_centroid_hz": 7215.008,
+          "spectral_power_centroid_hz": 3617.757,
+          "spectral_power_rolloff85_hz": 5555.566,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00048,
+            "250_to_1000_hz": 0.078257,
+            "1000_to_3000_hz": 0.645071,
+            "3000_to_8000_hz": 0.166727,
+            "above_8000_hz": 0.109465
+          }
+        },
+        {
+          "name": "bamboo-2",
+          "wav_sha256": "7e740010c090512dcc4370deddc8904c3fcd796909a3889ddc6eccbecea761bc",
+          "pcm_sha256": "e2555e28931d4be4491d2572ff65010632205bccdf5b47dbcf482f5870418b74",
+          "wav_bytes": 2160,
+          "frames": 1058,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 23.99093,
+          "peak": 0.64498901,
+          "peak_dbfs": -3.80895,
+          "dc_mean": 3.46e-07,
+          "dc_relative_to_rms_db": -107.89386,
+          "rms": 0.08588918,
+          "rms_dbfs": -21.32123,
+          "crest_factor_db": 17.51228,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 11.4966,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 1.76871,
+            "0.9": 3.76417,
+            "0.99": 6.73469,
+            "0.999": 9.29705
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 9.13832,
+          "energy_centroid_ms": 2.0768,
+          "peak_20ms_rms_dbfs": -20.53106,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.66263,
+          "equivalent_100ms_rms_dbfs": -27.52076,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65233,
+          "spectral_magnitude_centroid_hz": 6892.065,
+          "spectral_power_centroid_hz": 3089.27,
+          "spectral_power_rolloff85_hz": 3897.51,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00039,
+            "250_to_1000_hz": 0.135306,
+            "1000_to_3000_hz": 0.573957,
+            "3000_to_8000_hz": 0.239335,
+            "above_8000_hz": 0.051012
+          }
+        },
+        {
+          "name": "bamboo-3",
+          "wav_sha256": "134d3e5083656b0deeaea34928d532d6295901ec576b1cc996ffbb203ccf70aa",
+          "pcm_sha256": "dcd8db8aee3747db16ce7328d467b58513bbf06e48f2e546dee1e0a4ccd4f191",
+          "wav_bytes": 2160,
+          "frames": 1058,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 23.99093,
+          "peak": 0.57354736,
+          "peak_dbfs": -4.82861,
+          "dc_mean": -5.8e-08,
+          "dc_relative_to_rms_db": -123.45682,
+          "rms": 0.08588858,
+          "rms_dbfs": -21.32129,
+          "crest_factor_db": 16.49268,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 12.87982,
+          "energy_percentile_ms": {
+            "0.001": 0.11338,
+            "0.5": 1.81406,
+            "0.9": 3.15193,
+            "0.99": 6.73469,
+            "0.999": 10.24943
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 10.13605,
+          "energy_centroid_ms": 1.88926,
+          "peak_20ms_rms_dbfs": -20.53113,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.66269,
+          "equivalent_100ms_rms_dbfs": -27.52082,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65239,
+          "spectral_magnitude_centroid_hz": 8321.232,
+          "spectral_power_centroid_hz": 5003.29,
+          "spectral_power_rolloff85_hz": 9625.342,
+          "spectral_power_bands": {
+            "below_250_hz": 0.004133,
+            "250_to_1000_hz": 0.132381,
+            "1000_to_3000_hz": 0.349584,
+            "3000_to_8000_hz": 0.343988,
+            "above_8000_hz": 0.169914
+          }
+        },
+        {
+          "name": "bamboo-4",
+          "wav_sha256": "9c37f8be2ba1a86b7c551a29b9e8609ff3f33e43d4d65c6fde032488ef174237",
+          "pcm_sha256": "6baf94ac0fda349daeb20b5481868fcea47b8b163b5563417dd249b9f4ccac02",
+          "wav_bytes": 2160,
+          "frames": 1058,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 23.99093,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": -1.44e-07,
+          "dc_relative_to_rms_db": -115.49803,
+          "rms": 0.08588867,
+          "rms_dbfs": -21.32128,
+          "crest_factor_db": 18.82215,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 10.7483,
+          "energy_percentile_ms": {
+            "0.001": 0.20408,
+            "0.5": 1.33787,
+            "0.9": 3.44671,
+            "0.99": 5.66893,
+            "0.999": 9.13832
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 8.93424,
+          "energy_centroid_ms": 1.81326,
+          "peak_20ms_rms_dbfs": -20.53111,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.66268,
+          "equivalent_100ms_rms_dbfs": -27.52081,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65238,
+          "spectral_magnitude_centroid_hz": 6496.391,
+          "spectral_power_centroid_hz": 3157.586,
+          "spectral_power_rolloff85_hz": 4392.773,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00049,
+            "250_to_1000_hz": 0.221982,
+            "1000_to_3000_hz": 0.499368,
+            "3000_to_8000_hz": 0.210361,
+            "above_8000_hz": 0.067799
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.62084
+    },
+    "porcelain": {
+      "name": "Porcelain",
+      "baseline": false,
+      "pack_sha256": "5a53f90d02b771c278c47dc8c03396148f30e84075d3aa90362aa19a815f76e2",
+      "pack_bytes": 63908,
+      "nominal_gain": 0.4524,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.25083,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.30503,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 92.16553,
+      "median_spectral_power_centroid_hz": 2386.5895,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000446,
+        "250_to_1000_hz": 0.001981,
+        "1000_to_3000_hz": 0.917096,
+        "3000_to_8000_hz": 0.079975,
+        "above_8000_hz": 0.000512
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "porcelain-1",
+            "porcelain-2"
+          ],
+          "maximum_absolute_correlation": 0.378914
+        },
+        {
+          "samples": [
+            "porcelain-1",
+            "porcelain-3"
+          ],
+          "maximum_absolute_correlation": 0.206538
+        },
+        {
+          "samples": [
+            "porcelain-1",
+            "porcelain-4"
+          ],
+          "maximum_absolute_correlation": 0.129034
+        },
+        {
+          "samples": [
+            "porcelain-2",
+            "porcelain-3"
+          ],
+          "maximum_absolute_correlation": 0.404128
+        },
+        {
+          "samples": [
+            "porcelain-2",
+            "porcelain-4"
+          ],
+          "maximum_absolute_correlation": 0.198412
+        },
+        {
+          "samples": [
+            "porcelain-3",
+            "porcelain-4"
+          ],
+          "maximum_absolute_correlation": 0.375561
+        }
+      ],
+      "samples": [
+        {
+          "name": "porcelain-1",
+          "wav_sha256": "23e5786625f7c38f7361e57966f7cdffd007ec9cce4c4c6e285aba706940cb42",
+          "pcm_sha256": "555ff25e4e998926c7fd36d0026c3e1c8c9a8f3626f56f83e9473d338d6119d1",
+          "wav_bytes": 11898,
+          "frames": 5927,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 134.39909,
+          "peak": 0.70458984,
+          "peak_dbfs": -3.04127,
+          "dc_mean": 5e-09,
+          "dc_relative_to_rms_db": -146.06627,
+          "rms": 0.10352107,
+          "rms_dbfs": -19.69942,
+          "crest_factor_db": 16.65815,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 116.66667,
+          "energy_percentile_ms": {
+            "0.001": 0.34014,
+            "0.5": 8.29932,
+            "0.9": 28.02721,
+            "0.99": 58.36735,
+            "0.999": 90.27211
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 89.93197,
+          "energy_centroid_ms": 12.19447,
+          "peak_20ms_rms_dbfs": -12.2984,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.18794,
+          "equivalent_100ms_rms_dbfs": -18.41546,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30501,
+          "spectral_magnitude_centroid_hz": 3669.455,
+          "spectral_power_centroid_hz": 2332.272,
+          "spectral_power_rolloff85_hz": 2810.083,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000389,
+            "250_to_1000_hz": 0.003807,
+            "1000_to_3000_hz": 0.918227,
+            "3000_to_8000_hz": 0.077119,
+            "above_8000_hz": 0.000458
+          }
+        },
+        {
+          "name": "porcelain-2",
+          "wav_sha256": "e41a37f11b07e77c84c3740fc332648224183f39f04172df7b626f32fdc6787a",
+          "pcm_sha256": "5cf3886b3daa9e60ae12f7fd3bb2b9bd19b05bafa8c2de45ff0878b226d56cfa",
+          "wav_bytes": 11936,
+          "frames": 5946,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 134.82993,
+          "peak": 0.72802734,
+          "peak_dbfs": -2.75705,
+          "dc_mean": -1.39e-07,
+          "dc_relative_to_rms_db": -117.45288,
+          "rms": 0.10335535,
+          "rms_dbfs": -19.71334,
+          "crest_factor_db": 16.95629,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 119.50113,
+          "energy_percentile_ms": {
+            "0.001": 0.31746,
+            "0.5": 8.82086,
+            "0.9": 28.91156,
+            "0.99": 60.97506,
+            "0.999": 93.53741
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 93.21995,
+          "energy_centroid_ms": 12.71104,
+          "peak_20ms_rms_dbfs": -12.38403,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.27358,
+          "equivalent_100ms_rms_dbfs": -18.41548,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30503,
+          "spectral_magnitude_centroid_hz": 3638.946,
+          "spectral_power_centroid_hz": 2368.911,
+          "spectral_power_rolloff85_hz": 2853.149,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000431,
+            "250_to_1000_hz": 0.002626,
+            "1000_to_3000_hz": 0.917263,
+            "3000_to_8000_hz": 0.079242,
+            "above_8000_hz": 0.000438
+          }
+        },
+        {
+          "name": "porcelain-3",
+          "wav_sha256": "a55528b157c61816fed933163d046de52fc9a4e0247022de7ee57a730250c640",
+          "pcm_sha256": "21997b26ecc2a8295390c9b782d12bee8a98893e984896f0a2db1213b1a15cff",
+          "wav_bytes": 11884,
+          "frames": 5920,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 134.24036,
+          "peak": 0.73321533,
+          "peak_dbfs": -2.69537,
+          "dc_mean": 7.7e-08,
+          "dc_relative_to_rms_db": -122.53929,
+          "rms": 0.10358198,
+          "rms_dbfs": -19.69432,
+          "crest_factor_db": 16.99895,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 116.09977,
+          "energy_percentile_ms": {
+            "0.001": 0.27211,
+            "0.5": 8.25397,
+            "0.9": 28.322,
+            "0.99": 59.29705,
+            "0.999": 91.38322
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 91.11111,
+          "energy_centroid_ms": 12.32769,
+          "peak_20ms_rms_dbfs": -12.33854,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.22808,
+          "equivalent_100ms_rms_dbfs": -18.41548,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30503,
+          "spectral_magnitude_centroid_hz": 3740.854,
+          "spectral_power_centroid_hz": 2404.268,
+          "spectral_power_rolloff85_hz": 2896.216,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000461,
+            "250_to_1000_hz": 0.001337,
+            "1000_to_3000_hz": 0.91693,
+            "3000_to_8000_hz": 0.080707,
+            "above_8000_hz": 0.000566
+          }
+        },
+        {
+          "name": "porcelain-4",
+          "wav_sha256": "cece75188fedb4faf9dbe95f27b91a38b91e918905f2689ef7b65cd38ed8b3b1",
+          "pcm_sha256": "6f3c1e0a8a68cf0b52fe05f1753055e6c14dacac6543f901690e1620792d9e19",
+          "wav_bytes": 11934,
+          "frames": 5945,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 134.80726,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 2.36e-07,
+          "dc_relative_to_rms_db": -112.82427,
+          "rms": 0.10336407,
+          "rms_dbfs": -19.71261,
+          "crest_factor_db": 17.21348,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 119.50113,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 8.77551,
+            "0.9": 29.54649,
+            "0.99": 61.20181,
+            "0.999": 94.33107
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 94.03628,
+          "energy_centroid_ms": 12.85564,
+          "peak_20ms_rms_dbfs": -12.38471,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.27426,
+          "equivalent_100ms_rms_dbfs": -18.41547,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30502,
+          "spectral_magnitude_centroid_hz": 3868.161,
+          "spectral_power_centroid_hz": 2437.144,
+          "spectral_power_rolloff85_hz": 2939.282,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000478,
+            "250_to_1000_hz": 0.000869,
+            "1000_to_3000_hz": 0.916407,
+            "3000_to_8000_hz": 0.081659,
+            "above_8000_hz": 0.000587
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.27348
+    },
+    "copper": {
+      "name": "Copper",
+      "baseline": false,
+      "pack_sha256": "4d2f867f28617fb3944ace0acc4e4d903321af1b4bbc6f6e622ac11f830f348e",
+      "pack_bytes": 66427,
+      "nominal_gain": 0.3689,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.49708,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.30586,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 105.86168,
+      "median_spectral_power_centroid_hz": 1146.528,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000991,
+        "250_to_1000_hz": 0.548817,
+        "1000_to_3000_hz": 0.446029,
+        "3000_to_8000_hz": 0.003747,
+        "above_8000_hz": 0.000753
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "copper-1",
+            "copper-2"
+          ],
+          "maximum_absolute_correlation": 0.571968
+        },
+        {
+          "samples": [
+            "copper-1",
+            "copper-3"
+          ],
+          "maximum_absolute_correlation": 0.403648
+        },
+        {
+          "samples": [
+            "copper-1",
+            "copper-4"
+          ],
+          "maximum_absolute_correlation": 0.264166
+        },
+        {
+          "samples": [
+            "copper-2",
+            "copper-3"
+          ],
+          "maximum_absolute_correlation": 0.623911
+        },
+        {
+          "samples": [
+            "copper-2",
+            "copper-4"
+          ],
+          "maximum_absolute_correlation": 0.365735
+        },
+        {
+          "samples": [
+            "copper-3",
+            "copper-4"
+          ],
+          "maximum_absolute_correlation": 0.572843
+        }
+      ],
+      "samples": [
+        {
+          "name": "copper-1",
+          "wav_sha256": "c122a3f11a99aacae263c2aaa2936eaceb5f7f54ed5426eb96a6a084eccd3733",
+          "pcm_sha256": "990a5760a643ef9100068bcb691956f40db75e15d606da945e9bb6d47a22b002",
+          "wav_bytes": 12392,
+          "frames": 6174,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 140.0,
+          "peak": 0.74258423,
+          "peak_dbfs": -2.58509,
+          "dc_mean": -7.9e-08,
+          "dc_relative_to_rms_db": -123.93262,
+          "rms": 0.1243754,
+          "rms_dbfs": -18.10531,
+          "crest_factor_db": 15.52022,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 133.46939,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 9.52381,
+            "0.9": 32.4263,
+            "0.99": 68.07256,
+            "0.999": 103.44671
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 103.19728,
+          "energy_centroid_ms": 14.20835,
+          "peak_20ms_rms_dbfs": -10.80225,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.46408,
+          "equivalent_100ms_rms_dbfs": -16.64403,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30586,
+          "spectral_magnitude_centroid_hz": 2819.066,
+          "spectral_power_centroid_hz": 1110.566,
+          "spectral_power_rolloff85_hz": 1496.558,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00107,
+            "250_to_1000_hz": 0.547995,
+            "1000_to_3000_hz": 0.447007,
+            "3000_to_8000_hz": 0.00325,
+            "above_8000_hz": 0.000678
+          }
+        },
+        {
+          "name": "copper-2",
+          "wav_sha256": "79d0f86086ccb5ad776762dbb18703269d0aae11360efc8b8ef6aa31e2fcbbab",
+          "pcm_sha256": "e790035383fd2377a83cb1ae43f8d54403fe5da2aab0b35b4f6326165a552f40",
+          "wav_bytes": 12392,
+          "frames": 6174,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 140.0,
+          "peak": 0.72839355,
+          "peak_dbfs": -2.75268,
+          "dc_mean": -2e-08,
+          "dc_relative_to_rms_db": -135.97384,
+          "rms": 0.12437564,
+          "rms_dbfs": -18.10529,
+          "crest_factor_db": 15.35262,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 133.80952,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 10.36281,
+            "0.9": 34.12698,
+            "0.99": 71.02041,
+            "0.999": 107.34694
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 107.09751,
+          "energy_centroid_ms": 15.00849,
+          "peak_20ms_rms_dbfs": -10.88364,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.54547,
+          "equivalent_100ms_rms_dbfs": -16.64401,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30584,
+          "spectral_magnitude_centroid_hz": 2986.939,
+          "spectral_power_centroid_hz": 1152.714,
+          "spectral_power_rolloff85_hz": 1523.474,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001754,
+            "250_to_1000_hz": 0.526386,
+            "1000_to_3000_hz": 0.46737,
+            "3000_to_8000_hz": 0.003731,
+            "above_8000_hz": 0.000759
+          }
+        },
+        {
+          "name": "copper-3",
+          "wav_sha256": "37d1a51fac6fa0d23d58214c40349fd56d53391138aea24c012a002387124ec5",
+          "pcm_sha256": "0eb7f087b73f958d3f6903ab0af68bf3143460a71e8aff77e22021d0bbd87e22",
+          "wav_bytes": 12380,
+          "frames": 6168,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 139.86395,
+          "peak": 0.73568726,
+          "peak_dbfs": -2.66614,
+          "dc_mean": -6.9e-08,
+          "dc_relative_to_rms_db": -125.08824,
+          "rms": 0.12443588,
+          "rms_dbfs": -18.10109,
+          "crest_factor_db": 15.43495,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 133.26531,
+          "energy_percentile_ms": {
+            "0.001": 0.27211,
+            "0.5": 9.81859,
+            "0.9": 32.74376,
+            "0.99": 68.84354,
+            "0.999": 104.89796
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 104.62585,
+          "energy_centroid_ms": 14.31119,
+          "peak_20ms_rms_dbfs": -10.80005,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.46187,
+          "equivalent_100ms_rms_dbfs": -16.64403,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30586,
+          "spectral_magnitude_centroid_hz": 2869.974,
+          "spectral_power_centroid_hz": 1140.342,
+          "spectral_power_rolloff85_hz": 1539.624,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000739,
+            "250_to_1000_hz": 0.549639,
+            "1000_to_3000_hz": 0.445052,
+            "3000_to_8000_hz": 0.003824,
+            "above_8000_hz": 0.000746
+          }
+        },
+        {
+          "name": "copper-4",
+          "wav_sha256": "8d531651e14318a47eeedb5a303d8d98da0713df22aea3ee4db8d5641f535b96",
+          "pcm_sha256": "a542b5885bed8337f1afcd5558910cdd2f53633198f59c4edd4a2f619d26ab11",
+          "wav_bytes": 12392,
+          "frames": 6174,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 140.0,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 1.04e-07,
+          "dc_relative_to_rms_db": -121.57064,
+          "rms": 0.12437552,
+          "rms_dbfs": -18.1053,
+          "crest_factor_db": 15.60617,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 134.46712,
+          "energy_percentile_ms": {
+            "0.001": 0.27211,
+            "0.5": 10.0907,
+            "0.9": 34.12698,
+            "0.99": 71.24717,
+            "0.999": 107.61905
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 107.34694,
+          "energy_centroid_ms": 14.80431,
+          "peak_20ms_rms_dbfs": -10.86826,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.53009,
+          "equivalent_100ms_rms_dbfs": -16.64402,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30585,
+          "spectral_magnitude_centroid_hz": 2929.986,
+          "spectral_power_centroid_hz": 1153.538,
+          "spectral_power_rolloff85_hz": 1566.541,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000912,
+            "250_to_1000_hz": 0.551196,
+            "1000_to_3000_hz": 0.443303,
+            "3000_to_8000_hz": 0.003763,
+            "above_8000_hz": 0.000826
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.27431
+    },
+    "titanium": {
+      "name": "Titanium",
+      "baseline": false,
+      "pack_sha256": "2bd4aac2cf0d38719a5869ed32d611c19fdd63a7c11f48e6b084e049188e3d89",
+      "pack_bytes": 39527,
+      "nominal_gain": 1.0234,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.66228,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.47495,
+      "variant_energy_spread_db": 7e-05,
+      "median_energy_duration_ms": 49.93197,
+      "median_spectral_power_centroid_hz": 4840.223,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000244,
+        "250_to_1000_hz": 0.003297,
+        "1000_to_3000_hz": 0.414678,
+        "3000_to_8000_hz": 0.468503,
+        "above_8000_hz": 0.086712
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "titanium-1",
+            "titanium-2"
+          ],
+          "maximum_absolute_correlation": 0.315109
+        },
+        {
+          "samples": [
+            "titanium-1",
+            "titanium-3"
+          ],
+          "maximum_absolute_correlation": 0.345609
+        },
+        {
+          "samples": [
+            "titanium-1",
+            "titanium-4"
+          ],
+          "maximum_absolute_correlation": 0.210113
+        },
+        {
+          "samples": [
+            "titanium-2",
+            "titanium-3"
+          ],
+          "maximum_absolute_correlation": 0.520056
+        },
+        {
+          "samples": [
+            "titanium-2",
+            "titanium-4"
+          ],
+          "maximum_absolute_correlation": 0.396108
+        },
+        {
+          "samples": [
+            "titanium-3",
+            "titanium-4"
+          ],
+          "maximum_absolute_correlation": 0.461801
+        }
+      ],
+      "samples": [
+        {
+          "name": "titanium-1",
+          "wav_sha256": "7eccbaa38fff841b8c4fd6cd1dfc8273e0a931483dd27ebc6f6d474e8a6b7b9a",
+          "pcm_sha256": "9f366133cb36185a203727ed69d832d244746fd1ee6a15256043ee0e2fea9130",
+          "wav_bytes": 7326,
+          "frames": 3641,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.56236,
+          "peak": 0.65081787,
+          "peak_dbfs": -3.73081,
+          "dc_mean": -9.2e-08,
+          "dc_relative_to_rms_db": -115.86189,
+          "rms": 0.0572554,
+          "rms_dbfs": -24.84367,
+          "crest_factor_db": 21.11286,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 54.37642,
+          "energy_percentile_ms": {
+            "0.001": 0.13605,
+            "0.5": 2.38095,
+            "0.9": 12.94785,
+            "0.99": 30.49887,
+            "0.999": 49.02494
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 48.88889,
+          "energy_centroid_ms": 5.00437,
+          "peak_20ms_rms_dbfs": -18.8557,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.65479,
+          "equivalent_100ms_rms_dbfs": -25.67585,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.47494,
+          "spectral_magnitude_centroid_hz": 7820.244,
+          "spectral_power_centroid_hz": 4806.383,
+          "spectral_power_rolloff85_hz": 5630.933,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00013,
+            "250_to_1000_hz": 0.002405,
+            "1000_to_3000_hz": 0.376349,
+            "3000_to_8000_hz": 0.547541,
+            "above_8000_hz": 0.073575
+          }
+        },
+        {
+          "name": "titanium-2",
+          "wav_sha256": "6c3e2e59d8885b5179081f1efbfd6fe1c1f5eddb1f261dac1216831605a36e02",
+          "pcm_sha256": "61cbd8f3157b289b44311caf2493e6089cca33189c1c73c2ce45cce2dbd66a48",
+          "wav_bytes": 7350,
+          "frames": 3653,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.83447,
+          "peak": 0.66143799,
+          "peak_dbfs": -3.59022,
+          "dc_mean": 2.67e-07,
+          "dc_relative_to_rms_db": -106.60105,
+          "rms": 0.0571614,
+          "rms_dbfs": -24.85794,
+          "crest_factor_db": 21.26773,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 55.3288,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 2.19955,
+            "0.9": 12.69841,
+            "0.99": 30.77098,
+            "0.999": 50.04535
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 49.88662,
+          "energy_centroid_ms": 4.85545,
+          "peak_20ms_rms_dbfs": -18.85259,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.65168,
+          "equivalent_100ms_rms_dbfs": -25.67583,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.47492,
+          "spectral_magnitude_centroid_hz": 7540.12,
+          "spectral_power_centroid_hz": 4234.181,
+          "spectral_power_rolloff85_hz": 5695.532,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000358,
+            "250_to_1000_hz": 0.003374,
+            "1000_to_3000_hz": 0.522621,
+            "3000_to_8000_hz": 0.402342,
+            "above_8000_hz": 0.071305
+          }
+        },
+        {
+          "name": "titanium-3",
+          "wav_sha256": "cda47989462e01e4e8d0f9ccc538848610aa32a0db72ffdd5764e1f93201b920",
+          "pcm_sha256": "cbbadde91c577169cc0596880c35e95dcbe6b7f9229293e0e21b260c125bff9a",
+          "wav_bytes": 7320,
+          "frames": 3638,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.49433,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": -2.1e-07,
+          "dc_relative_to_rms_db": -108.72734,
+          "rms": 0.05727887,
+          "rms_dbfs": -24.84011,
+          "crest_factor_db": 22.34098,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 53.69615,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 2.87982,
+            "0.9": 13.51474,
+            "0.99": 31.33787,
+            "0.999": 50.13605
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 49.97732,
+          "energy_centroid_ms": 5.35255,
+          "peak_20ms_rms_dbfs": -18.87069,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.66978,
+          "equivalent_100ms_rms_dbfs": -25.67587,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.47496,
+          "spectral_magnitude_centroid_hz": 8820.461,
+          "spectral_power_centroid_hz": 5310.501,
+          "spectral_power_rolloff85_hz": 5835.498,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000372,
+            "250_to_1000_hz": 0.00322,
+            "1000_to_3000_hz": 0.383093,
+            "3000_to_8000_hz": 0.487514,
+            "above_8000_hz": 0.125801
+          }
+        },
+        {
+          "name": "titanium-4",
+          "wav_sha256": "4fcf3365bbadeae01b9e32fb07a00d1139e27770fb8d9930d50627392cedd42c",
+          "pcm_sha256": "e61aa5eeeab77181c16e634a3487a8eb20288c082f58dce9915e1314c54439b4",
+          "wav_bytes": 7376,
+          "frames": 3666,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 83.12925,
+          "peak": 0.6373291,
+          "peak_dbfs": -3.91273,
+          "dc_mean": 1.42e-07,
+          "dc_relative_to_rms_db": -112.11043,
+          "rms": 0.05705953,
+          "rms_dbfs": -24.87344,
+          "crest_factor_db": 20.96071,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 56.66667,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 2.35828,
+            "0.9": 13.58277,
+            "0.99": 32.01814,
+            "0.999": 51.38322
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 51.22449,
+          "energy_centroid_ms": 5.2578,
+          "peak_20ms_rms_dbfs": -18.87792,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.67701,
+          "equivalent_100ms_rms_dbfs": -25.6759,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.47499,
+          "spectral_magnitude_centroid_hz": 7806.444,
+          "spectral_power_centroid_hz": 4874.063,
+          "spectral_power_rolloff85_hz": 6147.729,
+          "spectral_power_bands": {
+            "below_250_hz": 7.4e-05,
+            "250_to_1000_hz": 0.004323,
+            "1000_to_3000_hz": 0.446262,
+            "3000_to_8000_hz": 0.449492,
+            "above_8000_hz": 0.099849
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.4434
+    },
+    "pebble": {
+      "name": "Pebble",
+      "baseline": false,
+      "pack_sha256": "5b0028921f5ca5401b25282800a41a867da6e087c98b654ca8f04912213ee3c2",
+      "pack_bytes": 16458,
+      "nominal_gain": 0.9412,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.31572,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.30454,
+      "variant_energy_spread_db": 6e-05,
+      "median_energy_duration_ms": 15.839,
+      "median_spectral_power_centroid_hz": 1701.808,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.008365,
+        "250_to_1000_hz": 0.361217,
+        "1000_to_3000_hz": 0.418077,
+        "3000_to_8000_hz": 0.141131,
+        "above_8000_hz": 0.006397
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "pebble-1",
+            "pebble-2"
+          ],
+          "maximum_absolute_correlation": 0.468017
+        },
+        {
+          "samples": [
+            "pebble-1",
+            "pebble-3"
+          ],
+          "maximum_absolute_correlation": 0.377849
+        },
+        {
+          "samples": [
+            "pebble-1",
+            "pebble-4"
+          ],
+          "maximum_absolute_correlation": 0.481226
+        },
+        {
+          "samples": [
+            "pebble-2",
+            "pebble-3"
+          ],
+          "maximum_absolute_correlation": 0.562069
+        },
+        {
+          "samples": [
+            "pebble-2",
+            "pebble-4"
+          ],
+          "maximum_absolute_correlation": 0.397744
+        },
+        {
+          "samples": [
+            "pebble-3",
+            "pebble-4"
+          ],
+          "maximum_absolute_correlation": 0.443771
+        }
+      ],
+      "samples": [
+        {
+          "name": "pebble-1",
+          "wav_sha256": "e505c5f24b21a7737a1abe9905ff9bfe7735e51abee5a3cfdc89b7da73fd2c55",
+          "pcm_sha256": "f280f96f6153fa532e2cd7750f08ad48d2f17691eb58c4cdf397b15b008bcd81",
+          "wav_bytes": 2936,
+          "frames": 1446,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 32.78912,
+          "peak": 0.65093994,
+          "peak_dbfs": -3.72918,
+          "dc_mean": -2.1e-08,
+          "dc_relative_to_rms_db": -133.57693,
+          "rms": 0.10074608,
+          "rms_dbfs": -19.93544,
+          "crest_factor_db": 16.20626,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 20.7483,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 2.26757,
+            "0.9": 6.1678,
+            "0.99": 11.88209,
+            "0.999": 16.87075
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 16.62132,
+          "energy_centroid_ms": 2.78888,
+          "peak_20ms_rms_dbfs": -17.78929,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31566,
+          "equivalent_100ms_rms_dbfs": -24.77814,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.3045,
+          "spectral_magnitude_centroid_hz": 3782.647,
+          "spectral_power_centroid_hz": 1687.143,
+          "spectral_power_rolloff85_hz": 2906.982,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00921,
+            "250_to_1000_hz": 0.29965,
+            "1000_to_3000_hz": 0.58508,
+            "3000_to_8000_hz": 0.099547,
+            "above_8000_hz": 0.006514
+          }
+        },
+        {
+          "name": "pebble-2",
+          "wav_sha256": "ac91357be1745fe3a7f700ba34fda922d576358611a91dcf270aa48175172f15",
+          "pcm_sha256": "7b45a92b862a39643d721198cf4cd5035f54a611417965f68f4f6cc3e6e71e1e",
+          "wav_bytes": 2990,
+          "frames": 1473,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 33.40136,
+          "peak": 0.7041626,
+          "peak_dbfs": -3.04654,
+          "dc_mean": -4.35e-07,
+          "dc_relative_to_rms_db": -107.21286,
+          "rms": 0.09981821,
+          "rms_dbfs": -20.0158,
+          "crest_factor_db": 16.96926,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.11338,
+          "last_above_minus40db_relative_ms": 21.97279,
+          "energy_percentile_ms": {
+            "0.001": 0.22676,
+            "0.5": 2.08617,
+            "0.9": 4.64853,
+            "0.99": 10.22676,
+            "0.999": 15.48753
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.26077,
+          "energy_centroid_ms": 2.59261,
+          "peak_20ms_rms_dbfs": -17.78906,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31542,
+          "equivalent_100ms_rms_dbfs": -24.77816,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30452,
+          "spectral_magnitude_centroid_hz": 3753.044,
+          "spectral_power_centroid_hz": 1716.473,
+          "spectral_power_rolloff85_hz": 3036.182,
+          "spectral_power_bands": {
+            "below_250_hz": 0.01202,
+            "250_to_1000_hz": 0.33979,
+            "1000_to_3000_hz": 0.475884,
+            "3000_to_8000_hz": 0.166148,
+            "above_8000_hz": 0.006159
+          }
+        },
+        {
+          "name": "pebble-3",
+          "wav_sha256": "0e75d76963ac4f4a5ab9ecbb9f87fbdf3cb1e4e009e30ac6740670aaf7a2b4d7",
+          "pcm_sha256": "a683a2e38ea4a90c9cd456215e819625467cab324744f0bde896090ef3d008c9",
+          "wav_bytes": 3010,
+          "frames": 1483,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 33.62812,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": -2.26e-07,
+          "dc_relative_to_rms_db": -112.85875,
+          "rms": 0.09948072,
+          "rms_dbfs": -20.04522,
+          "crest_factor_db": 17.54609,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.13605,
+          "last_above_minus40db_relative_ms": 20.77098,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 2.17687,
+            "0.9": 5.75964,
+            "0.99": 11.17914,
+            "0.999": 15.64626
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.35147,
+          "energy_centroid_ms": 2.7652,
+          "peak_20ms_rms_dbfs": -17.78942,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31578,
+          "equivalent_100ms_rms_dbfs": -24.7782,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30456,
+          "spectral_magnitude_centroid_hz": 3866.105,
+          "spectral_power_centroid_hz": 1516.021,
+          "spectral_power_rolloff85_hz": 2670.117,
+          "spectral_power_bands": {
+            "below_250_hz": 0.005386,
+            "250_to_1000_hz": 0.511949,
+            "1000_to_3000_hz": 0.360271,
+            "3000_to_8000_hz": 0.116115,
+            "above_8000_hz": 0.00628
+          }
+        },
+        {
+          "name": "pebble-4",
+          "wav_sha256": "64187e2036a2c97b24c67c966c7c113a65c0e4d3a0ac0d3ded03f08206828f36",
+          "pcm_sha256": "9d7828e825e865bace20936b550610076bc3d972d7485c532203ef315a7b796b",
+          "wav_bytes": 3138,
+          "frames": 1547,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 35.07937,
+          "peak": 0.63894653,
+          "peak_dbfs": -3.89071,
+          "dc_mean": -3.9e-08,
+          "dc_relative_to_rms_db": -127.8495,
+          "rms": 0.09740132,
+          "rms_dbfs": -20.2287,
+          "crest_factor_db": 16.33799,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.11338,
+          "last_above_minus40db_relative_ms": 23.71882,
+          "energy_percentile_ms": {
+            "0.001": 0.20408,
+            "0.5": 2.19955,
+            "0.9": 6.28118,
+            "0.99": 11.65533,
+            "0.999": 16.53061
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 16.32653,
+          "energy_centroid_ms": 2.941,
+          "peak_20ms_rms_dbfs": -17.78999,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31635,
+          "equivalent_100ms_rms_dbfs": -24.77819,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30455,
+          "spectral_magnitude_centroid_hz": 3833.667,
+          "spectral_power_centroid_hz": 1933.933,
+          "spectral_power_rolloff85_hz": 3488.379,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00752,
+            "250_to_1000_hz": 0.382645,
+            "1000_to_3000_hz": 0.340359,
+            "3000_to_8000_hz": 0.26085,
+            "above_8000_hz": 0.008626
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.27299
+    },
+    "rain": {
+      "name": "Rain",
+      "baseline": false,
+      "pack_sha256": "ab3f00774189e09c94ca3713ccde64e1dfe1b4ede78873fe32c05b5789878058",
+      "pack_bytes": 12663,
+      "nominal_gain": 1.0834,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.45557,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -26.44443,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 19.10431,
+      "median_spectral_power_centroid_hz": 3348.9475,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000159,
+        "250_to_1000_hz": 0.00874,
+        "1000_to_3000_hz": 0.671736,
+        "3000_to_8000_hz": 0.263651,
+        "above_8000_hz": 0.029646
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "rain-1",
+            "rain-2"
+          ],
+          "maximum_absolute_correlation": 0.204745
+        },
+        {
+          "samples": [
+            "rain-1",
+            "rain-3"
+          ],
+          "maximum_absolute_correlation": 0.314295
+        },
+        {
+          "samples": [
+            "rain-1",
+            "rain-4"
+          ],
+          "maximum_absolute_correlation": 0.45073
+        },
+        {
+          "samples": [
+            "rain-2",
+            "rain-3"
+          ],
+          "maximum_absolute_correlation": 0.393835
+        },
+        {
+          "samples": [
+            "rain-2",
+            "rain-4"
+          ],
+          "maximum_absolute_correlation": 0.2629
+        },
+        {
+          "samples": [
+            "rain-3",
+            "rain-4"
+          ],
+          "maximum_absolute_correlation": 0.599286
+        }
+      ],
+      "samples": [
+        {
+          "name": "rain-1",
+          "wav_sha256": "8df6aafaa93a5af6850dd40b3c7cfd6330ef317ba51c44bfabb52b48912fe8e8",
+          "pcm_sha256": "07847ab3809a488bf22db8dba9c32de2338fcb0197bf5a4b5b2477f600d36249",
+          "wav_bytes": 2242,
+          "frames": 1099,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 24.92063,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 5e-07,
+          "dc_relative_to_rms_db": -104.91769,
+          "rms": 0.08804598,
+          "rms_dbfs": -21.10581,
+          "crest_factor_db": 18.60668,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 19.47846,
+          "energy_percentile_ms": {
+            "0.001": 0.18141,
+            "0.5": 4.5805,
+            "0.9": 5.96372,
+            "0.99": 16.80272,
+            "0.999": 18.45805
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 18.27664,
+          "energy_centroid_ms": 3.90511,
+          "peak_20ms_rms_dbfs": -20.15077,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.45499,
+          "equivalent_100ms_rms_dbfs": -27.14022,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.44444,
+          "spectral_magnitude_centroid_hz": 5036.189,
+          "spectral_power_centroid_hz": 3535.984,
+          "spectral_power_rolloff85_hz": 5297.168,
+          "spectral_power_bands": {
+            "below_250_hz": 5.3e-05,
+            "250_to_1000_hz": 0.008164,
+            "1000_to_3000_hz": 0.583792,
+            "3000_to_8000_hz": 0.376869,
+            "above_8000_hz": 0.031121
+          }
+        },
+        {
+          "name": "rain-2",
+          "wav_sha256": "b6cf4f0d1f7dc8bc06fc14cb3992635e3aba446d750292b10d2d8971d7b40c0e",
+          "pcm_sha256": "eaa9100afdb77ddba671a8749b68fc5a0abbbfde44940ca637df476268e3a0a6",
+          "wav_bytes": 2396,
+          "frames": 1176,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 26.66667,
+          "peak": 0.68463135,
+          "peak_dbfs": -3.29086,
+          "dc_mean": 4.67e-07,
+          "dc_relative_to_rms_db": -105.21181,
+          "rms": 0.08511494,
+          "rms_dbfs": -21.39988,
+          "crest_factor_db": 18.10902,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.13605,
+          "last_above_minus40db_relative_ms": 21.678,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 1.4966,
+            "0.9": 17.18821,
+            "0.99": 18.77551,
+            "0.999": 20.18141
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 20.02268,
+          "energy_centroid_ms": 4.91234,
+          "peak_20ms_rms_dbfs": -20.15573,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.45995,
+          "equivalent_100ms_rms_dbfs": -27.1402,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.44442,
+          "spectral_magnitude_centroid_hz": 5384.688,
+          "spectral_power_centroid_hz": 3577.693,
+          "spectral_power_rolloff85_hz": 7235.156,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000259,
+            "250_to_1000_hz": 0.013824,
+            "1000_to_3000_hz": 0.636493,
+            "3000_to_8000_hz": 0.272522,
+            "above_8000_hz": 0.076902
+          }
+        },
+        {
+          "name": "rain-3",
+          "wav_sha256": "c5424ff14b037caa4a01a581f15600408d745686232b1c485174938e371efdb7",
+          "pcm_sha256": "c3b213197ec4a555b1b3956610b3eb2a473cb0433a4aa3f2248c984e665d60e6",
+          "wav_bytes": 2288,
+          "frames": 1122,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 25.44218,
+          "peak": 0.52700806,
+          "peak_dbfs": -5.56365,
+          "dc_mean": 0.0,
+          "dc_relative_to_rms_db": null,
+          "rms": 0.08713889,
+          "rms_dbfs": -21.19576,
+          "crest_factor_db": 15.6321,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.15873,
+          "last_above_minus40db_relative_ms": 20.81633,
+          "energy_percentile_ms": {
+            "0.001": 0.20408,
+            "0.5": 1.70068,
+            "0.9": 10.13605,
+            "0.99": 17.77778,
+            "0.999": 18.88889
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 18.68481,
+          "energy_centroid_ms": 4.07408,
+          "peak_20ms_rms_dbfs": -20.15084,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.45506,
+          "equivalent_100ms_rms_dbfs": -27.14022,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.44444,
+          "spectral_magnitude_centroid_hz": 4823.835,
+          "spectral_power_centroid_hz": 2764.818,
+          "spectral_power_rolloff85_hz": 2906.982,
+          "spectral_power_bands": {
+            "below_250_hz": 5.8e-05,
+            "250_to_1000_hz": 0.001435,
+            "1000_to_3000_hz": 0.852031,
+            "3000_to_8000_hz": 0.123646,
+            "above_8000_hz": 0.022831
+          }
+        },
+        {
+          "name": "rain-4",
+          "wav_sha256": "26903c91f6729daeee55801d2ab154c5fb1607b1c0b5c9be13dd1d726bdf9c93",
+          "pcm_sha256": "5289cea6bc0baaa6462869f16a4e0a30fd917f6af05b5056ab90ab7b178e0995",
+          "wav_bytes": 2314,
+          "frames": 1135,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 25.73696,
+          "peak": 0.65713501,
+          "peak_dbfs": -3.64691,
+          "dc_mean": 2.15e-07,
+          "dc_relative_to_rms_db": -112.10134,
+          "rms": 0.08663857,
+          "rms_dbfs": -21.24577,
+          "crest_factor_db": 17.59887,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 21.47392,
+          "energy_percentile_ms": {
+            "0.001": 0.22676,
+            "0.5": 4.62585,
+            "0.9": 10.56689,
+            "0.99": 17.98186,
+            "0.999": 19.75057
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 19.52381,
+          "energy_centroid_ms": 4.33054,
+          "peak_20ms_rms_dbfs": -20.15186,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.45608,
+          "equivalent_100ms_rms_dbfs": -27.1402,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.44442,
+          "spectral_magnitude_centroid_hz": 4968.912,
+          "spectral_power_centroid_hz": 3161.911,
+          "spectral_power_rolloff85_hz": 5211.035,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000752,
+            "250_to_1000_hz": 0.009315,
+            "1000_to_3000_hz": 0.70698,
+            "3000_to_8000_hz": 0.254781,
+            "above_8000_hz": 0.028172
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -1.41288
+    },
+    "bubble": {
+      "name": "Bubble",
+      "baseline": false,
+      "pack_sha256": "5f4352bf2ab2c7b276c5675e4a8696f80868785048845409a2a377996580e196",
+      "pack_bytes": 46899,
+      "nominal_gain": 0.3385,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.11076,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.65183,
+      "variant_energy_spread_db": 1e-05,
+      "median_energy_duration_ms": 59.28571,
+      "median_spectral_power_centroid_hz": 722.5645,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.001293,
+        "250_to_1000_hz": 0.86061,
+        "1000_to_3000_hz": 0.138056,
+        "3000_to_8000_hz": 3.5e-05,
+        "above_8000_hz": 1.2e-05
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "bubble-1",
+            "bubble-2"
+          ],
+          "maximum_absolute_correlation": 0.899666
+        },
+        {
+          "samples": [
+            "bubble-1",
+            "bubble-3"
+          ],
+          "maximum_absolute_correlation": 0.870771
+        },
+        {
+          "samples": [
+            "bubble-1",
+            "bubble-4"
+          ],
+          "maximum_absolute_correlation": 0.807453
+        },
+        {
+          "samples": [
+            "bubble-2",
+            "bubble-3"
+          ],
+          "maximum_absolute_correlation": 0.965794
+        },
+        {
+          "samples": [
+            "bubble-2",
+            "bubble-4"
+          ],
+          "maximum_absolute_correlation": 0.886987
+        },
+        {
+          "samples": [
+            "bubble-3",
+            "bubble-4"
+          ],
+          "maximum_absolute_correlation": 0.918362
+        }
+      ],
+      "samples": [
+        {
+          "name": "bubble-1",
+          "wav_sha256": "7ad59428745672f397e5a97a9ba199468f868e92dba307ab5d2fdeb7a52bc2c1",
+          "pcm_sha256": "0daee7cec3790d0beb3b06f42310ca4a11a074906be2dba942591ce51bc23712",
+          "wav_bytes": 8648,
+          "frames": 4302,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 97.55102,
+          "peak": 0.73632812,
+          "peak_dbfs": -2.65857,
+          "dc_mean": -2.55e-07,
+          "dc_relative_to_rms_db": -115.72104,
+          "rms": 0.15603932,
+          "rms_dbfs": -16.13532,
+          "crest_factor_db": 13.47675,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 80.11338,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 6.43991,
+            "0.9": 19.75057,
+            "0.99": 39.20635,
+            "0.999": 57.93651
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 57.64172,
+          "energy_centroid_ms": 8.8999,
+          "peak_20ms_rms_dbfs": -9.66947,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.07829,
+          "equivalent_100ms_rms_dbfs": -16.243,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65183,
+          "spectral_magnitude_centroid_hz": 984.964,
+          "spectral_power_centroid_hz": 704.116,
+          "spectral_power_rolloff85_hz": 963.611,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001487,
+            "250_to_1000_hz": 0.889889,
+            "1000_to_3000_hz": 0.108575,
+            "3000_to_8000_hz": 3.4e-05,
+            "above_8000_hz": 1.4e-05
+          }
+        },
+        {
+          "name": "bubble-2",
+          "wav_sha256": "b9f5db56dc0a7458bcb16ca0cc0163f5a43ce2759ebcec3a99ec6772dcaf577d",
+          "pcm_sha256": "31036d4ced3ac711707df9dd97b9f6b0554b323f447635cf23a8474a79225798",
+          "wav_bytes": 8696,
+          "frames": 4326,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 98.09524,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 2.4e-07,
+          "dc_relative_to_rms_db": -116.24167,
+          "rms": 0.15560583,
+          "rms_dbfs": -16.15948,
+          "crest_factor_db": 13.66035,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 81.08844,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 6.46259,
+            "0.9": 20.40816,
+            "0.99": 40.72562,
+            "0.999": 60.58957
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 60.29478,
+          "energy_centroid_ms": 9.20179,
+          "peak_20ms_rms_dbfs": -9.71415,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.12298,
+          "equivalent_100ms_rms_dbfs": -16.243,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65183,
+          "spectral_magnitude_centroid_hz": 979.686,
+          "spectral_power_centroid_hz": 718.392,
+          "spectral_power_rolloff85_hz": 979.761,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001255,
+            "250_to_1000_hz": 0.866137,
+            "1000_to_3000_hz": 0.132565,
+            "3000_to_8000_hz": 3.6e-05,
+            "above_8000_hz": 8e-06
+          }
+        },
+        {
+          "name": "bubble-3",
+          "wav_sha256": "b93da93e53180245544713713848d024a7ff66d89647ee5f5c5fe1504309074a",
+          "pcm_sha256": "4d9f3124075fb262530c6d3cfa1f8f5e157614fb45731e2492753ec8b21f4fb8",
+          "wav_bytes": 8760,
+          "frames": 4358,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 98.82086,
+          "peak": 0.73681641,
+          "peak_dbfs": -2.65281,
+          "dc_mean": 1.75e-07,
+          "dc_relative_to_rms_db": -118.94446,
+          "rms": 0.15503356,
+          "rms_dbfs": -16.19149,
+          "crest_factor_db": 13.53867,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 80.29478,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 6.34921,
+            "0.9": 20.11338,
+            "0.99": 39.43311,
+            "0.999": 58.70748
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 58.4127,
+          "energy_centroid_ms": 9.01733,
+          "peak_20ms_rms_dbfs": -9.68972,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.09854,
+          "equivalent_100ms_rms_dbfs": -16.243,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65183,
+          "spectral_magnitude_centroid_hz": 1025.204,
+          "spectral_power_centroid_hz": 726.737,
+          "spectral_power_rolloff85_hz": 990.527,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001332,
+            "250_to_1000_hz": 0.855083,
+            "1000_to_3000_hz": 0.143548,
+            "3000_to_8000_hz": 2.2e-05,
+            "above_8000_hz": 1.6e-05
+          }
+        },
+        {
+          "name": "bubble-4",
+          "wav_sha256": "953d1fa47842dd08f7a8cf9243f0390af91926d13b227354c216052b2fede66a",
+          "pcm_sha256": "1468d57481862367d3ca6c043a4cb25ee2d68c563f6e9111568975cf6b2a895c",
+          "wav_bytes": 8802,
+          "frames": 4379,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 99.29705,
+          "peak": 0.72927856,
+          "peak_dbfs": -2.74213,
+          "dc_mean": 1.05e-07,
+          "dc_relative_to_rms_db": -123.40231,
+          "rms": 0.1546614,
+          "rms_dbfs": -16.21236,
+          "crest_factor_db": 13.47023,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 81.31519,
+          "energy_percentile_ms": {
+            "0.001": 0.29478,
+            "0.5": 6.62132,
+            "0.9": 20.47619,
+            "0.99": 40.86168,
+            "0.999": 60.45351
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 60.15873,
+          "energy_centroid_ms": 9.30935,
+          "peak_20ms_rms_dbfs": -9.71975,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.12857,
+          "equivalent_100ms_rms_dbfs": -16.243,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.65182,
+          "spectral_magnitude_centroid_hz": 1027.84,
+          "spectral_power_centroid_hz": 738.705,
+          "spectral_power_rolloff85_hz": 1006.677,
+          "spectral_power_bands": {
+            "below_250_hz": 0.001237,
+            "250_to_1000_hz": 0.838625,
+            "1000_to_3000_hz": 0.16009,
+            "3000_to_8000_hz": 3.7e-05,
+            "above_8000_hz": 1.1e-05
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.62028
+    },
+    "parchment": {
+      "name": "Parchment",
+      "baseline": false,
+      "pack_sha256": "3f4bf14868c95bad6a5d9335a9cfbcd88e7f8480dd6095897fbd365af3a896f9",
+      "pack_bytes": 14360,
+      "nominal_gain": 0.9904,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.24324,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -26.23233,
+      "variant_energy_spread_db": 3e-05,
+      "median_energy_duration_ms": 17.58503,
+      "median_spectral_power_centroid_hz": 3579.5275,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.003017,
+        "250_to_1000_hz": 0.050024,
+        "1000_to_3000_hz": 0.376809,
+        "3000_to_8000_hz": 0.556814,
+        "above_8000_hz": 0.026937
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "parchment-1",
+            "parchment-2"
+          ],
+          "maximum_absolute_correlation": 0.352938
+        },
+        {
+          "samples": [
+            "parchment-1",
+            "parchment-3"
+          ],
+          "maximum_absolute_correlation": 0.269946
+        },
+        {
+          "samples": [
+            "parchment-1",
+            "parchment-4"
+          ],
+          "maximum_absolute_correlation": 0.247522
+        },
+        {
+          "samples": [
+            "parchment-2",
+            "parchment-3"
+          ],
+          "maximum_absolute_correlation": 0.495455
+        },
+        {
+          "samples": [
+            "parchment-2",
+            "parchment-4"
+          ],
+          "maximum_absolute_correlation": 0.274853
+        },
+        {
+          "samples": [
+            "parchment-3",
+            "parchment-4"
+          ],
+          "maximum_absolute_correlation": 0.263747
+        }
+      ],
+      "samples": [
+        {
+          "name": "parchment-1",
+          "wav_sha256": "68dc414f4acfc9a7a0bead988230783e5303b77157821520e95dae4a0a12f377",
+          "pcm_sha256": "c322be36d5e7a8f74f76eca7143b2effda6eb91963d7afb968265a545441c714",
+          "wav_bytes": 2598,
+          "frames": 1277,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 28.95692,
+          "peak": 0.67279053,
+          "peak_dbfs": -3.4424,
+          "dc_mean": -3.82e-07,
+          "dc_relative_to_rms_db": -107.58433,
+          "rms": 0.09155788,
+          "rms_dbfs": -20.76609,
+          "crest_factor_db": 17.32368,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.11338,
+          "last_above_minus40db_relative_ms": 20.72562,
+          "energy_percentile_ms": {
+            "0.001": 0.18141,
+            "0.5": 2.26757,
+            "0.9": 8.48073,
+            "0.99": 14.96599,
+            "0.999": 18.09524
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.91383,
+          "energy_centroid_ms": 3.75623,
+          "peak_20ms_rms_dbfs": -19.15944,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24323,
+          "equivalent_100ms_rms_dbfs": -26.14856,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23235,
+          "spectral_magnitude_centroid_hz": 5017.524,
+          "spectral_power_centroid_hz": 3606.182,
+          "spectral_power_rolloff85_hz": 6223.096,
+          "spectral_power_bands": {
+            "below_250_hz": 0.003299,
+            "250_to_1000_hz": 0.087531,
+            "1000_to_3000_hz": 0.397914,
+            "3000_to_8000_hz": 0.48313,
+            "above_8000_hz": 0.028127
+          }
+        },
+        {
+          "name": "parchment-2",
+          "wav_sha256": "3880629f4cc447b58daf906b42ce423b9bb4b8b39e26e4ef7a25eda9bc60e126",
+          "pcm_sha256": "e9d77713053f72b6e0359b932dea97c77e7279b9fb4a098ab228a6c16baab780",
+          "wav_bytes": 2630,
+          "frames": 1293,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 29.31973,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 2.4e-08,
+          "dc_relative_to_rms_db": -131.72083,
+          "rms": 0.09098984,
+          "rms_dbfs": -20.82014,
+          "crest_factor_db": 18.32101,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.11338,
+          "last_above_minus40db_relative_ms": 21.20181,
+          "energy_percentile_ms": {
+            "0.001": 0.20408,
+            "0.5": 2.04082,
+            "0.9": 7.14286,
+            "0.99": 15.30612,
+            "0.999": 17.6644
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.46032,
+          "energy_centroid_ms": 2.95271,
+          "peak_20ms_rms_dbfs": -19.15939,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24318,
+          "equivalent_100ms_rms_dbfs": -26.14854,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23233,
+          "spectral_magnitude_centroid_hz": 4831.959,
+          "spectral_power_centroid_hz": 3552.873,
+          "spectral_power_rolloff85_hz": 4995.703,
+          "spectral_power_bands": {
+            "below_250_hz": 0.003018,
+            "250_to_1000_hz": 0.021353,
+            "1000_to_3000_hz": 0.355704,
+            "3000_to_8000_hz": 0.595486,
+            "above_8000_hz": 0.024439
+          }
+        },
+        {
+          "name": "parchment-3",
+          "wav_sha256": "a0cc1f04337e4986bb8d34aee4e65bd17fe081cb8d5e09d2942879eeee453e8e",
+          "pcm_sha256": "e44cb7cf8693499d205356584f2969617ccd6ac2c53cb5f1046b3d653dff0f53",
+          "wav_bytes": 2548,
+          "frames": 1252,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 28.39002,
+          "peak": 0.71884155,
+          "peak_dbfs": -2.86734,
+          "dc_mean": 9.8e-08,
+          "dc_relative_to_rms_db": -119.53969,
+          "rms": 0.09246776,
+          "rms_dbfs": -20.68019,
+          "crest_factor_db": 17.81286,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.13605,
+          "last_above_minus40db_relative_ms": 21.54195,
+          "energy_percentile_ms": {
+            "0.001": 0.22676,
+            "0.5": 1.33787,
+            "0.9": 8.00454,
+            "0.99": 14.7619,
+            "0.999": 17.7551
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.52834,
+          "energy_centroid_ms": 2.99582,
+          "peak_20ms_rms_dbfs": -19.15947,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24325,
+          "equivalent_100ms_rms_dbfs": -26.14854,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23232,
+          "spectral_magnitude_centroid_hz": 4835.001,
+          "spectral_power_centroid_hz": 3418.081,
+          "spectral_power_rolloff85_hz": 5167.969,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00139,
+            "250_to_1000_hz": 0.044654,
+            "1000_to_3000_hz": 0.410067,
+            "3000_to_8000_hz": 0.518143,
+            "above_8000_hz": 0.025746
+          }
+        },
+        {
+          "name": "parchment-4",
+          "wav_sha256": "09ca7c2ed9e8547bb154181b189e90a101da64ce5efc79e6157df3b6839ae09d",
+          "pcm_sha256": "fbd0998da821c47442f0731c153b8dd05c9b759ab5e3253b9e4455e109782199",
+          "wav_bytes": 2714,
+          "frames": 1335,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 30.27211,
+          "peak": 0.7230835,
+          "peak_dbfs": -2.81623,
+          "dc_mean": -1.83e-07,
+          "dc_relative_to_rms_db": -113.79786,
+          "rms": 0.08954718,
+          "rms_dbfs": -20.95896,
+          "crest_factor_db": 18.14273,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.0907,
+          "last_above_minus40db_relative_ms": 22.29025,
+          "energy_percentile_ms": {
+            "0.001": 0.20408,
+            "0.5": 1.29252,
+            "0.9": 7.46032,
+            "0.99": 15.28345,
+            "0.999": 17.8458
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 17.64172,
+          "energy_centroid_ms": 2.92522,
+          "peak_20ms_rms_dbfs": -19.15995,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.24373,
+          "equivalent_100ms_rms_dbfs": -26.14853,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -26.23232,
+          "spectral_magnitude_centroid_hz": 5119.738,
+          "spectral_power_centroid_hz": 4133.152,
+          "spectral_power_rolloff85_hz": 6093.896,
+          "spectral_power_bands": {
+            "below_250_hz": 0.003015,
+            "250_to_1000_hz": 0.055394,
+            "1000_to_3000_hz": 0.167883,
+            "3000_to_8000_hz": 0.744291,
+            "above_8000_hz": 0.029417
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -1.20078
+    },
+    "relay": {
+      "name": "Relay",
+      "baseline": false,
+      "pack_sha256": "532e34199c78a163d438f90f130f01a79d4bfcec4a49c97cea641360d0285e90",
+      "pack_bytes": 12082,
+      "nominal_gain": 1.1597,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.31547,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.30512,
+      "variant_energy_spread_db": 5e-05,
+      "median_energy_duration_ms": 15.24944,
+      "median_spectral_power_centroid_hz": 4124.6135,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.000347,
+        "250_to_1000_hz": 0.062767,
+        "1000_to_3000_hz": 0.327705,
+        "3000_to_8000_hz": 0.494305,
+        "above_8000_hz": 0.082865
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "relay-1",
+            "relay-2"
+          ],
+          "maximum_absolute_correlation": 0.346963
+        },
+        {
+          "samples": [
+            "relay-1",
+            "relay-3"
+          ],
+          "maximum_absolute_correlation": 0.397747
+        },
+        {
+          "samples": [
+            "relay-1",
+            "relay-4"
+          ],
+          "maximum_absolute_correlation": 0.273877
+        },
+        {
+          "samples": [
+            "relay-2",
+            "relay-3"
+          ],
+          "maximum_absolute_correlation": 0.452176
+        },
+        {
+          "samples": [
+            "relay-2",
+            "relay-4"
+          ],
+          "maximum_absolute_correlation": 0.577786
+        },
+        {
+          "samples": [
+            "relay-3",
+            "relay-4"
+          ],
+          "maximum_absolute_correlation": 0.637606
+        }
+      ],
+      "samples": [
+        {
+          "name": "relay-1",
+          "wav_sha256": "008737de5fccc12bcd353735284cdb8a1af3ed9c220bfdc79fbf427673f777b8",
+          "pcm_sha256": "7703fb33205fbe85008d714a5093532f08889c3397eb68a7a2fe7eee7dc70730",
+          "wav_bytes": 2160,
+          "frames": 1058,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 23.99093,
+          "peak": 0.74832153,
+          "peak_dbfs": -2.51824,
+          "dc_mean": -5.8e-08,
+          "dc_relative_to_rms_db": -124.3856,
+          "rms": 0.09558157,
+          "rms_dbfs": -20.39252,
+          "crest_factor_db": 17.87428,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 17.14286,
+          "energy_percentile_ms": {
+            "0.001": 0.11338,
+            "0.5": 0.77098,
+            "0.9": 9.9093,
+            "0.99": 12.22222,
+            "0.999": 15.28345
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.17007,
+          "energy_centroid_ms": 2.71484,
+          "peak_20ms_rms_dbfs": -19.60238,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31547,
+          "equivalent_100ms_rms_dbfs": -26.59205,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30513,
+          "spectral_magnitude_centroid_hz": 7729.665,
+          "spectral_power_centroid_hz": 4970.389,
+          "spectral_power_rolloff85_hz": 7493.555,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000355,
+            "250_to_1000_hz": 0.068115,
+            "1000_to_3000_hz": 0.305001,
+            "3000_to_8000_hz": 0.483716,
+            "above_8000_hz": 0.142814
+          }
+        },
+        {
+          "name": "relay-2",
+          "wav_sha256": "803e1d43894ca7c48621475caa4c7284a9014dcfad0c87d5904df621ac1c524a",
+          "pcm_sha256": "f5eaca7000dd500c5e2833a12720c212743f43c389944708a2029a1ae4ee4e86",
+          "wav_bytes": 2204,
+          "frames": 1080,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 24.4898,
+          "peak": 0.61886597,
+          "peak_dbfs": -4.16807,
+          "dc_mean": 2.8e-08,
+          "dc_relative_to_rms_db": -130.49562,
+          "rms": 0.09460357,
+          "rms_dbfs": -20.48185,
+          "crest_factor_db": 16.31378,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 17.30159,
+          "energy_percentile_ms": {
+            "0.001": 0.13605,
+            "0.5": 1.47392,
+            "0.9": 10.70295,
+            "0.99": 13.31066,
+            "0.999": 15.28345
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.14739,
+          "energy_centroid_ms": 4.16355,
+          "peak_20ms_rms_dbfs": -19.60234,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31543,
+          "equivalent_100ms_rms_dbfs": -26.592,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30508,
+          "spectral_magnitude_centroid_hz": 7200.093,
+          "spectral_power_centroid_hz": 3919.23,
+          "spectral_power_rolloff85_hz": 5361.768,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000338,
+            "250_to_1000_hz": 0.112142,
+            "1000_to_3000_hz": 0.300483,
+            "3000_to_8000_hz": 0.504894,
+            "above_8000_hz": 0.082143
+          }
+        },
+        {
+          "name": "relay-3",
+          "wav_sha256": "1d682ac5ffcfce767de4c065e19443832dbefdb199282b684fe72c370478b89f",
+          "pcm_sha256": "1a42657caa437d31507a45e03777eedf478fac04faacf40a7f6622e5ff8fa837",
+          "wav_bytes": 2222,
+          "frames": 1089,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 24.69388,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 8.4e-08,
+          "dc_relative_to_rms_db": -120.9892,
+          "rms": 0.09421145,
+          "rms_dbfs": -20.51793,
+          "crest_factor_db": 18.0188,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 17.48299,
+          "energy_percentile_ms": {
+            "0.001": 0.11338,
+            "0.5": 1.02041,
+            "0.9": 9.88662,
+            "0.99": 12.06349,
+            "0.999": 15.48753
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.37415,
+          "energy_centroid_ms": 3.32469,
+          "peak_20ms_rms_dbfs": -19.60241,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.3155,
+          "equivalent_100ms_rms_dbfs": -26.59203,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30512,
+          "spectral_magnitude_centroid_hz": 6175.302,
+          "spectral_power_centroid_hz": 3456.158,
+          "spectral_power_rolloff85_hz": 3639.111,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000463,
+            "250_to_1000_hz": 0.057419,
+            "1000_to_3000_hz": 0.454522,
+            "3000_to_8000_hz": 0.447951,
+            "above_8000_hz": 0.039646
+          }
+        },
+        {
+          "name": "relay-4",
+          "wav_sha256": "dc84f4c42cc5a220a42d1fe36a37e295cc27427405822c35d0ff2925a4e3802f",
+          "pcm_sha256": "f3dbe11b3bd5202905fc6ae91b5e5e7f761345037b2d4f752b04408276e66346",
+          "wav_bytes": 2214,
+          "frames": 1085,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 24.60317,
+          "peak": 0.61749268,
+          "peak_dbfs": -4.18736,
+          "dc_mean": 0.0,
+          "dc_relative_to_rms_db": null,
+          "rms": 0.09438506,
+          "rms_dbfs": -20.50193,
+          "crest_factor_db": 16.31457,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 18.63946,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 1.95011,
+            "0.9": 10.56689,
+            "0.99": 12.81179,
+            "0.999": 15.48753
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 15.3288,
+          "energy_centroid_ms": 4.75656,
+          "peak_20ms_rms_dbfs": -19.60237,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.31546,
+          "equivalent_100ms_rms_dbfs": -26.59202,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.30511,
+          "spectral_magnitude_centroid_hz": 7557.654,
+          "spectral_power_centroid_hz": 4329.997,
+          "spectral_power_rolloff85_hz": 5792.432,
+          "spectral_power_bands": {
+            "below_250_hz": 0.000269,
+            "250_to_1000_hz": 0.023359,
+            "1000_to_3000_hz": 0.350409,
+            "3000_to_8000_hz": 0.542375,
+            "above_8000_hz": 0.083588
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.27357
+    },
+    "arcade": {
+      "name": "Arcade",
+      "baseline": false,
+      "pack_sha256": "e6ec1db04a5a9c1976b70ccf4b7bb3546629e5c11e26cd17c5197c74e9986f72",
+      "pack_bytes": 39539,
+      "nominal_gain": 0.3145,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -19.06508,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -25.83784,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 45.85034,
+      "median_spectral_power_centroid_hz": 816.0495,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.002341,
+        "250_to_1000_hz": 0.900439,
+        "1000_to_3000_hz": 0.085053,
+        "3000_to_8000_hz": 0.01219,
+        "above_8000_hz": 1.8e-05
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "arcade-1",
+            "arcade-2"
+          ],
+          "maximum_absolute_correlation": 0.900387
+        },
+        {
+          "samples": [
+            "arcade-1",
+            "arcade-3"
+          ],
+          "maximum_absolute_correlation": 0.82492
+        },
+        {
+          "samples": [
+            "arcade-1",
+            "arcade-4"
+          ],
+          "maximum_absolute_correlation": 0.676925
+        },
+        {
+          "samples": [
+            "arcade-2",
+            "arcade-3"
+          ],
+          "maximum_absolute_correlation": 0.914295
+        },
+        {
+          "samples": [
+            "arcade-2",
+            "arcade-4"
+          ],
+          "maximum_absolute_correlation": 0.819687
+        },
+        {
+          "samples": [
+            "arcade-3",
+            "arcade-4"
+          ],
+          "maximum_absolute_correlation": 0.893293
+        }
+      ],
+      "samples": [
+        {
+          "name": "arcade-1",
+          "wav_sha256": "9590c0445b3fcf39a94be35c091980868a546d5b2b582a6fd8693644700948ee",
+          "pcm_sha256": "58ab258cc83c35d982b5a685992a5b1f6617354c5c58f97c3f731ac22e289ed6",
+          "wav_bytes": 7324,
+          "frames": 3640,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.53968,
+          "peak": 0.74371338,
+          "peak_dbfs": -2.57189,
+          "dc_mean": 1.68e-07,
+          "dc_relative_to_rms_db": -120.55355,
+          "rms": 0.17871306,
+          "rms_dbfs": -14.95687,
+          "crest_factor_db": 12.38499,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 62.3356,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 4.85261,
+            "0.9": 14.98866,
+            "0.99": 29.72789,
+            "0.999": 44.87528
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 44.62585,
+          "energy_centroid_ms": 6.75778,
+          "peak_20ms_rms_dbfs": -8.99779,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.04537,
+          "equivalent_100ms_rms_dbfs": -15.79025,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.83783,
+          "spectral_magnitude_centroid_hz": 1718.211,
+          "spectral_power_centroid_hz": 799.024,
+          "spectral_power_rolloff85_hz": 829.028,
+          "spectral_power_bands": {
+            "below_250_hz": 0.002458,
+            "250_to_1000_hz": 0.902168,
+            "1000_to_3000_hz": 0.083143,
+            "3000_to_8000_hz": 0.012213,
+            "above_8000_hz": 1.8e-05
+          }
+        },
+        {
+          "name": "arcade-2",
+          "wav_sha256": "87645d9947fac24f6699aecb86882be58aac15ec01e6875af1367c721c4e7660",
+          "pcm_sha256": "add84218c05e37c2f3ae99b7639cc3c1d6dbcb7203e063643ee10d8165eccf4f",
+          "wav_bytes": 7360,
+          "frames": 3658,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.94785,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 1.7e-08,
+          "dc_relative_to_rms_db": -140.57498,
+          "rms": 0.17827288,
+          "rms_dbfs": -14.97829,
+          "crest_factor_db": 12.47917,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 64.39909,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 4.98866,
+            "0.9": 15.60091,
+            "0.99": 30.97506,
+            "0.999": 46.55329
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 46.30385,
+          "energy_centroid_ms": 7.036,
+          "peak_20ms_rms_dbfs": -9.02703,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.07462,
+          "equivalent_100ms_rms_dbfs": -15.79024,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.83783,
+          "spectral_magnitude_centroid_hz": 1773.86,
+          "spectral_power_centroid_hz": 811.037,
+          "spectral_power_rolloff85_hz": 839.795,
+          "spectral_power_bands": {
+            "below_250_hz": 0.002301,
+            "250_to_1000_hz": 0.901108,
+            "1000_to_3000_hz": 0.084439,
+            "3000_to_8000_hz": 0.012122,
+            "above_8000_hz": 3e-05
+          }
+        },
+        {
+          "name": "arcade-3",
+          "wav_sha256": "b2cda55447ed6300b12cb072e5d5e6b090c59c828c8defe164361b77f671f5d0",
+          "pcm_sha256": "afc92bdbe35dbfcab1b43150245d3e1dedf7b85042ce0fa63377f848de25994f",
+          "wav_bytes": 7334,
+          "frames": 3645,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 82.65306,
+          "peak": 0.74459839,
+          "peak_dbfs": -2.56156,
+          "dc_mean": -4.6e-07,
+          "dc_relative_to_rms_db": -111.77284,
+          "rms": 0.17859004,
+          "rms_dbfs": -14.96286,
+          "crest_factor_db": 12.4013,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 63.51474,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 4.87528,
+            "0.9": 15.2381,
+            "0.99": 30.24943,
+            "0.999": 45.64626
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 45.39683,
+          "energy_centroid_ms": 6.87161,
+          "peak_20ms_rms_dbfs": -9.00795,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.05554,
+          "equivalent_100ms_rms_dbfs": -15.79027,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.83785,
+          "spectral_magnitude_centroid_hz": 1745.075,
+          "spectral_power_centroid_hz": 821.062,
+          "spectral_power_rolloff85_hz": 850.562,
+          "spectral_power_bands": {
+            "below_250_hz": 0.00238,
+            "250_to_1000_hz": 0.899769,
+            "1000_to_3000_hz": 0.085667,
+            "3000_to_8000_hz": 0.012168,
+            "above_8000_hz": 1.5e-05
+          }
+        },
+        {
+          "name": "arcade-4",
+          "wav_sha256": "07e3333eee6005ab9a1c53b3389ce991bca6c4da25d8071277a18429b59a9b70",
+          "pcm_sha256": "415f49371398376bb648dff21b63e57163b58f40d96e8f44d96883c59adaf72d",
+          "wav_bytes": 7370,
+          "frames": 3663,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 83.06122,
+          "peak": 0.72769165,
+          "peak_dbfs": -2.76105,
+          "dc_mean": -3.5e-07,
+          "dc_relative_to_rms_db": -114.13651,
+          "rms": 0.17815084,
+          "rms_dbfs": -14.98424,
+          "crest_factor_db": 12.22319,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.06803,
+          "last_above_minus40db_relative_ms": 64.33107,
+          "energy_percentile_ms": {
+            "0.001": 0.24943,
+            "0.5": 4.96599,
+            "0.9": 15.75964,
+            "0.99": 31.26984,
+            "0.999": 46.84807
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 46.59864,
+          "energy_centroid_ms": 7.07792,
+          "peak_20ms_rms_dbfs": -9.03387,
+          "nominal_gain_peak_20ms_rms_dbfs": -19.08146,
+          "equivalent_100ms_rms_dbfs": -15.79026,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -25.83785,
+          "spectral_magnitude_centroid_hz": 1787.045,
+          "spectral_power_centroid_hz": 834.519,
+          "spectral_power_rolloff85_hz": 861.328,
+          "spectral_power_bands": {
+            "below_250_hz": 0.002239,
+            "250_to_1000_hz": 0.897147,
+            "1000_to_3000_hz": 0.088249,
+            "3000_to_8000_hz": 0.012346,
+            "above_8000_hz": 1.8e-05
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": -0.80629
+    }
+  },
+  "cross_family_comparisons": [
+    {
+      "packs": [
+        "clicky",
+        "velvet"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.134608,
+      "median_band_power_l1_distance": 1.789472,
+      "median_energy_duration_difference_ms": 14.56916
+    },
+    {
+      "packs": [
+        "clicky",
+        "walnut"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.198897,
+      "median_band_power_l1_distance": 1.008251,
+      "median_energy_duration_difference_ms": 11.93877
+    },
+    {
+      "packs": [
+        "clicky",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.455158,
+      "median_band_power_l1_distance": 0.71573,
+      "median_energy_duration_difference_ms": 3.11791
+    },
+    {
+      "packs": [
+        "clicky",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.102888,
+      "median_band_power_l1_distance": 0.95928,
+      "median_energy_duration_difference_ms": 86.24716
+    },
+    {
+      "packs": [
+        "clicky",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.060675,
+      "median_band_power_l1_distance": 1.105839,
+      "median_energy_duration_difference_ms": 99.94331
+    },
+    {
+      "packs": [
+        "clicky",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.389983,
+      "median_band_power_l1_distance": 0.761086,
+      "median_energy_duration_difference_ms": 44.0136
+    },
+    {
+      "packs": [
+        "clicky",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.200868,
+      "median_band_power_l1_distance": 0.858409,
+      "median_energy_duration_difference_ms": 9.92063
+    },
+    {
+      "packs": [
+        "clicky",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.214549,
+      "median_band_power_l1_distance": 0.823814,
+      "median_energy_duration_difference_ms": 13.18594
+    },
+    {
+      "packs": [
+        "clicky",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.054517,
+      "median_band_power_l1_distance": 1.717106,
+      "median_energy_duration_difference_ms": 53.36734
+    },
+    {
+      "packs": [
+        "clicky",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.266107,
+      "median_band_power_l1_distance": 0.988975,
+      "median_energy_duration_difference_ms": 11.66666
+    },
+    {
+      "packs": [
+        "clicky",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.474471,
+      "median_band_power_l1_distance": 0.935055,
+      "median_energy_duration_difference_ms": 9.33107
+    },
+    {
+      "packs": [
+        "clicky",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.115605,
+      "median_band_power_l1_distance": 1.796729,
+      "median_energy_duration_difference_ms": 39.93197
+    },
+    {
+      "packs": [
+        "marble",
+        "velvet"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.320312,
+      "median_band_power_l1_distance": 1.885994,
+      "median_energy_duration_difference_ms": 14.31973
+    },
+    {
+      "packs": [
+        "marble",
+        "walnut"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.15748,
+      "median_band_power_l1_distance": 1.772351,
+      "median_energy_duration_difference_ms": 11.68934
+    },
+    {
+      "packs": [
+        "marble",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.152961,
+      "median_band_power_l1_distance": 1.246494,
+      "median_energy_duration_difference_ms": 2.86848
+    },
+    {
+      "packs": [
+        "marble",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.085721,
+      "median_band_power_l1_distance": 1.790996,
+      "median_energy_duration_difference_ms": 85.99773
+    },
+    {
+      "packs": [
+        "marble",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.072015,
+      "median_band_power_l1_distance": 1.879307,
+      "median_energy_duration_difference_ms": 99.69388
+    },
+    {
+      "packs": [
+        "marble",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.302416,
+      "median_band_power_l1_distance": 1.206904,
+      "median_energy_duration_difference_ms": 43.76417
+    },
+    {
+      "packs": [
+        "marble",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.179771,
+      "median_band_power_l1_distance": 1.513353,
+      "median_energy_duration_difference_ms": 9.6712
+    },
+    {
+      "packs": [
+        "marble",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.178344,
+      "median_band_power_l1_distance": 1.326354,
+      "median_energy_duration_difference_ms": 12.93651
+    },
+    {
+      "packs": [
+        "marble",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.024275,
+      "median_band_power_l1_distance": 1.887278,
+      "median_energy_duration_difference_ms": 53.11791
+    },
+    {
+      "packs": [
+        "marble",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.230183,
+      "median_band_power_l1_distance": 1.300807,
+      "median_energy_duration_difference_ms": 11.41723
+    },
+    {
+      "packs": [
+        "marble",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.351407,
+      "median_band_power_l1_distance": 1.148679,
+      "median_energy_duration_difference_ms": 9.08164
+    },
+    {
+      "packs": [
+        "marble",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.041402,
+      "median_band_power_l1_distance": 1.860895,
+      "median_energy_duration_difference_ms": 39.68254
+    },
+    {
+      "packs": [
+        "tactile",
+        "velvet"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.191084,
+      "median_band_power_l1_distance": 1.723846,
+      "median_energy_duration_difference_ms": 12.80046
+    },
+    {
+      "packs": [
+        "tactile",
+        "walnut"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.270307,
+      "median_band_power_l1_distance": 1.613265,
+      "median_energy_duration_difference_ms": 10.17007
+    },
+    {
+      "packs": [
+        "tactile",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.193953,
+      "median_band_power_l1_distance": 1.24534,
+      "median_energy_duration_difference_ms": 1.34921
+    },
+    {
+      "packs": [
+        "tactile",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.083412,
+      "median_band_power_l1_distance": 1.651962,
+      "median_energy_duration_difference_ms": 84.47846
+    },
+    {
+      "packs": [
+        "tactile",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.058044,
+      "median_band_power_l1_distance": 1.734191,
+      "median_energy_duration_difference_ms": 98.17461
+    },
+    {
+      "packs": [
+        "tactile",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.426379,
+      "median_band_power_l1_distance": 1.304974,
+      "median_energy_duration_difference_ms": 42.2449
+    },
+    {
+      "packs": [
+        "tactile",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.216374,
+      "median_band_power_l1_distance": 1.368237,
+      "median_energy_duration_difference_ms": 8.15193
+    },
+    {
+      "packs": [
+        "tactile",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.218885,
+      "median_band_power_l1_distance": 1.408888,
+      "median_energy_duration_difference_ms": 11.41724
+    },
+    {
+      "packs": [
+        "tactile",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.217534,
+      "median_band_power_l1_distance": 1.742162,
+      "median_energy_duration_difference_ms": 51.59864
+    },
+    {
+      "packs": [
+        "tactile",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.242637,
+      "median_band_power_l1_distance": 1.392795,
+      "median_energy_duration_difference_ms": 9.89796
+    },
+    {
+      "packs": [
+        "tactile",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.379167,
+      "median_band_power_l1_distance": 1.240667,
+      "median_energy_duration_difference_ms": 7.56237
+    },
+    {
+      "packs": [
+        "tactile",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.140586,
+      "median_band_power_l1_distance": 1.716891,
+      "median_energy_duration_difference_ms": 38.16327
+    },
+    {
+      "packs": [
+        "typewriter",
+        "velvet"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.152816,
+      "median_band_power_l1_distance": 1.920589,
+      "median_energy_duration_difference_ms": 12.10884
+    },
+    {
+      "packs": [
+        "typewriter",
+        "walnut"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.138945,
+      "median_band_power_l1_distance": 1.806946,
+      "median_energy_duration_difference_ms": 9.47845
+    },
+    {
+      "packs": [
+        "typewriter",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.133573,
+      "median_band_power_l1_distance": 1.305133,
+      "median_energy_duration_difference_ms": 0.65759
+    },
+    {
+      "packs": [
+        "typewriter",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.207005,
+      "median_band_power_l1_distance": 1.740759,
+      "median_energy_duration_difference_ms": 83.78684
+    },
+    {
+      "packs": [
+        "typewriter",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.07737,
+      "median_band_power_l1_distance": 1.89197,
+      "median_energy_duration_difference_ms": 97.48299
+    },
+    {
+      "packs": [
+        "typewriter",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.226884,
+      "median_band_power_l1_distance": 1.298417,
+      "median_energy_duration_difference_ms": 41.55328
+    },
+    {
+      "packs": [
+        "typewriter",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.26481,
+      "median_band_power_l1_distance": 1.537776,
+      "median_energy_duration_difference_ms": 7.46031
+    },
+    {
+      "packs": [
+        "typewriter",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.214488,
+      "median_band_power_l1_distance": 1.413217,
+      "median_energy_duration_difference_ms": 10.72562
+    },
+    {
+      "packs": [
+        "typewriter",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.079108,
+      "median_band_power_l1_distance": 1.899941,
+      "median_energy_duration_difference_ms": 50.90702
+    },
+    {
+      "packs": [
+        "typewriter",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.335475,
+      "median_band_power_l1_distance": 1.453652,
+      "median_energy_duration_difference_ms": 9.20634
+    },
+    {
+      "packs": [
+        "typewriter",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.297645,
+      "median_band_power_l1_distance": 1.30046,
+      "median_energy_duration_difference_ms": 6.87075
+    },
+    {
+      "packs": [
+        "typewriter",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.068487,
+      "median_band_power_l1_distance": 1.873558,
+      "median_energy_duration_difference_ms": 37.47165
+    },
+    {
+      "packs": [
+        "velvet",
+        "walnut"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.202201,
+      "median_band_power_l1_distance": 1.066639,
+      "median_energy_duration_difference_ms": 2.63039
+    },
+    {
+      "packs": [
+        "velvet",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.12422,
+      "median_band_power_l1_distance": 1.526928,
+      "median_energy_duration_difference_ms": 11.45125
+    },
+    {
+      "packs": [
+        "velvet",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.056513,
+      "median_band_power_l1_distance": 1.80627,
+      "median_energy_duration_difference_ms": 71.678
+    },
+    {
+      "packs": [
+        "velvet",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.314365,
+      "median_band_power_l1_distance": 0.711835,
+      "median_energy_duration_difference_ms": 85.37415
+    },
+    {
+      "packs": [
+        "velvet",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.044903,
+      "median_band_power_l1_distance": 1.777466,
+      "median_energy_duration_difference_ms": 29.44444
+    },
+    {
+      "packs": [
+        "velvet",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.283041,
+      "median_band_power_l1_distance": 1.007137,
+      "median_energy_duration_difference_ms": 4.64853
+    },
+    {
+      "packs": [
+        "velvet",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.038783,
+      "median_band_power_l1_distance": 1.767248,
+      "median_energy_duration_difference_ms": 1.38322
+    },
+    {
+      "packs": [
+        "velvet",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.192529,
+      "median_band_power_l1_distance": 0.441752,
+      "median_energy_duration_difference_ms": 38.79818
+    },
+    {
+      "packs": [
+        "velvet",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.171388,
+      "median_band_power_l1_distance": 1.718633,
+      "median_energy_duration_difference_ms": 2.9025
+    },
+    {
+      "packs": [
+        "velvet",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.097974,
+      "median_band_power_l1_distance": 1.652875,
+      "median_energy_duration_difference_ms": 5.23809
+    },
+    {
+      "packs": [
+        "velvet",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.402059,
+      "median_band_power_l1_distance": 0.475633,
+      "median_energy_duration_difference_ms": 25.36281
+    },
+    {
+      "packs": [
+        "walnut",
+        "bamboo"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.119439,
+      "median_band_power_l1_distance": 0.551789,
+      "median_energy_duration_difference_ms": 8.82086
+    },
+    {
+      "packs": [
+        "walnut",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.19893,
+      "median_band_power_l1_distance": 0.748459,
+      "median_energy_duration_difference_ms": 74.30839
+    },
+    {
+      "packs": [
+        "walnut",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.081764,
+      "median_band_power_l1_distance": 0.393694,
+      "median_energy_duration_difference_ms": 88.00454
+    },
+    {
+      "packs": [
+        "walnut",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.146297,
+      "median_band_power_l1_distance": 1.046297,
+      "median_energy_duration_difference_ms": 32.07483
+    },
+    {
+      "packs": [
+        "walnut",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.266498,
+      "median_band_power_l1_distance": 0.292606,
+      "median_energy_duration_difference_ms": 2.01814
+    },
+    {
+      "packs": [
+        "walnut",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.126208,
+      "median_band_power_l1_distance": 0.700609,
+      "median_energy_duration_difference_ms": 1.24717
+    },
+    {
+      "packs": [
+        "walnut",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.256353,
+      "median_band_power_l1_distance": 1.017611,
+      "median_energy_duration_difference_ms": 41.42857
+    },
+    {
+      "packs": [
+        "walnut",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.286771,
+      "median_band_power_l1_distance": 1.063202,
+      "median_energy_duration_difference_ms": 0.27211
+    },
+    {
+      "packs": [
+        "walnut",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.119372,
+      "median_band_power_l1_distance": 1.095652,
+      "median_energy_duration_difference_ms": 2.6077
+    },
+    {
+      "packs": [
+        "walnut",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.066088,
+      "median_band_power_l1_distance": 1.097234,
+      "median_energy_duration_difference_ms": 27.9932
+    },
+    {
+      "packs": [
+        "bamboo",
+        "porcelain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.069973,
+      "median_band_power_l1_distance": 0.745328,
+      "median_energy_duration_difference_ms": 83.12925
+    },
+    {
+      "packs": [
+        "bamboo",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.110968,
+      "median_band_power_l1_distance": 0.815093,
+      "median_energy_duration_difference_ms": 96.8254
+    },
+    {
+      "packs": [
+        "bamboo",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.367375,
+      "median_band_power_l1_distance": 0.498348,
+      "median_energy_duration_difference_ms": 40.89569
+    },
+    {
+      "packs": [
+        "bamboo",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.161571,
+      "median_band_power_l1_distance": 0.519791,
+      "median_energy_duration_difference_ms": 6.80272
+    },
+    {
+      "packs": [
+        "bamboo",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.265121,
+      "median_band_power_l1_distance": 0.358292,
+      "median_energy_duration_difference_ms": 10.06803
+    },
+    {
+      "packs": [
+        "bamboo",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.1309,
+      "median_band_power_l1_distance": 1.439614,
+      "median_energy_duration_difference_ms": 50.24943
+    },
+    {
+      "packs": [
+        "bamboo",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.278973,
+      "median_band_power_l1_distance": 0.639867,
+      "median_energy_duration_difference_ms": 8.54875
+    },
+    {
+      "packs": [
+        "bamboo",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.248304,
+      "median_band_power_l1_distance": 0.555397,
+      "median_energy_duration_difference_ms": 6.21316
+    },
+    {
+      "packs": [
+        "bamboo",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.260226,
+      "median_band_power_l1_distance": 1.521333,
+      "median_energy_duration_difference_ms": 36.81406
+    },
+    {
+      "packs": [
+        "porcelain",
+        "copper"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.05712,
+      "median_band_power_l1_distance": 1.094917,
+      "median_energy_duration_difference_ms": 13.69615
+    },
+    {
+      "packs": [
+        "porcelain",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.103668,
+      "median_band_power_l1_distance": 0.978664,
+      "median_energy_duration_difference_ms": 42.23356
+    },
+    {
+      "packs": [
+        "porcelain",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.161954,
+      "median_band_power_l1_distance": 0.933215,
+      "median_energy_duration_difference_ms": 76.32653
+    },
+    {
+      "packs": [
+        "porcelain",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.144502,
+      "median_band_power_l1_distance": 0.465216,
+      "median_energy_duration_difference_ms": 73.06122
+    },
+    {
+      "packs": [
+        "porcelain",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.026747,
+      "median_band_power_l1_distance": 1.718956,
+      "median_energy_duration_difference_ms": 32.87982
+    },
+    {
+      "packs": [
+        "porcelain",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.233528,
+      "median_band_power_l1_distance": 1.094165,
+      "median_energy_duration_difference_ms": 74.5805
+    },
+    {
+      "packs": [
+        "porcelain",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.104021,
+      "median_band_power_l1_distance": 1.146959,
+      "median_energy_duration_difference_ms": 76.91609
+    },
+    {
+      "packs": [
+        "porcelain",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.049551,
+      "median_band_power_l1_distance": 1.800675,
+      "median_energy_duration_difference_ms": 46.31519
+    },
+    {
+      "packs": [
+        "copper",
+        "titanium"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.065431,
+      "median_band_power_l1_distance": 1.128333,
+      "median_energy_duration_difference_ms": 55.92971
+    },
+    {
+      "packs": [
+        "copper",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.193538,
+      "median_band_power_l1_distance": 0.365954,
+      "median_energy_duration_difference_ms": 90.02268
+    },
+    {
+      "packs": [
+        "copper",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.100373,
+      "median_band_power_l1_distance": 1.055413,
+      "median_energy_duration_difference_ms": 86.75737
+    },
+    {
+      "packs": [
+        "copper",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.20251,
+      "median_band_power_l1_distance": 0.624521,
+      "median_energy_duration_difference_ms": 46.57597
+    },
+    {
+      "packs": [
+        "copper",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.184161,
+      "median_band_power_l1_distance": 1.14929,
+      "median_energy_duration_difference_ms": 88.27665
+    },
+    {
+      "packs": [
+        "copper",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.168203,
+      "median_band_power_l1_distance": 1.177688,
+      "median_energy_duration_difference_ms": 90.61224
+    },
+    {
+      "packs": [
+        "copper",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.464535,
+      "median_band_power_l1_distance": 0.723126,
+      "median_energy_duration_difference_ms": 60.01134
+    },
+    {
+      "packs": [
+        "titanium",
+        "pebble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.177609,
+      "median_band_power_l1_distance": 0.777127,
+      "median_energy_duration_difference_ms": 34.09297
+    },
+    {
+      "packs": [
+        "titanium",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.297067,
+      "median_band_power_l1_distance": 0.524504,
+      "median_energy_duration_difference_ms": 30.82766
+    },
+    {
+      "packs": [
+        "titanium",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.034787,
+      "median_band_power_l1_distance": 1.690152,
+      "median_energy_duration_difference_ms": 9.35374
+    },
+    {
+      "packs": [
+        "titanium",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.172798,
+      "median_band_power_l1_distance": 0.235455,
+      "median_energy_duration_difference_ms": 32.34694
+    },
+    {
+      "packs": [
+        "titanium",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.348626,
+      "median_band_power_l1_distance": 0.176195,
+      "median_energy_duration_difference_ms": 34.68253
+    },
+    {
+      "packs": [
+        "titanium",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.091557,
+      "median_band_power_l1_distance": 1.771871,
+      "median_energy_duration_difference_ms": 4.08163
+    },
+    {
+      "packs": [
+        "pebble",
+        "rain"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.119792,
+      "median_band_power_l1_distance": 0.760111,
+      "median_energy_duration_difference_ms": 3.26531
+    },
+    {
+      "packs": [
+        "pebble",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.247948,
+      "median_band_power_l1_distance": 0.933967,
+      "median_energy_duration_difference_ms": 43.44671
+    },
+    {
+      "packs": [
+        "pebble",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.222147,
+      "median_band_power_l1_distance": 0.794032,
+      "median_energy_duration_difference_ms": 1.74603
+    },
+    {
+      "packs": [
+        "pebble",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.230578,
+      "median_band_power_l1_distance": 0.826482,
+      "median_energy_duration_difference_ms": 0.58956
+    },
+    {
+      "packs": [
+        "pebble",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.171434,
+      "median_band_power_l1_distance": 1.01359,
+      "median_energy_duration_difference_ms": 30.01134
+    },
+    {
+      "packs": [
+        "rain",
+        "bubble"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.057351,
+      "median_band_power_l1_distance": 1.679934,
+      "median_energy_duration_difference_ms": 40.1814
+    },
+    {
+      "packs": [
+        "rain",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.201709,
+      "median_band_power_l1_distance": 0.634941,
+      "median_energy_duration_difference_ms": 1.51928
+    },
+    {
+      "packs": [
+        "rain",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.259175,
+      "median_band_power_l1_distance": 0.682119,
+      "median_energy_duration_difference_ms": 3.85487
+    },
+    {
+      "packs": [
+        "rain",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.089496,
+      "median_band_power_l1_distance": 1.761653,
+      "median_energy_duration_difference_ms": 26.74603
+    },
+    {
+      "packs": [
+        "bubble",
+        "parchment"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.164435,
+      "median_band_power_l1_distance": 1.634767,
+      "median_energy_duration_difference_ms": 41.70068
+    },
+    {
+      "packs": [
+        "bubble",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.096772,
+      "median_band_power_l1_distance": 1.565561,
+      "median_energy_duration_difference_ms": 44.03627
+    },
+    {
+      "packs": [
+        "bubble",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.27271,
+      "median_band_power_l1_distance": 0.106041,
+      "median_energy_duration_difference_ms": 13.43537
+    },
+    {
+      "packs": [
+        "parchment",
+        "relay"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.197284,
+      "median_band_power_l1_distance": 0.182954,
+      "median_energy_duration_difference_ms": 2.33559
+    },
+    {
+      "packs": [
+        "parchment",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.188723,
+      "median_band_power_l1_distance": 1.71439,
+      "median_energy_duration_difference_ms": 28.26531
+    },
+    {
+      "packs": [
+        "relay",
+        "arcade"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.161519,
+      "median_band_power_l1_distance": 1.64728,
+      "median_energy_duration_difference_ms": 30.6009
+    }
+  ]
+}

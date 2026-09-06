@@ -1,0 +1,82 @@
+{
+  "generatorVersion": 1,
+  "sampleRate": 44100,
+  "variantsPerPack": 4,
+  "recipeSHA256": "4ef1e7afed81af818e2fe69cae3a65ee5ad55425ed9ce868036f654d982dc7ec",
+  "generatorSHA256": "c67c128e19b48d59a852744b4a971e967efd318be359e9e8f2657c5caddf0f66",
+  "provenance": "Original procedural synthesis; no imported recordings or reused Clonk presets/audio.",
+  "packs": {
+    "velvet": {
+      "sha256": "219ba92866ea44ec058f81af9fff678e39a6cef7a272f42fff07405b32a261c1",
+      "byteCount": 21135,
+      "gain": 0.589,
+      "sampleCount": 4
+    },
+    "walnut": {
+      "sha256": "0f334377aed4e029537da3c093ad9c5f3f8a730ff2ae601d33447c2d83bc7bc4",
+      "byteCount": 15459,
+      "gain": 1.0662,
+      "sampleCount": 4
+    },
+    "bamboo": {
+      "sha256": "7934e56362a6d907929a7ecff9f94c0beb99d569dc62af5127bad653ab4591b0",
+      "byteCount": 11868,
+      "gain": 1.24,
+      "sampleCount": 4
+    },
+    "porcelain": {
+      "sha256": "5a53f90d02b771c278c47dc8c03396148f30e84075d3aa90362aa19a815f76e2",
+      "byteCount": 63908,
+      "gain": 0.4524,
+      "sampleCount": 4
+    },
+    "copper": {
+      "sha256": "4d2f867f28617fb3944ace0acc4e4d903321af1b4bbc6f6e622ac11f830f348e",
+      "byteCount": 66427,
+      "gain": 0.3689,
+      "sampleCount": 4
+    },
+    "titanium": {
+      "sha256": "2bd4aac2cf0d38719a5869ed32d611c19fdd63a7c11f48e6b084e049188e3d89",
+      "byteCount": 39527,
+      "gain": 1.0234,
+      "sampleCount": 4
+    },
+    "pebble": {
+      "sha256": "5b0028921f5ca5401b25282800a41a867da6e087c98b654ca8f04912213ee3c2",
+      "byteCount": 16458,
+      "gain": 0.9412,
+      "sampleCount": 4
+    },
+    "rain": {
+      "sha256": "ab3f00774189e09c94ca3713ccde64e1dfe1b4ede78873fe32c05b5789878058",
+      "byteCount": 12663,
+      "gain": 1.0834,
+      "sampleCount": 4
+    },
+    "bubble": {
+      "sha256": "5f4352bf2ab2c7b276c5675e4a8696f80868785048845409a2a377996580e196",
+      "byteCount": 46899,
+      "gain": 0.3385,
+      "sampleCount": 4
+    },
+    "parchment": {
+      "sha256": "3f4bf14868c95bad6a5d9335a9cfbcd88e7f8480dd6095897fbd365af3a896f9",
+      "byteCount": 14360,
+      "gain": 0.9904,
+      "sampleCount": 4
+    },
+    "relay": {
+      "sha256": "532e34199c78a163d438f90f130f01a79d4bfcec4a49c97cea641360d0285e90",
+      "byteCount": 12082,
+      "gain": 1.1597,
+      "sampleCount": 4
+    },
+    "arcade": {
+      "sha256": "e6ec1db04a5a9c1976b70ccf4b7bb3546629e5c11e26cd17c5197c74e9986f72",
+      "byteCount": 39539,
+      "gain": 0.3145,
+      "sampleCount": 4
+    }
+  }
+}
