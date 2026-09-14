@@ -1,3 +1,19 @@
+
+
+https://github.com/user-attachments/assets/9ba9c02e-50f7-4a7d-92b6-615211f9bec5
+
+
+
+https://github.com/user-attachments/assets/c96cf0f6-bd7e-4e41-b2db-03ad127bdb8e
+
+
+
+https://github.com/user-attachments/assets/0708b19b-c36d-4673-98cf-bdfc477e34a4
+
+
+
+https://github.com/user-attachments/assets/eb67028c-bf2c-4571-9c47-dd61da9021e6
+
 # Add a Clink sound pack
 
 You are contributing one key-sound pack to this repository. Read `README.md`, inspect an existing `Sounds/*.clinkpack`, `tools/build-manifest.py`, and `tools/validate-manifest.py` before editing. Add or update exactly one `.clinkpack` in `Sounds/`.
