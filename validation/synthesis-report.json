@@ -3,9 +3,9 @@
   "errors": [],
   "review_flags": [],
   "source_sha256": {
-    "tools/analyze-sounds.py": "7e2bc2a7e279ba53f429df8c876d1b5c49e38a16df9ccff155400c960e8f5b2c",
-    "tools/generate-sounds.py": "c67c128e19b48d59a852744b4a971e967efd318be359e9e8f2657c5caddf0f66",
-    "tools/sound-recipes.json": "4ef1e7afed81af818e2fe69cae3a65ee5ad55425ed9ce868036f654d982dc7ec"
+    "tools/analyze-sounds.py": "74cb86545e4523829ddef5276e5ac0d89eebce5b2d04e657baf70991ca522219",
+    "tools/generate-sounds.py": "dd44b07460205932c79524b8fef3b3a02250bf59e1eb9bb729ee1f0e71ad8a09",
+    "tools/sound-recipes.json": "e4ba489717fcdd77f47090b36a2b41c58ee0e005c7a30aae684df6f7b2a076d6"
   },
   "method": {
     "runtime": "Python standard library only; no external audio/FFT dependencies",
@@ -28,7 +28,8 @@
     "bubble",
     "parchment",
     "relay",
-    "arcade"
+    "arcade",
+    "shot"
   ],
   "baseline_median_nominal_gain_equivalent_100ms_rms_dbfs": -25.03155,
   "packs": {
@@ -3719,6 +3720,257 @@
         }
       ],
       "energy_difference_from_baseline_median_db": -0.80629
+    },
+    "shot": {
+      "name": "Shot",
+      "baseline": false,
+      "pack_sha256": "9e2547747aa4354a7597a11b4d99a9fe3da12491741a52f1202f1da2c61bad49",
+      "pack_bytes": 182368,
+      "nominal_gain": 0.5882,
+      "sample_count": 4,
+      "median_nominal_gain_peak_20ms_rms_dbfs": -18.08127,
+      "median_nominal_gain_equivalent_100ms_rms_dbfs": -23.89191,
+      "variant_energy_spread_db": 2e-05,
+      "median_energy_duration_ms": 262.80045,
+      "median_spectral_power_centroid_hz": 1307.0335,
+      "median_spectral_power_bands": {
+        "below_250_hz": 0.358289,
+        "250_to_1000_hz": 0.360853,
+        "1000_to_3000_hz": 0.151526,
+        "3000_to_8000_hz": 0.081446,
+        "above_8000_hz": 0.031303
+      },
+      "variant_correlations": [
+        {
+          "samples": [
+            "shot-1",
+            "shot-2"
+          ],
+          "maximum_absolute_correlation": 0.166721
+        },
+        {
+          "samples": [
+            "shot-1",
+            "shot-3"
+          ],
+          "maximum_absolute_correlation": 0.306363
+        },
+        {
+          "samples": [
+            "shot-1",
+            "shot-4"
+          ],
+          "maximum_absolute_correlation": 0.194206
+        },
+        {
+          "samples": [
+            "shot-2",
+            "shot-3"
+          ],
+          "maximum_absolute_correlation": 0.253417
+        },
+        {
+          "samples": [
+            "shot-2",
+            "shot-4"
+          ],
+          "maximum_absolute_correlation": 0.264917
+        },
+        {
+          "samples": [
+            "shot-3",
+            "shot-4"
+          ],
+          "maximum_absolute_correlation": 0.209413
+        }
+      ],
+      "samples": [
+        {
+          "name": "shot-1",
+          "wav_sha256": "c86add34964c57edf6f98ab7b6994abe431743d167d0fcb3f18697c10ec237cc",
+          "pcm_sha256": "61ce9d244df35073b4166cbfb77336495714aaf519e772f7e94acf3566016dad",
+          "wav_bytes": 33014,
+          "frames": 16485,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 373.80952,
+          "peak": 0.67477417,
+          "peak_dbfs": -3.41683,
+          "dc_mean": -9.6e-08,
+          "dc_relative_to_rms_db": -115.32181,
+          "rms": 0.05617654,
+          "rms_dbfs": -25.0089,
+          "crest_factor_db": 21.59207,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.04535,
+          "last_above_minus40db_relative_ms": 366.8254,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 5.53288,
+            "0.9": 57.32426,
+            "0.99": 244.08163,
+            "0.999": 252.72109
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 252.63039,
+          "energy_centroid_ms": 20.05802,
+          "peak_20ms_rms_dbfs": -13.23854,
+          "nominal_gain_peak_20ms_rms_dbfs": -17.84804,
+          "equivalent_100ms_rms_dbfs": -19.2824,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.8919,
+          "spectral_magnitude_centroid_hz": 5042.909,
+          "spectral_power_centroid_hz": 1112.617,
+          "spectral_power_rolloff85_hz": 1979.709,
+          "spectral_power_bands": {
+            "below_250_hz": 0.515469,
+            "250_to_1000_hz": 0.258261,
+            "1000_to_3000_hz": 0.126375,
+            "3000_to_8000_hz": 0.073118,
+            "above_8000_hz": 0.026776
+          }
+        },
+        {
+          "name": "shot-2",
+          "wav_sha256": "5c85162fba569b1489390438363aa171746af7baf5925f3244d304670cf6c0e8",
+          "pcm_sha256": "e447a1b808b24b36998178ae930da33b5aafa2bfa0b8ec92f8633dc392f94d1b",
+          "wav_bytes": 34590,
+          "frames": 17273,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 391.678,
+          "peak": 0.53149414,
+          "peak_dbfs": -5.49003,
+          "dc_mean": 3.9e-08,
+          "dc_relative_to_rms_db": -122.9962,
+          "rms": 0.05488009,
+          "rms_dbfs": -25.2117,
+          "crest_factor_db": 19.72167,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 384.08163,
+          "energy_percentile_ms": {
+            "0.001": 0.0907,
+            "0.5": 12.40363,
+            "0.9": 67.34694,
+            "0.99": 261.678,
+            "0.999": 273.03855
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 272.94785,
+          "energy_centroid_ms": 27.6652,
+          "peak_20ms_rms_dbfs": -13.73487,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.34437,
+          "equivalent_100ms_rms_dbfs": -19.28241,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.89191,
+          "spectral_magnitude_centroid_hz": 5833.568,
+          "spectral_power_centroid_hz": 1613.062,
+          "spectral_power_rolloff85_hz": 2795.279,
+          "spectral_power_bands": {
+            "below_250_hz": 0.276223,
+            "250_to_1000_hz": 0.407115,
+            "1000_to_3000_hz": 0.176677,
+            "3000_to_8000_hz": 0.089773,
+            "above_8000_hz": 0.050212
+          }
+        },
+        {
+          "name": "shot-3",
+          "wav_sha256": "a4e8c4126e4c42a59a60c01ccb36177a86d8e4d34f601311be5f7741d04cf34d",
+          "pcm_sha256": "920a6703e7c8cf7880e66b2a359a1e7cd3ee822a17e52870c5f85d580e0320bc",
+          "wav_bytes": 33996,
+          "frames": 16976,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 384.94331,
+          "peak": 0.57943726,
+          "peak_dbfs": -4.73987,
+          "dc_mean": -1.82e-07,
+          "dc_relative_to_rms_db": -109.68289,
+          "rms": 0.05535804,
+          "rms_dbfs": -25.13639,
+          "crest_factor_db": 20.39651,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 373.0839,
+          "energy_percentile_ms": {
+            "0.001": 0.06803,
+            "0.5": 8.61678,
+            "0.9": 61.95011,
+            "0.99": 254.94331,
+            "0.999": 260.13605
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 260.06803,
+          "energy_centroid_ms": 24.28075,
+          "peak_20ms_rms_dbfs": -13.48803,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.09752,
+          "equivalent_100ms_rms_dbfs": -19.28242,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.89192,
+          "spectral_magnitude_centroid_hz": 5358.523,
+          "spectral_power_centroid_hz": 1360.942,
+          "spectral_power_rolloff85_hz": 2430.56,
+          "spectral_power_bands": {
+            "below_250_hz": 0.316913,
+            "250_to_1000_hz": 0.438258,
+            "1000_to_3000_hz": 0.115248,
+            "3000_to_8000_hz": 0.097331,
+            "above_8000_hz": 0.032249
+          }
+        },
+        {
+          "name": "shot-4",
+          "wav_sha256": "64f7bc6e884091114f71a15163b5a39b8afd146dfc1d8508913e47dfefd46869",
+          "pcm_sha256": "18deb283375460a2c8d27520da110e985dd385013743b98a509df5cb3b3f2554",
+          "wav_bytes": 34918,
+          "frames": 17437,
+          "sample_rate": 44100,
+          "channels": 1,
+          "bits_per_sample": 16,
+          "rail_sample_count": 0,
+          "duration_ms": 395.39683,
+          "peak": 0.74996948,
+          "peak_dbfs": -2.49913,
+          "dc_mean": 5.6e-08,
+          "dc_relative_to_rms_db": -119.7827,
+          "rms": 0.05462147,
+          "rms_dbfs": -25.25273,
+          "crest_factor_db": 22.7536,
+          "first_sample": 0.0,
+          "last_sample": 0.0,
+          "onset_above_minus40db_relative_ms": 0.02268,
+          "last_above_minus40db_relative_ms": 324.30839,
+          "energy_percentile_ms": {
+            "0.001": 0.15873,
+            "0.5": 7.52834,
+            "0.9": 62.1542,
+            "0.99": 257.05215,
+            "0.999": 265.69161
+          },
+          "energy_duration_0_1_to_99_9_percent_ms": 265.53288,
+          "energy_centroid_ms": 21.91845,
+          "peak_20ms_rms_dbfs": -13.45552,
+          "nominal_gain_peak_20ms_rms_dbfs": -18.06502,
+          "equivalent_100ms_rms_dbfs": -19.2824,
+          "nominal_gain_equivalent_100ms_rms_dbfs": -23.8919,
+          "spectral_magnitude_centroid_hz": 5127.827,
+          "spectral_power_centroid_hz": 1253.125,
+          "spectral_power_rolloff85_hz": 2079.3,
+          "spectral_power_bands": {
+            "below_250_hz": 0.399665,
+            "250_to_1000_hz": 0.314592,
+            "1000_to_3000_hz": 0.185347,
+            "3000_to_8000_hz": 0.070038,
+            "above_8000_hz": 0.030357
+          }
+        }
+      ],
+      "energy_difference_from_baseline_median_db": 1.13964
     }
   },
   "cross_family_comparisons": [
@@ -3832,6 +4084,15 @@
     },
     {
       "packs": [
+        "clicky",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.139941,
+      "median_band_power_l1_distance": 1.433225,
+      "median_energy_duration_difference_ms": 256.88208
+    },
+    {
+      "packs": [
         "marble",
         "velvet"
       ],
@@ -3937,6 +4198,15 @@
       "first_variant_maximum_absolute_correlation": 0.041402,
       "median_band_power_l1_distance": 1.860895,
       "median_energy_duration_difference_ms": 39.68254
+    },
+    {
+      "packs": [
+        "marble",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.200131,
+      "median_band_power_l1_distance": 1.620969,
+      "median_energy_duration_difference_ms": 256.63265
     },
     {
       "packs": [
@@ -4048,6 +4318,15 @@
     },
     {
       "packs": [
+        "tactile",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.155684,
+      "median_band_power_l1_distance": 1.458821,
+      "median_energy_duration_difference_ms": 255.11338
+    },
+    {
+      "packs": [
         "typewriter",
         "velvet"
       ],
@@ -4156,6 +4435,15 @@
     },
     {
       "packs": [
+        "typewriter",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.118651,
+      "median_band_power_l1_distance": 1.655564,
+      "median_energy_duration_difference_ms": 254.42176
+    },
+    {
+      "packs": [
         "velvet",
         "walnut"
       ],
@@ -4255,6 +4543,15 @@
     },
     {
       "packs": [
+        "velvet",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.322184,
+      "median_band_power_l1_distance": 0.605455,
+      "median_energy_duration_difference_ms": 242.31292
+    },
+    {
+      "packs": [
         "walnut",
         "bamboo"
       ],
@@ -4345,6 +4642,15 @@
     },
     {
       "packs": [
+        "walnut",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.120438,
+      "median_band_power_l1_distance": 0.849796,
+      "median_energy_duration_difference_ms": 244.94331
+    },
+    {
+      "packs": [
         "bamboo",
         "porcelain"
       ],
@@ -4426,6 +4732,15 @@
     },
     {
       "packs": [
+        "bamboo",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.14111,
+      "median_band_power_l1_distance": 1.170681,
+      "median_energy_duration_difference_ms": 253.76417
+    },
+    {
+      "packs": [
         "porcelain",
         "copper"
       ],
@@ -4498,6 +4813,15 @@
     },
     {
       "packs": [
+        "porcelain",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.064753,
+      "median_band_power_l1_distance": 1.514547,
+      "median_energy_duration_difference_ms": 170.63492
+    },
+    {
+      "packs": [
         "copper",
         "titanium"
       ],
@@ -4561,6 +4885,15 @@
     },
     {
       "packs": [
+        "copper",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.096172,
+      "median_band_power_l1_distance": 0.948014,
+      "median_energy_duration_difference_ms": 156.93877
+    },
+    {
+      "packs": [
         "titanium",
         "pebble"
       ],
@@ -4615,6 +4948,15 @@
     },
     {
       "packs": [
+        "titanium",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.072824,
+      "median_band_power_l1_distance": 1.421219,
+      "median_energy_duration_difference_ms": 212.86848
+    },
+    {
+      "packs": [
         "pebble",
         "rain"
       ],
@@ -4660,6 +5002,15 @@
     },
     {
       "packs": [
+        "pebble",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.140651,
+      "median_band_power_l1_distance": 0.70143,
+      "median_energy_duration_difference_ms": 246.96145
+    },
+    {
+      "packs": [
         "rain",
         "bubble"
       ],
@@ -4696,6 +5047,15 @@
     },
     {
       "packs": [
+        "rain",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.115408,
+      "median_band_power_l1_distance": 1.414315,
+      "median_energy_duration_difference_ms": 243.69614
+    },
+    {
+      "packs": [
         "bubble",
         "parchment"
       ],
@@ -4723,6 +5083,15 @@
     },
     {
       "packs": [
+        "bubble",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.171027,
+      "median_band_power_l1_distance": 0.982925,
+      "median_energy_duration_difference_ms": 203.51474
+    },
+    {
+      "packs": [
         "parchment",
         "relay"
       ],
@@ -4741,12 +5110,39 @@
     },
     {
       "packs": [
+        "parchment",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.146711,
+      "median_band_power_l1_distance": 1.371118,
+      "median_energy_duration_difference_ms": 245.21542
+    },
+    {
+      "packs": [
         "relay",
         "arcade"
       ],
       "first_variant_maximum_absolute_correlation": 0.161519,
       "median_band_power_l1_distance": 1.64728,
       "median_energy_duration_difference_ms": 30.6009
+    },
+    {
+      "packs": [
+        "relay",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.096288,
+      "median_band_power_l1_distance": 1.296628,
+      "median_energy_duration_difference_ms": 247.55101
+    },
+    {
+      "packs": [
+        "arcade",
+        "shot"
+      ],
+      "first_variant_maximum_absolute_correlation": 0.169688,
+      "median_band_power_l1_distance": 1.062548,
+      "median_energy_duration_difference_ms": 216.95011
     }
   ]
 }

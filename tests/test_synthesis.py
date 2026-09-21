@@ -18,7 +18,7 @@ GENERATOR = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(GENERATOR)
 EXPECTED_IDS = {
     "velvet", "walnut", "bamboo", "porcelain", "copper", "titanium",
-    "pebble", "rain", "bubble", "parchment", "relay", "arcade",
+    "pebble", "rain", "bubble", "parchment", "relay", "arcade", "shot",
 }
 
 
@@ -70,7 +70,7 @@ class SynthesisTests(unittest.TestCase):
                     digest = hashlib.sha256(pcm_bytes).hexdigest()
                     self.assertNotIn(digest, all_pcm_hashes)
                     all_pcm_hashes.add(digest)
-        self.assertEqual(len(all_pcm_hashes), 48)
+        self.assertEqual(len(all_pcm_hashes), len(EXPECTED_IDS) * 4)
 
     def test_variant_energy_is_balanced_to_each_pack_reference(self):
         for recipe in self.recipes:
@@ -86,6 +86,38 @@ class SynthesisTests(unittest.TestCase):
                 calibrated = statistics.median(energies) * payload["pack"]["gain"] ** 2
                 self.assertAlmostEqual(calibrated, recipe["target_energy"],
                                        delta=recipe["target_energy"] * 0.002)
+
+    def test_neutral_shaping_fields_change_nothing_and_active_ones_do(self):
+        base = dict(self.recipes[0], id="probe")
+        plain = GENERATOR.render_variant(base, 0)
+        self.assertEqual(plain, GENERATOR.render_variant(dict(base, direct=0, drive=1, echoes=[]), 0))
+        for field, value in (("direct", 0.5), ("drive", 3), ("echoes", [[20, 0.4, 3000]])):
+            with self.subTest(field=field):
+                self.assertNotEqual(plain, GENERATOR.render_variant(dict(base, **{field: value}), 0))
+
+    def test_shaping_fields_outside_their_range_are_rejected(self):
+        base = dict(self.recipes[0], id="probe")
+        cases = [({"direct": 2.5}, "direct excitation"), ({"drive": 0.5}, "drive"),
+                 ({"drive": 13}, "drive"), ({"echoes": [[500, 0.4, 3000]]}, "echo"),
+                 ({"echoes": [[20, 1.4, 3000]]}, "echo"), ({"echoes": [[20, 0.4, 0]]}, "echo")]
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "recipes.json"
+            for overrides, message in cases:
+                with self.subTest(overrides=overrides):
+                    path.write_text(json.dumps({"version": 1, "packs": [dict(base, **overrides)]}))
+                    with self.assertRaisesRegex(ValueError, message):
+                        GENERATOR.load_recipes(path)
+
+    def test_an_echo_extends_the_tail_without_feeding_back(self):
+        recipe = dict(self.recipes[0], id="probe", duration_ms=200, echoes=[[60, 0.5, 20000]])
+        dry = GENERATOR.render_variant(dict(recipe, echoes=[]), 0)
+        wet = GENERATOR.render_variant(recipe, 0)
+        self.assertGreater(len(wet), len(dry))
+        self.assertLessEqual(len(wet), round(200 * 44_100 / 1000))
+        # A tap that a variant's stretch pushes past the buffer is dropped,
+        # not wrapped around or fed back. Variant 3 stretches 199 ms to 204 ms.
+        beyond = dict(recipe, echoes=[[60, 0.5, 20000], [199, 0.5, 20000]])
+        self.assertEqual(GENERATOR.render_variant(recipe, 3), GENERATOR.render_variant(beyond, 3))
 
     def test_generator_rejects_overwriting_a_protected_pack(self):
         recipe = dict(self.recipes[0], id="tactile")

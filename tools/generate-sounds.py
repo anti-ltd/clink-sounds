@@ -92,6 +92,13 @@ def load_recipes(path: pathlib.Path = RECIPE_PATH) -> list[dict]:
             raise ValueError("Recipe duration must stay within the keyboard sample limit")
         if not re.fullmatch(r"#[0-9A-Fa-f]{6}", recipe["tint"]):
             raise ValueError("Recipe tint must be #RRGGBB")
+        if not 0 <= recipe.get("direct", 0) <= 2:
+            raise ValueError("Recipe direct excitation must be within 0 to 2")
+        if not 1 <= recipe.get("drive", 1) <= 12:
+            raise ValueError("Recipe drive must be within 1 to 12")
+        for delay_ms, gain, hz in recipe.get("echoes", []):
+            if not 0 < delay_ms < recipe["duration_ms"] or not 0 < gain <= 1 or hz <= 0:
+                raise ValueError("Each echo needs a delay inside the sample, a gain of 0 to 1, and a cutoff")
     return recipes
 
 
@@ -151,6 +158,36 @@ def render_variant(recipe: dict, variant_index: int) -> list[int]:
     tau = contact["decay_ms"] * stretch / 1000
     for index, value in enumerate(contact_noise):
         raw[index] += value * math.exp(-index / SAMPLE_RATE / tau) * contact["gain"]
+
+    # A blast or a slap is broadband: it carries no pitch of its own and gets
+    # its shape from the envelope, not from a struck body. Mixing part of the
+    # excitation in unresonated keeps that noise flat instead of ringing it.
+    direct = recipe.get("direct", 0)
+    if direct:
+        for index, value in enumerate(excitation):
+            raw[index] += value * direct
+
+    # Delayed, darker copies of the whole click: the slapback that puts a sound
+    # in a room or outdoors between walls. Every tap reads the dry signal, so
+    # they stay a fixed set of reflections rather than feeding back.
+    echoes = recipe.get("echoes", [])
+    if echoes:
+        dry = list(raw)
+        for delay_ms, gain, hz in echoes:
+            offset = round(delay_ms * stretch * SAMPLE_RATE / 1000)
+            if offset >= count:
+                continue
+            for index, value in enumerate(lowpass(dry[:count - offset], hz * pitch)):
+                raw[offset + index] += value * gain
+
+    # Soft saturation, the sound of a recording the source was too loud for.
+    # It costs peak headroom on the transient and gives the body back as level;
+    # the curve is normalised to the existing peak, so nothing here clips.
+    drive = recipe.get("drive", 1)
+    if drive > 1:
+        loudest = max(map(abs, raw)) or 1
+        ceiling = math.tanh(drive)
+        raw = [math.tanh(drive * value / loudest) / ceiling * loudest for value in raw]
 
     raw = highpass(lowpass(raw, recipe["finish_lowpass_hz"]), 35)
     # Remove the tiny finite-buffer DC residual before applying endpoint fades.

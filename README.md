@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/anti-ltd/clink-language-packs/main/icon-1024.png" width="96" alt="Clink app icon">
+  <img src="README-assets/clink-icon.png" width="96" alt="Clink app icon">
 </p>
 
 <h1 align="center">Clink sounds</h1>
@@ -14,14 +14,14 @@ This repository is where people can publish short, conditioned key-click packs f
 
 ## Included sounds
 
-The repository contains 16 packs. The original four remain unchanged:
+The repository contains 17 packs. The original four remain unchanged:
 
 - **Clicky Blue** — sharp, springy click with a crisp tail
 - **Tactile Brown** — deep, rounded thock of a lubed brown switch
 - **Typewriter** — mechanical hammer strike and carriage ring
 - **Marble** — soft, glassy tap for an understated sound
 
-Twelve new procedural packs add 48 freshly generated variations:
+Thirteen new procedural packs add 52 freshly generated variations:
 
 | Pack | Character |
 |---|---|
@@ -37,9 +37,22 @@ Twelve new procedural packs add 48 freshly generated variations:
 | **Parchment** | Dry papery press with a brief textured rustle |
 | **Relay** | Two crisp mechanical contacts in one compact click |
 | **Arcade** | Tiny digital blip with a soft, falling edge |
+| **Shot** | A 12-gauge blast that racks the pump between shots |
 
 Each new pack has four deterministic variations. Packs live under [`Sounds/`](Sounds)
 and become verified release assets through the existing publishing workflow.
+
+**Shot** is the joke of the set, in the spirit of the keyboards that fire a
+gunshot on every key. A report is not a struck object, so it is built the other
+way around from the material packs: broadband noise with an instant attack and a
+fast two-stage decay, only lightly weighted by a low body, then three darkening
+echo taps at 57, 118 and 196 ms that place it in a space. After the blast the
+pump racks back at 175 ms and forward at 250 ms. That makes it by far the longest
+pack here (about 385 ms against the 65 to 140 ms of the others, still inside
+Clink's 0.5 s sample limit) and the loudest, 1.1 dB above the median of the
+original four. Typing quickly overlaps the shots, which is the point. It is the
+same renderer and the same recipe format as everything else, with no recordings
+of any kind.
 
 ## Audition and regenerate
 
@@ -50,16 +63,25 @@ new packs, with its order and timings in [`preview/timeline.json`](preview/timel
 Nothing plays automatically. These are review files; the release workflow still
 uploads only `.clinkpack` assets and the manifest.
 
+The checked-in page covers the twelve material packs. It is a few megabytes of
+inlined audio, so it is not rebuilt for every pack; run `tools/build-preview.py`
+to regenerate it locally when you want to hear Shot beside the others.
+
 The new renderer uses the procedural techniques explored in Clonk's
 `Sources/ClonkCore/Synth.swift`: noise excitation, resonant bodies, short contact
 transients, and pre-rendered variations. Its Python implementation and parameter
 sets are newly authored. No Clonk audio, recordings, or presets are reused.
 Additional inharmonic modes, timed noise grains, and band-limited pitch bends
-give the new families distinct shapes and textures.
+give the new families distinct shapes and textures. Three optional recipe fields
+shape a sound that is not a struck body: `direct` mixes part of the excitation in
+without sending it through the resonators, so noise stays flat instead of ringing;
+`echoes` adds fixed, darkening reflections of the dry click; and `drive` applies
+soft saturation normalised to the existing peak. A recipe that omits them renders
+exactly as before, which the regression tests check.
 
 [`tools/sound-recipes.json`](tools/sound-recipes.json) defines the materials and
 their switch colors. [`tools/generate-sounds.py`](tools/generate-sounds.py) renders
-the twelve packs using only Python's standard library and fixed noise seeds.
+the thirteen packs using only Python's standard library and fixed noise seeds.
 It refuses recipes that replace the original four pack IDs. Generation uses
 short onset/tail fades, DC correction, a 0.75 PCM peak ceiling, and level matching
 between each pack's variations. Pack gains use a fixed per-click energy reference
@@ -148,6 +170,6 @@ Clink downloads only public HTTPS GitHub release assets from the repository name
 
 Only publish sounds you created or have permission to redistribute. Add any attribution and licence information to this README or the pack description before publishing.
 
-The twelve new packs are original procedural audio created for Clink, with no
+The thirteen new packs are original procedural audio created for Clink, with no
 sampled third-party recordings. Their recipes, renderer, and generated assets
 are covered by this repository's existing [Clink Community Assets License](LICENSE.md).

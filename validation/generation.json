@@ -2,8 +2,8 @@
   "generatorVersion": 1,
   "sampleRate": 44100,
   "variantsPerPack": 4,
-  "recipeSHA256": "4ef1e7afed81af818e2fe69cae3a65ee5ad55425ed9ce868036f654d982dc7ec",
-  "generatorSHA256": "c67c128e19b48d59a852744b4a971e967efd318be359e9e8f2657c5caddf0f66",
+  "recipeSHA256": "e4ba489717fcdd77f47090b36a2b41c58ee0e005c7a30aae684df6f7b2a076d6",
+  "generatorSHA256": "dd44b07460205932c79524b8fef3b3a02250bf59e1eb9bb729ee1f0e71ad8a09",
   "provenance": "Original procedural synthesis; no imported recordings or reused Clonk presets/audio.",
   "packs": {
     "velvet": {
@@ -76,6 +76,12 @@
       "sha256": "e6ec1db04a5a9c1976b70ccf4b7bb3546629e5c11e26cd17c5197c74e9986f72",
       "byteCount": 39539,
       "gain": 0.3145,
+      "sampleCount": 4
+    },
+    "shot": {
+      "sha256": "9e2547747aa4354a7597a11b4d99a9fe3da12491741a52f1202f1da2c61bad49",
+      "byteCount": 182368,
+      "gain": 0.5882,
       "sampleCount": 4
     }
   }

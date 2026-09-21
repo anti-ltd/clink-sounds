@@ -32,6 +32,9 @@
   "relay": {
     "switchTint": "#D18F64"
   },
+  "shot": {
+    "switchTint": "#C0442F"
+  },
   "tactile": {
     "switchTint": "#99623D"
   },

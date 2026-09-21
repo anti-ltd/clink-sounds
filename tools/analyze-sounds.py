@@ -18,7 +18,7 @@ import wave
 
 NEW_PACK_IDS = (
     "velvet", "walnut", "bamboo", "porcelain", "copper", "titanium",
-    "pebble", "rain", "bubble", "parchment", "relay", "arcade",
+    "pebble", "rain", "bubble", "parchment", "relay", "arcade", "shot",
 )
 BASELINE_IDS = ("clicky", "marble", "tactile", "typewriter")
 SAMPLE_RATE = 44_100

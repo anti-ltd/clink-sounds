@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build an offline audition page and reel from the twelve new sound recipes.
+"""Build an offline audition page and reel from the new sound recipes.
 
 Run after generating Sounds/*.clinkpack. Only recipe IDs in NEW_PACK_IDS are
 included; historical packs are deliberately excluded. Uses Python's stdlib.
@@ -22,7 +22,7 @@ import wave
 
 ROOT = Path(__file__).resolve().parents[1]
 NEW_PACK_IDS = ("velvet", "walnut", "bamboo", "porcelain", "copper", "titanium",
-                "pebble", "rain", "bubble", "parchment", "relay", "arcade")
+                "pebble", "rain", "bubble", "parchment", "relay", "arcade", "shot")
 RATE = 44_100
 HEADROOM = 0.40
 DEFAULT_VOLUME = 0.80
@@ -138,7 +138,7 @@ PAGE = r'''<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="color-scheme" content="dark">
-<title>Clink — Twelve new sounds</title>
+<title>Clink — @@COUNTWORD@@ new sounds</title>
 <style>
 :root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#f1f2ee;background:#111310;color-scheme:dark;font-synthesis:none}
 *{box-sizing:border-box}body{margin:0}button,input,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #d8edab;outline-offset:4px}button:disabled{opacity:.36;cursor:default}a{color:#d4e8ad;text-underline-offset:4px}
@@ -151,10 +151,10 @@ main{max-width:1180px;margin:auto;padding:52px 36px 70px}.masthead{display:flex;
 <body>
 <main>
 <header class="masthead"><div class="wordmark">clink<span>.</span></div><div class="edition">Sound studies · 01</div></header>
-<section class="intro"><div><div class="eyebrow">A new collection</div><h1>Twelve new ways<br>to <span>feel a key.</span></h1><p class="lead">Soft grain. Bright metal. A little play. Listen to a single click, then hear each sound find its rhythm.</p></div><div class="count">12<small>Sounds · 48 variations</small></div></section>
+<section class="intro"><div><div class="eyebrow">A new collection</div><h1>@@COUNTWORD@@ new ways<br>to <span>feel a key.</span></h1><p class="lead">Soft grain. Bright metal. A little play. Listen to a single click, then hear each sound find its rhythm.</p></div><div class="count">@@COUNT@@<small>Sounds · @@VARIANTS@@ variations</small></div></section>
 <div class="transport" role="group" aria-label="Playback controls"><div class="status"><span class="status-dot" id="status-dot" aria-hidden="true"></span><span id="status" role="status" aria-live="polite">Ready to listen</span></div><div class="volume"><label for="volume">Volume</label><input id="volume" type="range" min="0" max="100" value="80" aria-label="Preview volume"><output for="volume" id="volume-value">80%</output></div><button class="stop" id="stop" disabled><span class="stop-icon" aria-hidden="true"></span>Stop</button></div>
 <section class="grid" aria-label="New sound packs">@@CARDS@@</section>
-<section class="reel"><div><div class="eyebrow">Listen side by side</div><h2>The 24-second collection.</h2><p>One click and a short typing burst for each sound, in the same order as the cards. Pick a name to start there.</p><div class="links"><a href="reel.wav" download="clink-new-sounds.wav">Download WAV</a><a href="timeline.json" download>Timeline</a></div></div><div><audio id="reel" controls preload="none" aria-label="Comparison of twelve new Clink sound packs" src="data:audio/wav;base64,@@REEL@@"></audio><div class="timeline">@@TIMELINE@@</div></div></section>
+<section class="reel"><div><div class="eyebrow">Listen side by side</div><h2>The @@SECONDS@@-second collection.</h2><p>One click and a short typing burst for each sound, in the same order as the cards. Pick a name to start there.</p><div class="links"><a href="reel.wav" download="clink-new-sounds.wav">Download WAV</a><a href="timeline.json" download>Timeline</a></div></div><div><audio id="reel" controls preload="none" aria-label="Comparison of @@COUNT@@ new Clink sound packs" src="data:audio/wav;base64,@@REEL@@"></audio><div class="timeline">@@TIMELINE@@</div></div></section>
 <p class="note">The page works offline and starts audio only when you press play. Card previews use the pack’s own gain and Clink’s volume curve. The reel is fixed at an 80% setting. Browser and device volume affect what you hear; final loudness should be checked in Clink.</p>
 </main>
 <script id="pack-data" type="application/json">@@PACKS@@</script>
@@ -263,14 +263,21 @@ window.addEventListener('pagehide', () => { stopPlayback(); if (context) context
 '''
 
 
-def card_html(pack: dict, index: int) -> str:
+def number_word(value: int) -> str:
+    words = ("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+             "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+             "seventeen", "eighteen", "nineteen", "twenty")
+    return words[value].capitalize() if value < len(words) else str(value)
+
+
+def card_html(pack: dict, index: int, total: int) -> str:
     bars = []
     for number, peak in enumerate(pack["waves"][0]):
         x = 3 + number * 3.6
         bars.append(f'<line data-bar x1="{x:.1f}" x2="{x:.1f}" y1="{29 - peak * 23:.2f}" y2="{29 + peak * 23:.2f}"/>')
     name = html.escape(pack["name"])
     return f'''<article class="card" style="--tint:{pack['tint']}" aria-labelledby="name-{index}">
-<div class="card-top"><span class="ordinal">{index + 1:02d} / 12</span><span class="take">Four variations</span><span class="key" aria-hidden="true"></span></div>
+<div class="card-top"><span class="ordinal">{index + 1:02d} / {total:02d}</span><span class="take">Four variations</span><span class="key" aria-hidden="true"></span></div>
 <h2 id="name-{index}">{name}</h2><p class="blurb">{html.escape(pack['blurb'])}</p>
 <svg class="wave" viewBox="0 0 262 58" role="img" aria-label="Waveform of {name}"><path d="M1 29H261" stroke="currentColor" stroke-opacity=".13" stroke-width=".5"/><g stroke="currentColor" stroke-width="1.9" stroke-linecap="round">{''.join(bars)}</g></svg>
 <div class="actions"><button class="single" aria-label="Play one {name} click"><span class="play-icon" aria-hidden="true"></span>Click</button><button class="burst" aria-label="Play a {name} typing burst"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Typing burst</button></div></article>'''
@@ -279,12 +286,15 @@ def card_html(pack: dict, index: int) -> str:
 def build(output: Path, recipes: Path) -> dict:
     packs, audio, hashes = read_packs(recipes)
     reel, timeline = build_reel(packs, audio)
-    cards = "\n".join(card_html(pack, index) for index, pack in enumerate(packs))
+    cards = "\n".join(card_html(pack, index, len(packs)) for index, pack in enumerate(packs))
     timeline_html = "\n".join(
         f'<button data-time="{item["start"]:.2f}" aria-label="Play {html.escape(item["name"])} in the comparison reel"><span>0:{round(item["start"]):02d}</span>{html.escape(item["name"])}</button>'
         for item in timeline["packs"])
     payload = json.dumps(packs, separators=(",", ":")).replace("<", "\\u003c")
-    page = PAGE.replace("@@CARDS@@", cards).replace("@@TIMELINE@@", timeline_html).replace("@@PACKS@@", payload).replace("@@REEL@@", base64.b64encode(reel).decode())
+    page = PAGE.replace("@@COUNTWORD@@", number_word(len(packs))).replace("@@COUNT@@", str(len(packs)))
+    page = page.replace("@@VARIANTS@@", str(sum(len(pack["samples"]) for pack in packs)))
+    page = page.replace("@@SECONDS@@", f"{timeline['duration']:.0f}")
+    page = page.replace("@@CARDS@@", cards).replace("@@TIMELINE@@", timeline_html).replace("@@PACKS@@", payload).replace("@@REEL@@", base64.b64encode(reel).decode())
     if "@@" in page:
         raise ValueError("Unresolved page template marker")
     output.mkdir(parents=True, exist_ok=True)
@@ -315,7 +325,7 @@ at 80%. Browser/device media volume still affects playback, and this page does
 not emulate iOS's output-volume compensation or Silent Mode. Check final perceived
 loudness and rapid typing on an iPhone in Clink before release.
 
-Only the twelve new IDs from `tools/sound-recipes.json` are included. Historical
+Only the {len(packs)} new IDs from `tools/sound-recipes.json` are included. Historical
 packs and old Clonk recordings are not part of this audition. The embedded clips
 come byte-for-byte from the generated `.clinkpack` files, with source hashes in
 `provenance.json`. This development preview does not modify app copy or release
