@@ -14,7 +14,7 @@ This repository is where people can publish short, conditioned key-click packs f
 
 ## Included sounds
 
-The repository contains 17 packs. The original four remain unchanged:
+The repository contains 18 packs. The original four remain unchanged:
 
 - **Clicky Blue** — sharp, springy click with a crisp tail
 - **Tactile Brown** — deep, rounded thock of a lubed brown switch
@@ -41,6 +41,15 @@ Thirteen new procedural packs add 52 freshly generated variations:
 
 Each new pack has four deterministic variations. Packs live under [`Sounds/`](Sounds)
 and become verified release assets through the existing publishing workflow.
+
+**Retro Phone** is the one sampled pack here, and the only one the generator does
+not render: a single dry midrange tock from an older phone keypad, conditioned
+from a source WAV published under the WTFPL. Its energy sits almost entirely
+between 1.6 and 6.4 kHz, with nothing below 800 Hz and nothing above 6.4 kHz,
+which is what makes it read as small and plasticky rather than as a struck
+object. It ships one sample rather than four variations on purpose: the phones
+it comes from played the same tock on every key, and that sameness is the
+effect.
 
 **Shot** is the joke of the set, in the spirit of the keyboards that fire a
 gunshot on every key. A report is not a struck object, so it is built the other
@@ -173,3 +182,11 @@ Only publish sounds you created or have permission to redistribute. Add any attr
 The thirteen new packs are original procedural audio created for Clink, with no
 sampled third-party recordings. Their recipes, renderer, and generated assets
 are covered by this repository's existing [Clink Community Assets License](LICENSE.md).
+
+**Retro Phone** is the exception: it is a conditioned copy of a keypad tock WAV
+that was published under the [WTFPL](http://www.wtfpl.net/), which permits
+redistribution of verbatim or modified copies. Only the trim, fade, level and
+format conditioning described above was applied to it. If you fork this
+repository into a context where that provenance is not good enough for you,
+delete `Sounds/retro-phone.clinkpack`, remove its `presentation.json` entry, and
+rerun `tools/build-manifest.py`.

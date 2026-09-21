@@ -32,6 +32,9 @@
   "relay": {
     "switchTint": "#D18F64"
   },
+  "retro-phone": {
+    "switchTint": "#5E7A8C"
+  },
   "shot": {
     "switchTint": "#C0442F"
   },
