@@ -30,13 +30,31 @@ def encoded_wav(values):
 
 class ManifestTests(unittest.TestCase):
     def test_existing_production_download_contract_is_unchanged(self):
+        """Every pack must still deliver the same bytes under the same id.
+
+        Releases are content-addressed now, so the tag in the version and the
+        asset URL is expected to differ from the legacy fixture. Everything a
+        client actually verifies a download against - id, name, path, digest
+        and byte count - must survive untouched.
+        """
         legacy = json.loads((ROOT / "tests" / "fixtures" / "legacy-manifest.json").read_text())
         current = BUILDER.build_manifest(ROOT, REPOSITORY)
-        self.assertEqual(current["version"], legacy["version"])
+        version = current["version"]
+        self.assertTrue(version.startswith("sounds-"), version)
+        self.assertEqual(len(version), len("sounds-") + 64)
         indexed = {pack["id"]: pack for pack in current["sounds"]}
         for original in legacy["sounds"]:
             pack = indexed[original["id"]]
-            self.assertEqual({key: value for key, value in pack.items() if key != "presentation"}, original)
+            expected = {key: value for key, value in original.items() if key != "asset"}
+            expected["version"] = version
+            self.assertEqual({key: value for key, value in pack.items()
+                              if key not in {"presentation", "asset"}}, expected)
+            # The URL may only differ from the legacy one by its release tag.
+            self.assertEqual(pack["asset"]["url"],
+                             original["asset"]["url"].replace("/download/%s/" % legacy["version"],
+                                                              "/download/%s/" % version))
+            self.assertEqual({key: value for key, value in pack["asset"].items() if key != "url"},
+                             {key: value for key, value in original["asset"].items() if key != "url"})
             raw = (ROOT / "Sounds" / pack["asset"]["path"]).read_bytes()
             self.assertEqual(hashlib.sha256(raw).hexdigest(), original["asset"]["sha256"])
             self.assertEqual(len(raw), original["asset"]["byteCount"])

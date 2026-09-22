@@ -51,6 +51,13 @@ def build_manifest(root: pathlib.Path, repository: str) -> dict:
     """Keep the download contract intact; append optional display metadata."""
     presentation_path = root / "Sounds" / "presentation.json"
     styles = json.loads(presentation_path.read_text(encoding="utf-8")) if presentation_path.exists() else {}
+    # Each distinct set of bytes gets a permanent release URL. A cached manifest
+    # must never point at a newer file with a different checksum: a client that
+    # read the catalog before a release still installs the bytes it was promised.
+    version = "sounds-" + hashlib.sha256(json.dumps(
+        [(p.name, hashlib.sha256(p.read_bytes()).hexdigest())
+         for p in sorted((root / "Sounds").glob("*.clinkpack")) if not p.name.startswith(".")],
+        separators=(",", ":")).encode()).hexdigest()
     sounds = []
     for path in sorted((root / "Sounds").glob("*.clinkpack")):
         if path.name.startswith("."):
@@ -67,16 +74,16 @@ def build_manifest(root: pathlib.Path, repository: str) -> dict:
         sounds.append({
             "id": path.stem,
             "name": pack["name"],
-            "version": "latest",
+            "version": version,
             "asset": {
                 "path": path.name,
-                "url": f"https://github.com/{repository}/releases/download/latest/{path.name}",
+                "url": f"https://github.com/{repository}/releases/download/{version}/{path.name}",
                 "sha256": hashlib.sha256(raw).hexdigest(),
                 "byteCount": len(raw),
             },
             "presentation": presentation,
         })
-    return {"version": "latest", "sounds": sounds}
+    return {"version": version, "sounds": sounds}
 
 
 if __name__ == "__main__":
