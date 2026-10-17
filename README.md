@@ -190,3 +190,7 @@ format conditioning described above was applied to it. If you fork this
 repository into a context where that provenance is not good enough for you,
 delete `Sounds/retro-phone.clinkpack`, remove its `presentation.json` entry, and
 rerun `tools/build-manifest.py`.
+
+## Platform availability
+
+`platforms.json` sets the default platform for packs in this repository and optional overrides keyed by pack ID (language code or locale for language packs). Use `ios`, `android`, or `both`. The manifest builder writes `platform` on every entry; older entries without it mean `both`. Platform targeting affects repository discovery and downloads, not the portable format of a person’s own exported content.

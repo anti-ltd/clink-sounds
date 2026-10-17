@@ -63,7 +63,8 @@
           0.0158
         ],
         "switchTint": "#D769BC"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "bamboo",
@@ -127,7 +128,8 @@
           0.0058
         ],
         "switchTint": "#A8B963"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "bubble",
@@ -191,7 +193,8 @@
           0.0105
         ],
         "switchTint": "#64C2AB"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "clicky",
@@ -255,7 +258,8 @@
           0.0067
         ],
         "switchTint": "#2675E8"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "copper",
@@ -319,7 +323,8 @@
           0.0176
         ],
         "switchTint": "#C17B4A"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "marble",
@@ -383,7 +388,8 @@
           0.0092
         ],
         "switchTint": "#D6DBE4"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "parchment",
@@ -447,7 +453,8 @@
           0.0077
         ],
         "switchTint": "#C3A778"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "pebble",
@@ -511,7 +518,8 @@
           0.015
         ],
         "switchTint": "#899485"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "porcelain",
@@ -575,7 +583,8 @@
           0.0162
         ],
         "switchTint": "#B8DCE2"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "rain",
@@ -639,7 +648,8 @@
           0.0048
         ],
         "switchTint": "#5BABC8"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "relay",
@@ -703,7 +713,8 @@
           0.0052
         ],
         "switchTint": "#D18F64"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "retro-phone",
@@ -767,7 +778,8 @@
           0.0
         ],
         "switchTint": "#5E7A8C"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "shot",
@@ -831,7 +843,8 @@
           0.0238
         ],
         "switchTint": "#C0442F"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "tactile",
@@ -895,7 +908,8 @@
           0.0139
         ],
         "switchTint": "#99623D"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "titanium",
@@ -959,7 +973,8 @@
           0.014
         ],
         "switchTint": "#879CAE"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "typewriter",
@@ -1023,7 +1038,8 @@
           0.0078
         ],
         "switchTint": "#58616F"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "velvet",
@@ -1087,7 +1103,8 @@
           0.0051
         ],
         "switchTint": "#8C70BA"
-      }
+      },
+      "platform": "both"
     },
     {
       "id": "walnut",
@@ -1151,7 +1168,8 @@
           0.01
         ],
         "switchTint": "#936043"
-      }
+      },
+      "platform": "both"
     }
   ]
 }

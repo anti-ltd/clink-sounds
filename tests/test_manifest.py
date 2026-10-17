@@ -48,7 +48,7 @@ class ManifestTests(unittest.TestCase):
             expected = {key: value for key, value in original.items() if key != "asset"}
             expected["version"] = version
             self.assertEqual({key: value for key, value in pack.items()
-                              if key not in {"presentation", "asset"}}, expected)
+                              if key not in {"presentation", "asset", "platform"}}, expected)
             # The URL may only differ from the legacy one by its release tag.
             self.assertEqual(pack["asset"]["url"],
                              original["asset"]["url"].replace("/download/%s/" % legacy["version"],
